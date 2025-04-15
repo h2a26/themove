@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* Color Variables */
+:root {
+    --color-light-beige: #f6f0de;
+    --color-deep-green: #38421F;
+    --color-white: #ffffff;
+    --color-black: #383839;
+}
+
+@font-face {
+    font-family: 'ACaslonPro';
+    src: url('/fonts/ACaslonPro-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'EuclidCircularB';
+    src: url('/fonts/EuclidCircularB-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Euclid';
+    src: url('/fonts/Euclid.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.font-caption {
+    font-family: 'ACaslonPro', serif;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: var(--color-light-beige);
+}
+
+.font-description {
+    font-family: 'EuclidCircularB', monospace;
+    font-size: 11px;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+
+.font-nav-item {
+    font-family: 'Euclid', monospace;
+    font-size: 11px !important;
+    font-weight: normal;
+    text-decoration: none;
+    letter-spacing: 2px;
+    color: var(--color-white);
+}
+
+/* Elegant shadow for luxury feel */
+.bg-navbar {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-deep-green);
+}
+
+/* Smooth scroll for luxury scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* Elevate bullet section positioning */
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 80px; /* a little closer for elegance, adjust as needed */
+    display: flex;
+    justify-content: center;
+    gap: 16px; /* Space between bullets for clean layout */
+}
+
+/* Base bullet styling */
+.swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+    margin: 0 6px;
+    background-color: var(--color-white) !important;
+    opacity: 1;
+    border-radius: 50%;
+    border: 1px solid var(--color-white) !important;
+    transition: all 0.3s ease;
+}
+
+/* Active bullet styling for luxurious look */
+.swiper-pagination-bullet-active {
+    background-color: var(--color-deep-green) !important;
+    border: 1px solid var(--color-white);
+    box-shadow: 0 0 6px var(--color-deep-green) !important;
+    transform: scale(1);
+}
+
+/* Hover effect for a luxury feel */
+.swiper-pagination-bullet:hover {
+    transform: scale(1.2);
+    background-color: var(--color-white);
+    border-color: var(--color-white);
+}
+
