@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import {SetStateAction, useState} from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Navigation, Pagination, Keyboard, Autoplay, EffectFade} from 'swiper/modules';
@@ -108,9 +109,16 @@ export const Carousel = () => {
             >
                 {slides.map((slide, index) => (
                     <SwiperSlide key={slide.id}>
-                        <div
+                        <motion.div
                             className="relative h-screen w-full bg-center bg-cover transition-all duration-[2000ms] ease-[cubic-bezier(0.77,0,0.175,1)]"
                             style={{ backgroundImage: `url(${slide.image})` }}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{
+                                duration: 1.2,
+                                ease: 'easeOut',
+                                delay: index * 0.3,
+                            }}
                         >
                             <div className="absolute inset-0 bg-black/40 z-10" />
                             <div
@@ -135,7 +143,7 @@ export const Carousel = () => {
                                     {slide.description}
                                 </p>
                             </div>
-                        </div>
+                        </motion.div>
                     </SwiperSlide>
                 ))}
             </Swiper>
