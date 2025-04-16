@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
-/* Color Variables */
-:root {
-    --color-light-beige: #f6f0de;
-    --color-deep-green: #38421F;
+@theme {
+    --color-light-beige: #f5f2eb;
+    --color-dark-beige: #f6f0de;
+    --color-gold: #C6A664;
+    --color-olive: #38421F;
     --color-white: #ffffff;
-    --color-black: #383839;
+    --color-light-black: #383839;
+    --color-deep-black: #1a1a1a;
+    --color-light-gray: #c6c5bc;
+    --color-dark-gray: #5c5b50;
 }
 
 @font-face {
@@ -69,7 +73,7 @@
 /* Elegant shadow for luxury feel */
 .bg-navbar {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    background-color: var(--color-deep-green);
+    background-color: var(--color-olive);
 }
 
 /* Smooth scroll for luxury scrolling */
@@ -85,7 +89,7 @@ html {
     background: var(--color-light-beige);
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--color-deep-green);
+    background: var(--color-olive);
     border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -116,9 +120,9 @@ html {
 
 /* Active bullet styling for luxurious look */
 .swiper-pagination-bullet-active {
-    background-color: var(--color-deep-green) !important;
+    background-color: var(--color-olive) !important;
     border: 1px solid var(--color-white);
-    box-shadow: 0 0 6px var(--color-deep-green) !important;
+    box-shadow: 0 0 6px var(--color-olive) !important;
     transform: scale(1);
 }
 

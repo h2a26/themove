@@ -8,15 +8,20 @@ export const Home = () => {
         <MotionWrapper>
             <Carousel/>
             <Section
-                title="Project One"
+                title="Project 1"
                 description="Description for project one."
-                image="/images/project1.jpg"
+                image="/slides/slide1.jpg"
             />
             <Section
-                title="Project Two"
+                title="Project 2"
                 description="Description for project two."
-                image="/images/project2.jpg"
+                image="/slides/slide2.jpg"
                 reverse
+            />
+            <Section
+                title="Project 3"
+                description="Description for project one."
+                image="/slides/slide3.jpg"
             />
         </MotionWrapper>
     );

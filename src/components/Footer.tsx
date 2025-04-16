@@ -3,14 +3,14 @@ import { InstagramLogo, YoutubeLogo, PinterestLogo } from 'phosphor-react';
 
 export const Footer = () => {
     return (
-        <footer className="bg-[#f5f2eb]/80 text-[#1a1a1a] text-sm px-6 md:px-16 py-12 font-footer">
+        <footer className="bg-light-beige/80 text-deep-black text-sm px-6 md:px-16 py-12 font-footer">
             <div className="max-w-6xl mx-auto space-y-12">
                 {/* Top Info Line */}
                 <p className="text-center tracking-wider">
                     Sustainability and regenerative design are at the heart of everything we create at The Move.
                 </p>
 
-                <hr className="border-[#c6c5bc]"/>
+                <hr className="border-light-gray"/>
 
                 {/* Contact & Links */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left justify-items-center">
@@ -32,30 +32,30 @@ export const Footer = () => {
                         href="https://instagram.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group w-7 h-7 flex items-center justify-center border border-[#5c5b50] rounded-full transition-all duration-300 hover:border-black hover:bg-black"
+                        className="group w-7 h-7 flex items-center justify-center border border-dark-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
                     >
                         <InstagramLogo
-                            className="w-5 h-5 text-[#5c5b50] transition-colors duration-300 group-hover:text-white"/>
+                            className="w-5 h-5 text-dark-gray transition-colors duration-300 group-hover:text-white"/>
                     </a>
 
                     <a
                         href="https://www.youtube.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group w-7 h-7 flex items-center justify-center border border-[#5c5b50] rounded-full transition-all duration-300 hover:border-black hover:bg-black"
+                        className="group w-7 h-7 flex items-center justify-center border border-dark-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
                     >
                         <YoutubeLogo
-                            className="w-5 h-5 text-[#5c5b50] transition-colors duration-300 group-hover:text-white"/>
+                            className="w-5 h-5 text-dark-gray transition-colors duration-300 group-hover:text-white"/>
                     </a>
 
                     <a
                         href="https://www.pinterest.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group w-7 h-7 flex items-center justify-center border border-[#5c5b50] rounded-full transition-all duration-300 hover:border-black hover:bg-black"
+                        className="group w-7 h-7 flex items-center justify-center border border-dark-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
                     >
                         <PinterestLogo
-                            className="w-5 h-5 text-[#5c5b50] transition-colors duration-300 group-hover:text-white"/>
+                            className="w-5 h-5 text-dark-gray transition-colors duration-300 group-hover:text-white"/>
                     </a>
                 </div>
 
