@@ -1,17 +1,14 @@
 // components/Navbar.tsx
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export const Navbar = () => {
-    const [isScrolled, setScrolled] = useState(false);
-    const [showDropdown, setShowDropdown] = useState(false);
+type NavbarProps = {
+    isScrolled?: boolean;
+};
 
-    useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 20);
-        window.addEventListener('scroll', onScroll);
-        return () => window.removeEventListener('scroll', onScroll);
-    }, []);
+export const Navbar = ({ isScrolled = true }: NavbarProps) => {
+    const [showDropdown, setShowDropdown] = useState(false);
 
     const navTextColor = isScrolled
         ? 'text-deep-black hover:text-deep-black'

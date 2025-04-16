@@ -5,11 +5,12 @@ import { Footer } from '../components/Footer';
 
 type DefaultLayoutProps = {
     children: React.ReactNode;
+    navbar?: React.ReactNode;
 };
 
-export const DefaultLayout = ({ children }: DefaultLayoutProps) => (
+export const DefaultLayout = ({ children, navbar = <Navbar /> }: DefaultLayoutProps) => (
     <div className="flex flex-col min-h-screen">
-        <Navbar />
+        {navbar}
             <main className="flex-grow bg-light-beige/80">{children}</main>
         <Footer />
     </div>
