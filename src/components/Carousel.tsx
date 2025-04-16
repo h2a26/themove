@@ -131,7 +131,7 @@ export const Carousel = () => {
                                     transitionDelay: `${index === activeIndex && !fade ? 300 : 0}ms`,
                                 }}
                             >
-                                <h2 className="text-2xl md:text-4xl font-light mb-4 drop-shadow-md tracking-wide font-caption transition-opacity duration-1000 ease-in-out">
+                                <h2 className="text-2xl md:text-4xl font-light mb-4 drop-shadow-md tracking-wide text-[#f6f0de] font-caption transition-opacity duration-1000 ease-in-out">
                                     {slide.caption}
                                 </h2>
                                 <p

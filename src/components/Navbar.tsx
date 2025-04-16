@@ -23,19 +23,19 @@ export const Navbar = () => {
             >
             <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between relative">
                 {/* Logo on the left */}
-                <h1 className="text-base font-semibold tracking-[0.25em] text-[#1a1a1a] uppercase font-caption">
-                    <Link to="/">Luxury</Link>
+                <h1 className={`text-base font-semibold tracking-[0.25em] uppercase font-caption ${isScrolled ? 'text-[#1a1a1a] hover:text-[#f6f0de]' : 'text-[#f6f0de] hover:text-[#1a1a1a]'}  `}>
+                    <Link to="/">TheMove</Link>
                 </h1>
 
                 {/* Nav items centered absolutely */}
-                <ul className="absolute left-1/2 -translate-x-1/2 flex gap-10 text-[12px] uppercase tracking-[0.25em] font-light text-[#333]">
-                    <li className="hover:text-black transition-colors duration-300 cursor-pointer font-nav-item">
+                <ul className="absolute left-1/2 -translate-x-1/2 flex gap-10 text-[12px] uppercase tracking-[0.25em]">
+                    <li className={`transition-colors duration-300 cursor-pointer font-nav-item ${isScrolled ? 'text-[#1a1a1a] hover:text-[#f6f0de]' : 'text-[#f6f0de] hover:text-[#1a1a1a]'} `}>
                         <Link to="/">Home</Link>
                     </li>
-                    <li className="hover:text-black transition-colors duration-300 cursor-pointer font-nav-item">
+                    <li className={`transition-colors duration-300 cursor-pointer font-nav-item ${isScrolled ? 'text-[#1a1a1a] hover:text-[#f6f0de]' : 'text-[#f6f0de] hover:text-[#1a1a1a]'} `}>
                         <Link to="/gallery">Gallery</Link>
                     </li>
-                    <li className="hover:text-black transition-colors duration-300 cursor-pointer font-nav-item">
+                    <li className={`transition-colors duration-300 cursor-pointer font-nav-item ${isScrolled ? 'text-[#1a1a1a] hover:text-[#f6f0de]' : 'text-[#f6f0de] hover:text-[#1a1a1a]'} `}>
                         <Link to="/contact">Contact</Link>
                     </li>
                 </ul>
