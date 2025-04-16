@@ -29,6 +29,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Monaco';
+    src: url('/fonts/Monaco.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 .font-caption {
     font-family: 'ACaslonPro', serif;
@@ -51,6 +58,12 @@
     font-weight: normal;
     text-decoration: none;
     letter-spacing: 2px;
+}
+
+.font-footer {
+    font-family: 'Euclid', monospace;
+    font-size: 12px;
+    font-weight: normal;
 }
 
 /* Elegant shadow for luxury feel */
