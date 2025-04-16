@@ -64,6 +64,22 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 2px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-light-beige);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-deep-green);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-light-beige);
+}
+
+
 
 /* Elevate bullet section positioning */
 .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {

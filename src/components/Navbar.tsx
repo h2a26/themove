@@ -1,3 +1,4 @@
+// components/Navbar.tsx
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -13,9 +14,12 @@ export const Navbar = () => {
 
     return (
         <motion.nav
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.5, ease: 'easeInOut' }}
+            initial={{ opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+                duration: 1.4,
+                ease: [0.43, 0.13, 0.23, 0.96],
+            }}
             className={`
                         fixed w-full top-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
                         ${isScrolled ? 'bg-[#f5f2eb]/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}

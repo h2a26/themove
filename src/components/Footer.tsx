@@ -1,3 +1,4 @@
+// components/Footer.tsx
 export const Footer = () => {
     return (
         <div>

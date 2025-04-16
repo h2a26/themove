@@ -1,10 +1,11 @@
+// pages/Home.tsx
 import {Carousel} from '../components/Carousel';
 import {Section} from '../components/Section';
-import {Motion} from "../components/Motion.tsx";
+import {MotionWrapper} from "../components/MotionWrapper.tsx";
 
 export const Home = () => {
     return (
-        <Motion>
+        <MotionWrapper>
             <Carousel/>
             <Section
                 title="Project One"
@@ -17,6 +18,6 @@ export const Home = () => {
                 image="/images/project2.jpg"
                 reverse
             />
-        </Motion>
+        </MotionWrapper>
     );
 };

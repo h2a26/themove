@@ -1,4 +1,4 @@
-// Interface for the component props
+// components/Section.tsx
 import {JSX} from "react";
 
 interface SectionProps {
