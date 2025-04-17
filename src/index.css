@@ -12,6 +12,20 @@
     --color-dark-gray: #5c5b50;
 }
 
+@layer utilities {
+    .border-overlay {
+        @apply absolute inset-0 border-[0px] border-olive opacity-0 z-10 pointer-events-none;
+        transition: border-width 2s cubic-bezier(0.19, 1, 0.22, 1),
+        opacity 2s cubic-bezier(0.19, 1, 0.22, 1);
+        will-change: border-width, opacity;
+    }
+
+    .group:hover .border-overlay {
+        border-width: 20px;
+        opacity: 1;
+    }
+}
+
 @font-face {
     font-family: 'ACaslonPro';
     src: url('/fonts/ACaslonPro-Regular.otf') format('opentype');

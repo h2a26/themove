@@ -16,7 +16,7 @@ const transitions = {
 const variantsPreset: Record<string, Variants> = {
     //You want elements to softly rise into view – great for sections, pages
     fadeUp: {
-        initial: { opacity: 0, y: 24 },
+        initial: { opacity: 0, y: -16 },
         animate: { opacity: 1, y: 0 },
         exit: { opacity: 0, y: -12 },
     },

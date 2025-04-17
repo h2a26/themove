@@ -23,7 +23,7 @@ export const Navbar = ({ isScrolled = true }: NavbarProps) => {
                 ease: [0.43, 0.13, 0.23, 0.96],
             }}
             className={`
-                fixed w-full top-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]
+                fixed w-full top-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.43, 0.13, 0.23, 0.96)]
                 ${isScrolled ? 'bg-light-beige/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}
             `}
         >
