@@ -93,23 +93,9 @@
 /* Smooth scroll for luxury scrolling */
 html {
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-olive) transparent;
 }
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 2px;
-}
-::-webkit-scrollbar-track {
-    background: var(--color-light-beige);
-}
-::-webkit-scrollbar-thumb {
-    background: var(--color-olive);
-    border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
-    background: var(--color-light-beige);
-}
-
 
 
 /* Elevate bullet section positioning */

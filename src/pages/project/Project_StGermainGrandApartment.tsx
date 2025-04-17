@@ -1,4 +1,4 @@
-// pages/project/ProjectStGermainGrandApartment.tsx
+// pages/project/Project_StGermainGrandApartment.tsx
 import { useEffect, useState } from 'react';
 import { ProjectSection } from '../../components/project/ProjectSection.tsx';
 
@@ -8,14 +8,14 @@ type Project = {
     aspect: 'landscape' | 'portrait';
 };
 
-export const ProjectStGermainGrandApartment = () => {
+export const Project_StGermainGrandApartment = () => {
     const [projects, setProjects] = useState<Project[]>([]);
 
     useEffect(() => {
         // IIFE pattern to avoid returning a promise from useEffect
         (async () => {
             try {
-                const res = await fetch('/data/ProjectParksideFamilyHome.json');
+                const res = await fetch('/data/Project_StGermainGrandApartment.json');
                 const data = await res.json();
                 setProjects(data);
             } catch (err) {

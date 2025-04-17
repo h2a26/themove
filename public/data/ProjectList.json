@@ -8,30 +8,30 @@
   },
   {
     "id": 2,
+    "title": "San Francisco Apartment",
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/45a2c2a11346ddd7dc923a665e5c7a1b2be7ecc9-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "borderColor": "#B0BFDE",
+    "routeTo": "/projects/san-francisco-apartment"
+  },
+  {
+    "id": 3,
+    "title": "Mayfair Pied-à-Terre",
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/c04a86c3615fef9bb3346ae02a11d341a8bd611e-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "borderColor": "#AFDDFF",
+    "routeTo": "/projects/mayfair-pied-a-terre"
+  },
+  {
+    "id": 4,
     "title": "Parkside Family Home",
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/476280b78f60252d73e37d572fbc09fb2e4520fb-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
     "borderColor": "#EEE9E2",
     "routeTo": "/projects/parkside-family-home"
   },
   {
-    "id": 3,
-    "title": "San Francisco Apartment",
-    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/45a2c2a11346ddd7dc923a665e5c7a1b2be7ecc9-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
-    "borderColor": "#B0BFDE",
-    "routeTo": "/projects/parkside-family-home"
-  },
-  {
-    "id": 4,
+    "id": 5,
     "title": "Belgravia Jewel Bo",
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/d599ed69bfa03d6dd1c3bb144ad012e4c260f16f-774x1000.jpg?w=774&amp;h=1000&amp;auto=format",
     "borderColor": "#645E26",
-    "routeTo": "/projects/parkside-family-home"
-  },
-  {
-    "id": 5,
-    "title": "Mayfair Pied-à-Terre",
-    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/c04a86c3615fef9bb3346ae02a11d341a8bd611e-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
-    "borderColor": "#AFDDFF",
     "routeTo": "/projects/parkside-family-home"
   },
   {

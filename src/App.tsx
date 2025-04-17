@@ -12,9 +12,10 @@ import {Hospitality} from "./pages/project_category/Hospitality.tsx";
 import {Residential} from "./pages/project_category/Residential.tsx";
 import {ScrollAwareNavbar} from "./components/ScrollAwareNavbar.tsx";
 import {Projects} from "./pages/projects/Projects.tsx";
-import {ProjectStGermainGrandApartment} from "./pages/project/ProjectStGermainGrandApartment.tsx";
-import {ProjectParksideFamilyHome} from "./pages/project/ProjectParksideFamilyHome.tsx";
+import {Project_StGermainGrandApartment} from "./pages/project/Project_StGermainGrandApartment.tsx";
+import {Project_SanFranciscoApartment} from "./pages/project/Project_SanFranciscoApartment.tsx";
 import {SmoothScrollProvider} from "./components/SmoothScrollProvider.tsx";
+import {Project_MayfairPiedATerre} from "./pages/project/Project_MayfairPiedATerre.tsx";
 
 function App() {
     return (
@@ -42,8 +43,9 @@ const AnimatedRoutes = () => {
                 <Route path="/gallery" element={<DefaultLayout><Gallery /></DefaultLayout>} />
                 <Route path="/contact" element={<DefaultLayout><Contact /></DefaultLayout>} />
 
-                <Route path="/projects/st-germain-grand-apartment" element={<DefaultLayout><ProjectStGermainGrandApartment /></DefaultLayout>} />
-                <Route path="/projects/parkside-family-home" element={<DefaultLayout><ProjectParksideFamilyHome /></DefaultLayout>} />
+                <Route path="/projects/st-germain-grand-apartment" element={<DefaultLayout><Project_StGermainGrandApartment /></DefaultLayout>} />
+                <Route path="/projects/san-francisco-apartment" element={<DefaultLayout><Project_SanFranciscoApartment /></DefaultLayout>} />
+                <Route path="/projects/mayfair-pied-a-terre" element={<DefaultLayout><Project_MayfairPiedATerre /></DefaultLayout>} />
 
 
             </Routes>
