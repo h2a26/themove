@@ -16,6 +16,7 @@ import {Project_StGermainGrandApartment} from "./pages/project/Project_StGermain
 import {Project_SanFranciscoApartment} from "./pages/project/Project_SanFranciscoApartment.tsx";
 import {SmoothScrollProvider} from "./components/SmoothScrollProvider.tsx";
 import {Project_MayfairPiedATerre} from "./pages/project/Project_MayfairPiedATerre.tsx";
+import {PageNotFound} from "./pages/PageNotFound.tsx";
 
 function App() {
     return (
@@ -47,6 +48,8 @@ const AnimatedRoutes = () => {
                 <Route path="/projects/san-francisco-apartment" element={<DefaultLayout><Project_SanFranciscoApartment /></DefaultLayout>} />
                 <Route path="/projects/mayfair-pied-a-terre" element={<DefaultLayout><Project_MayfairPiedATerre /></DefaultLayout>} />
 
+                {/* Fallback route */}
+                <Route path="*" element={<DefaultLayout><PageNotFound /></DefaultLayout>} />
 
             </Routes>
         </AnimatePresence>
