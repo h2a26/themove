@@ -11,6 +11,7 @@ import {Commercial} from "./pages/project_category/Commercial.tsx";
 import {Hospitality} from "./pages/project_category/Hospitality.tsx";
 import {Residential} from "./pages/project_category/Residential.tsx";
 import {ScrollAwareNavbar} from "./components/ScrollAwareNavbar.tsx";
+import {Projects} from "./pages/Projects.tsx";
 
 function App() {
     return (
@@ -32,6 +33,7 @@ const AnimatedRoutes = () => {
                 <Route path="/project_category/hospitality" element={<DefaultLayout><Hospitality /></DefaultLayout>} />
                 <Route path="/project_category/residential" element={<DefaultLayout><Residential /></DefaultLayout>} />
 
+                <Route path="/projects" element={<DefaultLayout><Projects /></DefaultLayout>} />
                 <Route path="/gallery" element={<DefaultLayout><Gallery /></DefaultLayout>} />
                 <Route path="/contact" element={<DefaultLayout><Contact /></DefaultLayout>} />
             </Routes>

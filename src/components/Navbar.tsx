@@ -47,9 +47,9 @@ export const Navbar = ({ isScrolled = true }: NavbarProps) => {
                         <AnimatePresence>
                             {showDropdown && (
                                 <motion.ul
-                                    initial={{ opacity: 0, y: -10, scale: 0.98 }}
-                                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                                    exit={{ opacity: 0, y: -6, scale: 0.98 }}
+                                    initial={{opacity: 0, y: -10, scale: 0.98}}
+                                    animate={{opacity: 1, y: 0, scale: 1}}
+                                    exit={{opacity: 0, y: -6, scale: 0.98}}
                                     transition={{
                                         duration: 0.3,
                                         ease: [0.4, 0.0, 0.2, 1]
@@ -92,8 +92,13 @@ export const Navbar = ({ isScrolled = true }: NavbarProps) => {
 
                     {/* Other Nav Items */}
                     <li className={`transition-colors duration-300 cursor-pointer font-nav-item ${navTextColor}`}>
+                        <Link to="/projects">Projects</Link>
+                    </li>
+
+                    <li className={`transition-colors duration-300 cursor-pointer font-nav-item ${navTextColor}`}>
                         <Link to="/gallery">Gallery</Link>
                     </li>
+
                     <li className={`transition-colors duration-300 cursor-pointer font-nav-item ${navTextColor}`}>
                         <Link to="/contact">Contact</Link>
                     </li>
