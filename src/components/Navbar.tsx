@@ -11,8 +11,8 @@ export const Navbar = ({ isScrolled = true }: NavbarProps) => {
     const [showDropdown, setShowDropdown] = useState(false);
 
     const navTextColor = isScrolled
-        ? 'text-deep-black hover:text-deep-black'
-        : 'text-dark-beige hover:text-deep-black';
+        ? 'text-deep-black hover:text-deep-beige'
+        : 'text-deep-beige hover:text-deep-black';
 
     return (
         <motion.nav

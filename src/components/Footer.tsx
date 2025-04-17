@@ -32,30 +32,30 @@ export const Footer = () => {
                         href="https://instagram.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group w-7 h-7 flex items-center justify-center border border-dark-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
+                        className="group w-7 h-7 flex items-center justify-center border border-deep-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
                     >
                         <InstagramLogo
-                            className="w-5 h-5 text-dark-gray transition-colors duration-300 group-hover:text-white"/>
+                            className="w-5 h-5 text-deep-gray transition-colors duration-300 group-hover:text-white"/>
                     </a>
 
                     <a
                         href="https://www.youtube.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group w-7 h-7 flex items-center justify-center border border-dark-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
+                        className="group w-7 h-7 flex items-center justify-center border border-deep-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
                     >
                         <YoutubeLogo
-                            className="w-5 h-5 text-dark-gray transition-colors duration-300 group-hover:text-white"/>
+                            className="w-5 h-5 text-deep-gray transition-colors duration-300 group-hover:text-white"/>
                     </a>
 
                     <a
                         href="https://www.pinterest.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group w-7 h-7 flex items-center justify-center border border-dark-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
+                        className="group w-7 h-7 flex items-center justify-center border border-deep-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
                     >
                         <PinterestLogo
-                            className="w-5 h-5 text-dark-gray transition-colors duration-300 group-hover:text-white"/>
+                            className="w-5 h-5 text-deep-gray transition-colors duration-300 group-hover:text-white"/>
                     </a>
                 </div>
 

@@ -46,6 +46,41 @@ const projects = [
         image: "https://cdn.sanity.io/images/4jb8q7bc/production/e0d4a31a31b34bbc740dcbe653201009b1ec8cb9-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
         borderColor: "#C6A664",
     },
+    {
+        title: "The Blewcoat School",
+        image: "https://cdn.sanity.io/images/4jb8q7bc/production/5e2b7b745a63c9e1e19f80514c26fb8f09ae99e1-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+        borderColor: "#645E26",
+    },
+    {
+        title: "Kensington Villa",
+        image: "https://cdn.sanity.io/images/4jb8q7bc/production/52956ba9c93f0929fad99cd73024945a38be2f8e-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+        borderColor: "#EEE9E2",
+    },
+    {
+        title: "Sophie&#x27;s Family Home",
+        image: "https://cdn.sanity.io/images/4jb8q7bc/production/17fb0e1fe2cef81d560b0785c9a144d5deba0dd6-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+        borderColor: "#633B2F",
+    },
+    {
+        title: "Kensington Family Townhouse",
+        image: "https://cdn.sanity.io/images/4jb8q7bc/production/50e590efaeceecbf531458d8546c38dde7f3e58f-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+        borderColor: "#c3c0bb",
+    },
+    {
+        title: "Peter Pan House",
+        image: "https://cdn.sanity.io/images/4jb8q7bc/production/31c376dd4f39aa18f67fabfefd7622419c19eedd-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+        borderColor: "#645E26",
+    },
+    {
+        title: "Covent Garden Penthouse",
+        image: "https://cdn.sanity.io/images/4jb8q7bc/production/805b1f201587b66cf51a2fd247d408e7279d064f-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+        borderColor: "#893521",
+    },
+    {
+        title: "Riverside Penthouse",
+        image: "https://cdn.sanity.io/images/4jb8q7bc/production/9c18893ae2c5cd4f35241ce3fc0a8cde846eb687-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+        borderColor: "#f2e5dc",
+    },
 ];
 
 export const ProjectsSection = () => {

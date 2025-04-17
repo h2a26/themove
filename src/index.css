@@ -2,14 +2,14 @@
 
 @theme {
     --color-light-beige: #f5f2eb;
-    --color-dark-beige: #f6f0de;
+    --color-deep-beige: #f6f0de;
     --color-gold: #C6A664;
     --color-olive: #38421F;
     --color-white: #ffffff;
     --color-light-black: #383839;
     --color-deep-black: #1a1a1a;
     --color-light-gray: #c6c5bc;
-    --color-dark-gray: #5c5b50;
+    --color-deep-gray: #5c5b50;
 }
 
 @layer utilities {
