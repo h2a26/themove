@@ -1,4 +1,5 @@
 // components/project/ProjectSection.tsx
+import { MotionWrapper } from '../../components/MotionWrapper';
 import { ProjectsCard } from "./ProjectsCard.tsx";
 
 type Project = {
@@ -15,18 +16,20 @@ type ProjectsSectionProps = {
 
 export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
     return (
-        <section className="pt-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-y-0 md:gap-x-[2px]">
-                {projects.map(project => (
-                    <ProjectsCard
-                        key={project.id}
-                        image={project.image}
-                        title={project.title}
-                        borderColor={project.borderColor}
-                        routeTo={project.routeTo}
-                    />
-                ))}
-            </div>
-        </section>
+        <MotionWrapper>
+            <section className="pt-16">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-y-0 md:gap-x-[2px]">
+                    {projects.map(project => (
+                        <ProjectsCard
+                            key={project.id}
+                            title={project.title}
+                            image={project.image}
+                            borderColor={project.borderColor}
+                            routeTo={project.routeTo}
+                        />
+                    ))}
+                </div>
+            </section>
+        </MotionWrapper>
     );
 };
