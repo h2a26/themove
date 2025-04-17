@@ -25,6 +25,7 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "framer-motion": "^12.7.3",
     "globals": "^15.15.0",
+    "lenis": "^1.2.3",
     "phosphor-react": "^1.4.1",
     "swiper": "^11.2.6",
     "typescript": "~5.7.2",

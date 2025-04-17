@@ -14,11 +14,14 @@ import {ScrollAwareNavbar} from "./components/ScrollAwareNavbar.tsx";
 import {Projects} from "./pages/projects/Projects.tsx";
 import {ProjectStGermainGrandApartment} from "./pages/project/ProjectStGermainGrandApartment.tsx";
 import {ProjectParksideFamilyHome} from "./pages/project/ProjectParksideFamilyHome.tsx";
+import {SmoothScrollProvider} from "./components/SmoothScrollProvider.tsx";
 
 function App() {
     return (
         <Router>
-            <AnimatedRoutes />
+            <SmoothScrollProvider>
+                <AnimatedRoutes />
+            </SmoothScrollProvider>
         </Router>
     );
 }
