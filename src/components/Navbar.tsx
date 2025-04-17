@@ -11,8 +11,8 @@ export const Navbar = ({ isScrolled = true }: NavbarProps) => {
     const [showDropdown, setShowDropdown] = useState(false);
 
     const navTextColor = isScrolled
-        ? 'text-deep-black hover:text-deep-beige'
-        : 'text-deep-beige hover:text-deep-black';
+        ? 'text-deep-black hover:text-olive'
+        : 'text-olive hover:text-deep-black';
 
     return (
         <motion.nav
@@ -22,11 +22,7 @@ export const Navbar = ({ isScrolled = true }: NavbarProps) => {
                 duration: 1.4,
                 ease: [0.43, 0.13, 0.23, 0.96],
             }}
-            className={`
-                fixed w-full top-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.43, 0.13, 0.23, 0.96)]
-                ${isScrolled ? 'bg-light-beige/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}
-            `}
-        >
+            className={`fixed w-full top-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.43, 0.13, 0.23, 0.96)] ${isScrolled ? 'bg-light-beige/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}`} >
             <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between relative">
                 {/* Logo */}
                 <h1 className={`text-base font-semibold tracking-[0.25em] uppercase font-caption ${navTextColor}`}>

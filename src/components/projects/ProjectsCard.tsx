@@ -1,13 +1,16 @@
+// components/projects/ProjectsCard.tsx
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 type ProjectCardProps = {
     image: string;
     title: string;
     borderColor: string;
+    routeTo: string;
 };
 
-export const ProjectCard = ({ image, title, borderColor }: ProjectCardProps) => (
-    <div className="w-full cursor-pointer group box-border">
+export const ProjectsCard = ({ image, title, borderColor, routeTo }: ProjectCardProps) => (
+    <Link to={routeTo} className="w-full cursor-pointer group box-border">
         {/* Image Container with Border Overlay */}
         <div className="relative overflow-hidden">
             {/* Border Overlay (inside image container only) */}
@@ -30,5 +33,5 @@ export const ProjectCard = ({ image, title, borderColor }: ProjectCardProps) => 
         <p className="mt-[17px] mb-[54px] text-sm uppercase tracking-wide text-center text-deep-black">
             {title}
         </p>
-    </div>
+    </Link>
 );

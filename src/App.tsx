@@ -11,7 +11,9 @@ import {Commercial} from "./pages/project_category/Commercial.tsx";
 import {Hospitality} from "./pages/project_category/Hospitality.tsx";
 import {Residential} from "./pages/project_category/Residential.tsx";
 import {ScrollAwareNavbar} from "./components/ScrollAwareNavbar.tsx";
-import {Projects} from "./pages/Projects.tsx";
+import {Projects} from "./pages/projects/Projects.tsx";
+import {ProjectStGermainGrandApartment} from "./pages/project/ProjectStGermainGrandApartment.tsx";
+import {ProjectParksideFamilyHome} from "./pages/project/ProjectParksideFamilyHome.tsx";
 
 function App() {
     return (
@@ -36,6 +38,11 @@ const AnimatedRoutes = () => {
                 <Route path="/projects" element={<DefaultLayout><Projects /></DefaultLayout>} />
                 <Route path="/gallery" element={<DefaultLayout><Gallery /></DefaultLayout>} />
                 <Route path="/contact" element={<DefaultLayout><Contact /></DefaultLayout>} />
+
+                <Route path="/projects/st-germain-grand-apartment" element={<DefaultLayout><ProjectStGermainGrandApartment /></DefaultLayout>} />
+                <Route path="/projects/parkside-family-home" element={<DefaultLayout><ProjectParksideFamilyHome /></DefaultLayout>} />
+
+
             </Routes>
         </AnimatePresence>
     );
