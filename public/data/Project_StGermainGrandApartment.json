@@ -2,7 +2,8 @@
   {
     "id": 1,
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/abca6c234d691644d59b14b1ecc7fbcaee683948-3600x2571.jpg?w=3600&h=2571&auto=format",
-    "aspect": "landscape"
+    "aspect": "landscape",
+    "caption": "St Germain Grand Apartment"
   },
   {
     "id": 2,

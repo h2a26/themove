@@ -2,7 +2,8 @@
   {
     "id": 1,
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/d49f78867e71355689930b999f45bcef36a4c1e5-1860x1201.jpg?w=1860&amp;h=1201&amp;auto=format",
-    "aspect": "landscape"
+    "aspect": "landscape",
+    "caption": "San Francisco Apartment"
   },
   {
     "id": 2,

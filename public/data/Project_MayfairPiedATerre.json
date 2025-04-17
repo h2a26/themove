@@ -2,7 +2,8 @@
   {
     "id": 1,
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/9e91c20edd51eb8d52c075783a6446e733bbab2f-3600x2325.jpg?w=3600&amp;h=2325&amp;auto=format",
-    "aspect": "landscape"
+    "aspect": "landscape",
+    "caption": "Mayfair Pied-à-Terre"
   },
   {
     "id": 2,
