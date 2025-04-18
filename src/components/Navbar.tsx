@@ -11,8 +11,8 @@ export const Navbar = ({ isScrolled = true }: NavbarProps) => {
     const [showDropdown, setShowDropdown] = useState(false);
 
     const navTextColor = isScrolled
-        ? 'text-deep-black hover:text-olive'
-        : 'text-olive hover:text-deep-black';
+        ? 'text-deep-black hover:text-light-beige'
+        : 'text-light-beige hover:text-deep-black';
 
     return (
         <motion.nav
@@ -25,16 +25,16 @@ export const Navbar = ({ isScrolled = true }: NavbarProps) => {
             className={`fixed w-full top-0 z-50 transition-all duration-700 ease-[cubic-bezier(0.43, 0.13, 0.23, 0.96)] ${isScrolled ? 'bg-light-beige/80 backdrop-blur-md shadow-sm' : 'bg-transparent'}`} >
             <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between relative">
                 {/* Logo */}
-                <h1 className={`text-base font-semibold tracking-[0.25em] uppercase font-caption ${navTextColor}`}>
+                <h1 className={`text-base uppercase font-adobe-caslon-pro font-[800] text-[18px] tracking-[8px] ${navTextColor}`}>
                     <Link to="/">TheMove</Link>
                 </h1>
 
                 {/* Nav items */}
-                <ul className="absolute left-1/2 -translate-x-1/2 flex gap-10 text-[12px] uppercase tracking-[0.25em]">
+                <ul className="absolute left-1/2 -translate-x-1/2 flex gap-10 uppercase cursor-pointer">
 
                     {/* Dropdown Parent */}
                     <li
-                        className={`relative transition-colors duration-300 cursor-pointer font-nav-item ${navTextColor}`}
+                        className={`relative transition-colors duration-300 font-euclid text-[12px] tracking-[2px] ${navTextColor}`}
                         onMouseEnter={() => setShowDropdown(true)}
                         onMouseLeave={() => setShowDropdown(false)}
                     >
@@ -87,15 +87,15 @@ export const Navbar = ({ isScrolled = true }: NavbarProps) => {
                     </li>
 
                     {/* Other Nav Items */}
-                    <li className={`transition-colors duration-300 cursor-pointer font-nav-item ${navTextColor}`}>
+                    <li className={`transition-colors duration-300 font-euclid text-[12px] tracking-[2px] ${navTextColor}`}>
                         <Link to="/projects">Projects</Link>
                     </li>
 
-                    <li className={`transition-colors duration-300 cursor-pointer font-nav-item ${navTextColor}`}>
+                    <li className={`transition-colors duration-300 font-euclid text-[12px] tracking-[2px] ${navTextColor}`}>
                         <Link to="/gallery">Gallery</Link>
                     </li>
 
-                    <li className={`transition-colors duration-300 cursor-pointer font-nav-item ${navTextColor}`}>
+                    <li className={`transition-colors duration-300 font-euclid text-[12px] tracking-[2px] ${navTextColor}`}>
                         <Link to="/contact">Contact</Link>
                     </li>
                 </ul>

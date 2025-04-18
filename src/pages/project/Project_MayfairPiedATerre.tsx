@@ -1,12 +1,9 @@
 // pages/project/Project_MayfairPiedATerre.tsx
 import { useEffect, useState } from 'react';
 import { ProjectSection } from '../../components/project/ProjectSection.tsx';
+import {ProjectDetails} from "../../components/project/ProjectDetails.tsx";
+import {FeaturedProjectGuard, Project} from "../../guard/FeaturedProjectGuard.tsx";
 
-type Project = {
-    id: number;
-    image: string;
-    aspect: 'landscape' | 'portrait';
-};
 
 export const Project_MayfairPiedATerre = () => {
     const [projects, setProjects] = useState<Project[]>([]);
@@ -29,5 +26,12 @@ export const Project_MayfairPiedATerre = () => {
         return <div className="text-center mt-24">Loading projects...</div>;
     }
 
-    return <ProjectSection projects={projects} />;
+    const featuredProject = FeaturedProjectGuard(projects);
+
+    return (
+        <>
+            <ProjectSection projects={projects} />
+            {featuredProject && <ProjectDetails {...featuredProject} />}
+        </>
+    );
 };

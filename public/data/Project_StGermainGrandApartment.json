@@ -3,7 +3,13 @@
     "id": 1,
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/abca6c234d691644d59b14b1ecc7fbcaee683948-3600x2571.jpg?w=3600&h=2571&auto=format",
     "aspect": "landscape",
-    "caption": "St Germain Grand Apartment"
+    "caption": "St Germain Grand Apartment",
+    "featured": true,
+    "client": "ATP (Austin Transit Partnership)",
+    "location": "Austin, United States",
+    "status": "Design",
+    "sectors": ["Infrastructure", "Rail"],
+    "purpose": "This duplex apartment on the Left Bank in Paris, overlooking the Seine and Louvre, was transformed from two separate units into a luxurious space through a collaborative effort with French architect Antoinette Zalewski. The project required extensive restoration, including new parquet floors, panelling, a staircase, and custom-designed rugs. The design harmoniously blended antique and modern elements, drawing inspiration from the colours of Paris and featuring a serene, neutral palette throughout the fabrics, furniture, and artwork. Collaborating with skilled French craftsmen, the team restored the building’s original charm while introducing contemporary touches, creating an elegant, timeless, and sophisticated living space."
   },
   {
     "id": 2,

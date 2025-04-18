@@ -12,7 +12,7 @@ export const PageNotFound = () => {
 
                 <Link
                     to="/"
-                    className="mt-8 inline-block px-6 py-2 border border-black text-black hover:bg-black hover:text-white transition-all duration-300 rounded-2xl text-sm uppercase tracking-wider"
+                    className="mt-8 inline-block px-6 py-2 border border-black text-black hover:bg-black hover:text-light-beige transition-all duration-300 rounded-2xl text-sm uppercase tracking-wider"
                 >
                     Go Home
                 </Link>

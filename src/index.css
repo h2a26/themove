@@ -47,41 +47,16 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'Monaco';
-    src: url('/fonts/Monaco.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
-.font-caption {
+.font-adobe-caslon-pro {
     font-family: 'ACaslonPro', serif;
-    font-size: 16px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 8px;
 }
 
-.font-description {
+.font-euclid {
+    font-family: 'Euclid', monospace;
+}
+
+.font-euclid-circular-b {
     font-family: 'EuclidCircularB', monospace;
-    font-size: 11px;
-    font-weight: 100;
-    letter-spacing: 1px;
-}
-
-.font-nav-item {
-    font-family: 'Euclid', monospace;
-    font-size: 11px !important;
-    font-weight: normal;
-    text-decoration: none;
-    letter-spacing: 2px;
-}
-
-.font-footer {
-    font-family: 'Euclid', monospace;
-    font-size: 12px;
-    font-weight: normal;
 }
 
 /* Elegant shadow for luxury feel */

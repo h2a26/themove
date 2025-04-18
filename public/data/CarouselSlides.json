@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "image": "/slides/slide1.jpg",
+    "caption": "Elevated Minimalism",
+    "description": "Nestled along the Brooklyn Waterfront, overlooking the East River and Manhattan Skyline, this penthouse is one of its kind. New York’s industrial vibe meets soft minimalism in this urban retreat above the vibrating city."
+  },
+  {
+    "id": 2,
+    "image": "/slides/slide2.jpg",
+    "caption": "Crafted Spaces",
+    "description": "A carefully composed getaway that embraces calmness and connection to nature through tactile textures and earthy tones."
+  },
+  {
+    "id": 3,
+    "image": "/slides/slide3.jpg",
+    "caption": "Architecture in Motion",
+    "description": "A seamless interplay of light, geometry, and fluid transitions designed to evoke serenity and modern elegance."
+  },
+  {
+    "id": 4,
+    "image": "/slides/slide4.jpg",
+    "caption": "Elevated Minimalism",
+    "description": "Nestled along the Brooklyn Waterfront, overlooking the East River and Manhattan Skyline, this penthouse is one of its kind. New York’s industrial vibe meets soft minimalism in this urban retreat above the vibrating city."
+  },
+  {
+    "id": 5,
+    "image": "/slides/slide5.jpg",
+    "caption": "Crafted Spaces",
+    "description": "A carefully composed getaway that embraces calmness and connection to nature through tactile textures and earthy tones."
+  },
+  {
+    "id": 6,
+    "image": "/slides/slide6.jpg",
+    "caption": "Architecture in Motion",
+    "description": "A seamless interplay of light, geometry, and fluid transitions designed to evoke serenity and modern elegance."
+  },
+  {
+    "id": 7,
+    "image": "/slides/slide7.jpg",
+    "caption": "Crafted Spaces",
+    "description": "A carefully composed getaway that embraces calmness and connection to nature through tactile textures and earthy tones."
+  },
+  {
+    "id": 8,
+    "image": "/slides/slide8.jpg",
+    "caption": "Architecture in Motion",
+    "description": "A seamless interplay of light, geometry, and fluid transitions designed to evoke serenity and modern elegance."
+  }
+]

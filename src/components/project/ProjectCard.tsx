@@ -23,7 +23,7 @@ export const ProjectCard = memo(({ image, aspect, caption }: ProjectCardProps) =
             {/* Optional overlay caption for the first card */}
             {caption && (
                 <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                    <p className="text-white text-2xl md:text-4xl tracking-wide text-center px-4 font-caption">
+                    <p className="text-light-beige text-2xl md:text-4xl text-center px-4 uppercase font-adobe-caslon-pro font-[800] text-[11px] tracking-[8px]">
                         {caption}
                     </p>
                 </div>

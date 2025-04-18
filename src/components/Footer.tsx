@@ -3,7 +3,7 @@ import { InstagramLogo, YoutubeLogo, PinterestLogo } from 'phosphor-react';
 
 export const Footer = () => {
     return (
-        <footer className="bg-light-beige/80 text-deep-black text-sm px-6 md:px-16 py-12 font-footer">
+        <footer className="bg-light-beige/80 text-deep-black text-sm px-6 md:px-16 py-12 font-euclid text-[13px]">
             <div className="max-w-6xl mx-auto space-y-12">
                 {/* Top Info Line */}
                 <p className="text-center tracking-wider">
@@ -35,7 +35,7 @@ export const Footer = () => {
                         className="group w-7 h-7 flex items-center justify-center border border-deep-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
                     >
                         <InstagramLogo
-                            className="w-5 h-5 text-deep-gray transition-colors duration-300 group-hover:text-white"/>
+                            className="w-5 h-5 text-deep-gray transition-colors duration-300 group-hover:text-light-beige"/>
                     </a>
 
                     <a
@@ -45,7 +45,7 @@ export const Footer = () => {
                         className="group w-7 h-7 flex items-center justify-center border border-deep-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
                     >
                         <YoutubeLogo
-                            className="w-5 h-5 text-deep-gray transition-colors duration-300 group-hover:text-white"/>
+                            className="w-5 h-5 text-deep-gray transition-colors duration-300 group-hover:text-light-beige"/>
                     </a>
 
                     <a
@@ -55,7 +55,7 @@ export const Footer = () => {
                         className="group w-7 h-7 flex items-center justify-center border border-deep-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
                     >
                         <PinterestLogo
-                            className="w-5 h-5 text-deep-gray transition-colors duration-300 group-hover:text-white"/>
+                            className="w-5 h-5 text-deep-gray transition-colors duration-300 group-hover:text-light-beige"/>
                     </a>
                 </div>
 
