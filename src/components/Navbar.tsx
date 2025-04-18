@@ -96,7 +96,7 @@ export const Navbar = ({ isScrolled = true }: NavbarProps) => {
                     </li>
 
                     <li className={`transition-colors duration-300 font-euclid text-[12px] tracking-[2px] ${navTextColor}`}>
-                        <Link to="/gallery">Gallery</Link>
+                        <Link to="/about">About</Link>
                     </li>
 
                     <li className={`transition-colors duration-300 font-euclid text-[12px] tracking-[2px] ${navTextColor}`}>

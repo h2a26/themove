@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { DefaultLayout } from "./layouts/DefaultLayout";
 import { Home } from "./pages/Home";
-import { Gallery } from './pages/Gallery';
+import { About } from './pages/About.tsx';
 import { Contact } from './pages/Contact';
 import {Commercial} from "./pages/project_category/Commercial.tsx";
 import {Hospitality} from "./pages/project_category/Hospitality.tsx";
@@ -41,7 +41,7 @@ const AnimatedRoutes = () => {
                 <Route path="/project_category/residential" element={<DefaultLayout><Residential /></DefaultLayout>} />
 
                 <Route path="/projects" element={<DefaultLayout><Projects /></DefaultLayout>} />
-                <Route path="/gallery" element={<DefaultLayout><Gallery /></DefaultLayout>} />
+                <Route path="/about" element={<DefaultLayout><About /></DefaultLayout>} />
                 <Route path="/contact" element={<DefaultLayout><Contact /></DefaultLayout>} />
 
                 <Route path="/projects/st-germain-grand-apartment" element={<DefaultLayout><Project_StGermainGrandApartment /></DefaultLayout>} />

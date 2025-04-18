@@ -47,6 +47,13 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'AllrounderAntiquaTest-Book';
+    src: url('/fonts/AllrounderAntiquaTest-Book.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .font-adobe-caslon-pro {
     font-family: 'ACaslonPro', serif;
 }
@@ -57,6 +64,10 @@
 
 .font-euclid-circular-b {
     font-family: 'EuclidCircularB', monospace;
+}
+
+.font-all-rounder-antiqua-test-book {
+    font-family: 'AllrounderAntiquaTest-Book', serif;
 }
 
 

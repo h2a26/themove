@@ -1,5 +1,6 @@
 // components/Footer.tsx
 import { InstagramLogo, YoutubeLogo, PinterestLogo } from 'phosphor-react';
+import {Link} from "react-router-dom";
 
 export const Footer = () => {
     return (
@@ -18,10 +19,12 @@ export const Footer = () => {
                         <p className="tracking-wider">+95 256 358 744</p>
                     </div>
                     <div>
-                        <p className="tracking-wider">careers@themove.co.uk</p>
+                        <p className="tracking-wider">careers@themove.com</p>
                     </div>
                     <div>
-                        <p className="tracking-wider">subscribe</p>
+                        <p className="tracking-wider">
+                            <Link to="/contact">contact</Link>
+                        </p>
                     </div>
                 </div>
 
