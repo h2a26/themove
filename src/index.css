@@ -59,15 +59,8 @@
     font-family: 'EuclidCircularB', monospace;
 }
 
-/* Elegant shadow for luxury feel */
-.bg-navbar {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    background-color: var(--color-olive);
-}
 
-/* Smooth scroll for luxury scrolling */
 html {
-    scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: var(--color-olive) transparent;
 }
