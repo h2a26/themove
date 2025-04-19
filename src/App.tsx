@@ -17,7 +17,7 @@ import {Project_SanFranciscoApartment} from "./pages/project/Project_SanFrancisc
 import {SmoothScrollProvider} from "./components/SmoothScrollProvider.tsx";
 import {Project_MayfairPiedATerre} from "./pages/project/Project_MayfairPiedATerre.tsx";
 import {PageNotFound} from "./pages/PageNotFound.tsx";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
     return (

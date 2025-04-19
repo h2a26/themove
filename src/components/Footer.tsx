@@ -1,5 +1,5 @@
 // components/Footer.tsx
-import { InstagramLogo, YoutubeLogo, PinterestLogo } from 'phosphor-react';
+import { InstagramLogo, YoutubeLogo, TiktokLogo } from 'phosphor-react';
 import {Link} from "react-router-dom";
 
 export const Footer = () => {
@@ -32,7 +32,7 @@ export const Footer = () => {
                 {/* Icon */}
                 <div className="flex justify-center gap-4">
                     <a
-                        href="https://instagram.com"
+                        href="https://instagram.com/themovearchids"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group w-7 h-7 flex items-center justify-center border border-deep-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
@@ -42,7 +42,7 @@ export const Footer = () => {
                     </a>
 
                     <a
-                        href="https://www.youtube.com/"
+                        href="https://www.youtube.com/@THEMOVEARCHIDS"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group w-7 h-7 flex items-center justify-center border border-deep-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
@@ -52,12 +52,12 @@ export const Footer = () => {
                     </a>
 
                     <a
-                        href="https://www.pinterest.com/"
+                        href="https://www.tiktok.com/@themovearchids"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group w-7 h-7 flex items-center justify-center border border-deep-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
                     >
-                        <PinterestLogo
+                        <TiktokLogo
                             className="w-5 h-5 text-deep-gray transition-colors duration-300 group-hover:text-light-beige"/>
                     </a>
                 </div>
