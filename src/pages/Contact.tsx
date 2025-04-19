@@ -8,8 +8,8 @@ export const Contact = () => {
                 {/* Left Image */}
                 <div className="relative h-full w-full overflow-hidden">
                     <img
-                        src="https://cdn.sanity.io/images/4jb8q7bc/production/65ed00ac54b9338f86d75cccb089984ba32d4c66-1440x1860.jpg?w=1440&h=1860&auto=format"
-                        alt="Studio Moodboard"
+                        src="https://images.unsplash.com/photo-1684941267070-3389a63463e1?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="the-eiffel-tower-towering-over-the-city-of-paris"
                         className="w-full h-full object-cover"
                         loading="lazy"
                         decoding="async"
@@ -17,7 +17,7 @@ export const Contact = () => {
                 </div>
 
                 {/* Right Contact Info */}
-                <div className="bg-[#60382E] text-white flex items-center h-full">
+                <div className="bg-pitaung-chuak text-white flex items-center h-full">
                     <div className="max-w-xl w-full mx-auto px-6 md:px-20 text-sm leading-relaxed space-y-8">
                         <div>
                             <h2 className="uppercase opacity-70 mb-1 font-euclid-circular-b tracking-wider">Address</h2>

@@ -72,7 +72,7 @@ export const Footer = () => {
                         <span>|</span>
                         <a href="#" className="hover:underline">Terms & Conditions</a>
                         <span>|</span>
-                        <span className="italic">Present For Pyae.</span>
+                        <span className="italic hover:text-[#C9485B] cursor-pointer">For Pyae.</span>
                     </div>
                 </div>
 

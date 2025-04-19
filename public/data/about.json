@@ -3,7 +3,7 @@
     "id": 1,
     "title": "The Move",
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/d1ed010387eca39996c9d82d0a0d731977094268-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
-    "bg": "bg-[#893521]",
+    "bg": "bg-[#681313]",
     "description": [
       "The Move is an interior design and interior architecture studio known for crafting spaces with unique identities, blending authenticity, timeless elegance, and an eclectic sense of style. Founded by Sophie Ashby, the studio draws inspiration from her passion for antiques, contemporary art, craftsmanship, modernist furniture, and global influences, creating richly layered interiors that stand the test of time.",
       "The Move’s portfolio spans a diverse range of projects across the world, from luxurious residences to high-profile commercial spaces. Recent and ongoing projects include a high-end spa for a 5-star luxury hotel in London, the UK headquarters for a global luxury fashion house, and a private farm and estate in the picturesque Cotswolds. Internationally, the studio is currently working on a 5-star hotel in Majorca, a family townhouse in Brooklyn, New York, and a family retreat on Vancouver Island.",
@@ -15,8 +15,8 @@
     "id": 2,
     "title": "Pyae Thiri",
     "position": "Founder & Creative Director",
-    "image": "/data/Pyae_Thiri.jpg",
-    "bg": "bg-[#6F6E35]",
+    "image": "/image/pyae_thiri.jpg",
+    "bg": "bg-[#4C4B16]",
     "description": [
       "Pyae Thiri began her career after earning a BA Hons in Interior Architecture, setting the foundation for a diverse and accomplished journey in design. Over the past seventeen years, she has worked on a wide array of high-profile projects, spanning industries such as luxury residential, retail, and hospitality.",
       "For the last decade, Pyae Thiri has been a key figure at Studio Ashby, collaborating closely with founder Sophie Ashby to help grow the studio into an established and respected name in the industry. Her contributions have been instrumental in expanding the business while maintaining the studio's reputation for delivering exceptional designs.",
