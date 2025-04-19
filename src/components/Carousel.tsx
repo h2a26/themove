@@ -77,7 +77,7 @@ export const Carousel = () => {
                                 delay: index * 0.3,
                             }}
                         >
-                            <div className="absolute inset-0 bg-black/40 z-10" />
+                            <div className="absolute inset-0 bg-black/20 z-10" />
                             <div
                                 className={`
                                     absolute bottom-24 md:bottom-32 left-0 right-0 px-4 md:px-16 text-center z-20 text-light-beige
@@ -88,7 +88,7 @@ export const Carousel = () => {
                                     transitionDelay: `${index === activeIndex && !fade ? 300 : 0}ms`,
                                 }}
                             >
-                                <h2 className="text-2xl md:text-2xl mb-4 drop-shadow-md text-gold
+                                <h2 className="text-2xl md:text-2xl mb-4 drop-shadow-md text-deep-beige
                                  uppercase font-adobe-caslon-pro font-[800] text-[16px] tracking-[4px]
                                  transition-opacity duration-1000 ease-in-out">
                                     {slide.caption}
