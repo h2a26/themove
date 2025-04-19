@@ -47,7 +47,6 @@ export const Carousel = () => {
         <div className="relative w-full h-screen overflow-hidden group">
             <Swiper
                 slidesPerView={1}
-                loop
                 keyboard={{ enabled: true }}
                 pagination={{ clickable: true }}
                 navigation={{
