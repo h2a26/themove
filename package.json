@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.4",
+    "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^12.7.3",
     "lenis": "^1.2.3",
     "phosphor-react": "^1.4.1",
