@@ -35,6 +35,7 @@
     src: url('/fonts/ACaslonPro-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -42,6 +43,7 @@
     src: url('/fonts/EuclidCircularB-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -49,6 +51,7 @@
     src: url('/fonts/Euclid.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -56,6 +59,7 @@
     src: url('/fonts/Allrounder-Antiqua-Test-Book.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 .font-adobe-caslon-pro {
