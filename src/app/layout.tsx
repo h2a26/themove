@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import React from 'react';
 import { acaslonPro, euclidCircularB, euclid, allrounderAntiqua } from './fonts';
+import { LenisProvider } from '@/shared/components/LenisProvider';
 
 export const metadata: Metadata = {
   title: 'The Move',
@@ -29,7 +30,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       ].join(' ')}
     >
       <body className="bg-light-beige">
-        <MainLayout>{children}</MainLayout>
+        <LenisProvider>
+          <MainLayout>{children}</MainLayout>
+        </LenisProvider>
       </body>
     </html>
   );
