@@ -9,7 +9,7 @@ type ProjectsSectionProps = {
 export const ProjectSection = ({ projects }: ProjectsSectionProps) => {
   return (
     <MotionWrapper>
-      <div className="max-w-[1920px] mx-auto pt-16">
+      <div className="max-w-[1920px] mx-auto pt-13">
         <section className="grid grid-cols-1 md:grid-cols-2 gap-[2px]">
           {projects.map(({ id, image, aspect, caption }) => (
             <div

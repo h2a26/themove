@@ -18,7 +18,7 @@ export default function AboutPage() {
   return (
     <>
       <MotionWrapper>
-        <section className="w-full max-w-[1920px] mx-auto pt-16">
+        <section className="w-full max-w-[1920px] mx-auto pt-13">
           {about.map((item, index) => {
             const isReversed = index % 2 !== 0;
 

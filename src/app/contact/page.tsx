@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <>
       <MotionWrapper>
-        <section className="w-full max-w-[1920px] mx-auto pt-16 overflow-hidden">
+        <section className="w-full max-w-[1920px] mx-auto pt-13 overflow-hidden">
           <div className="flex flex-col md:flex-row min-h-screen md:min-h-[75vh] lg:min-h-[75vh] xl:min-h-screen">
 
             {/* Image Section */}

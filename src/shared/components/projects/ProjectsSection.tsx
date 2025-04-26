@@ -16,7 +16,7 @@ type ProjectsSectionProps = {
 export const ProjectsSection = ({ projects }: ProjectsSectionProps) => {
   return (
     <MotionWrapper>
-      <section className="pt-16">
+      <section className="pt-13">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-y-0 md:gap-x-[2px]">
           {projects.map((project) => (
             <ProjectsCard
