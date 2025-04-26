@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/abca6c234d691644d59b14b1ecc7fbcaee683948-3600x2571.jpg?w=3600&h=2571&auto=format",
+    "aspect": "landscape",
+    "caption": "St Germain Grand Apartment",
+    "featured": true,
+    "client": "ATP (Austin Transit Partnership)",
+    "location": "Austin, United States",
+    "status": "Design",
+    "sectors": ["Infrastructure", "Rail"],
+    "purpose": "This duplex apartment on the Left Bank in Paris, overlooking the Seine and Louvre, was transformed from two separate units into a luxurious space through a collaborative effort with French architect Antoinette Zalewski. The project required extensive restoration, including new parquet floors, panelling, a staircase, and custom-designed rugs. The design harmoniously blended antique and modern elements, drawing inspiration from the colours of Paris and featuring a serene, neutral palette throughout the fabrics, furniture, and artwork. Collaborating with skilled French craftsmen, the team restored the building’s original charm while introducing contemporary touches, creating an elegant, timeless, and sophisticated living space."
+  },
+  {
+    "id": 2,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/4f1de826c7e68b775547d87e04b439fa2042c319-1440x1860.jpg?w=1440&h=1860&auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 3,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/4b559d4344ea12b0f5377bd3ba31b4d83987f0bb-1440x1860.jpg?w=1440&h=1860&auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 4,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/af1e916c0bc6a9fd45c3dc23feb88b03043f61f7-3600x2571.jpg?w=3600&amp;h=2571&amp;auto=format",
+    "aspect": "landscape"
+  },
+  {
+    "id": 5,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/c3f804a73de8da3422ae56c5fd370be90af7574e-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 6,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/1683af13bb746fc01a9f20f7f28cea77957238e2-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 7,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/90724edb1e155532a0625afdeff2d8751709107e-3600x2571.jpg?w=3600&amp;h=2571&amp;auto=format",
+    "aspect": "landscape"
+  },
+  {
+    "id": 8,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/bf736acb1010228fb7d9ef1b2bcdb193b2dbef95-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 9,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/b0113cd5c31cba26bdd08dd5547b0fe3ee40309c-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "aspect": "portrait"
+  }
+]

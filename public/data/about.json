@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "The Move",
+    "image": "https://images.unsplash.com/photo-1716601528431-ceef9d73413f?q=80&w=3112&auto=format",
+    "bg": "bg-[#681313]",
+    "description": [
+      "The Move is an interior design and interior architecture studio known for crafting spaces with unique identities, blending authenticity, timeless elegance, and an eclectic sense of style. Founded by Pyae Thiri, the studio draws inspiration from her passion for antiques, contemporary art, craftsmanship, modernist furniture, and global influences, creating richly layered interiors that stand the test of time.",
+      "The Move’s portfolio spans a diverse range of projects across the world, from luxurious residences to high-profile commercial spaces. Recent and ongoing projects include a high-end spa for a 5-star luxury hotel in London, the UK headquarters for a global luxury fashion house, and a private farm and estate in the picturesque Cotswolds. Internationally, the studio is currently working on a 5-star hotel in Majorca, a family townhouse in Brooklyn, New York, and a family retreat on Vancouver Island.",
+      "Our work reflects an unparalleled attention to detail and a deep understanding of how people live and interact with spaces. Past completed projects include a Grade II listed Edwardian and Arts & Crafts home in Hyde Park, where J.M. Barrie wrote Peter Pan, a grand Georgian villa in Holland Park, a coastal contemporary home in Brighton, and a luxury pied-à-terre in Mayfair. Other noteworthy projects include a boutique hotel in South Africa, a meticulously designed apartment in Belgravia, and a six-storey Georgian townhouse.",
+      "No two projects are the same, and the team works closely with clients to deliver bespoke interiors that reflect their personality, aspirations, and lifestyle. Whether designing intimate residential spaces or expansive commercial properties, The Move is committed to bringing originality, warmth, and a global perspective to every project."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Pyae Thiri",
+    "position": "Founder & Creative Director",
+    "image": "https://vxcj8wf6f9ngwjkb.public.blob.vercel-storage.com/images/pyae_thiri-u6KmHZ66KoLFcv4gZSmQuABwRP3buY.jpg",
+    "bg": "bg-[#4C4B16]",
+    "description": [
+      "Pyae Thiri began her career after earning a BA Hons in Interior Architecture, setting the foundation for a diverse and accomplished journey in design. Over the past nine years, she has worked on a wide array of high-profile projects, spanning industries such as luxury residential, retail, and hospitality.",
+      "Pyae Thiri founded her interior design and creative direction practice, The Move Ltd, in 2017 at the age of 18, with a mission to address the lack of diversity in interior design.",
+      "In addition to her role in shaping the wider business strategy, Pyae Thiri has taken on the role of Project Lead for numerous high-profile schemes. She thrives on the balance between creativity and technical precision, combining both to deliver cohesive and innovative designs. Her approach is holistic, ensuring that each project reflects both aesthetic beauty and functional excellence.",
+      "Pyae Thiri's passion lies in how spaces are experienced by their inhabitants. She focuses on meticulous space planning, the use of natural materials, and the final touches - furniture and art - to create environments that not only look beautiful but feel intuitive and welcoming. This attention to detail has made her a leader in interior architecture, committed to enhancing the way people live, work, and interact with their surroundings."
+    ]
+  }
+]

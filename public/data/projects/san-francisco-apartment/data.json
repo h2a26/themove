@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/d49f78867e71355689930b999f45bcef36a4c1e5-1860x1201.jpg?w=1860&amp;h=1201&amp;auto=format",
+    "aspect": "landscape",
+    "caption": "San Francisco Apartment",
+    "featured": true,
+    "client": "BPD",
+    "location": "Amsterdam, Netherlands",
+    "status": "Completed",
+    "sectors": ["Commercial Office", "Mixed Use"],
+    "purpose": "This project, our first in the USA, involved redecorating a large apartment in San Francisco’s Pacific Heights. Positioned on a hill with stunning views of San Francisco Bay, the apartment serves as an extension of our client's primary residence, designed for work, entertaining, and guest accommodation. While recently refurbished, its daring decor didn’t align with our client’s taste, so we undertook a light refurbishment. This included refinishing floors, installing new bathrooms, converting bedrooms into offices, and reconfiguring the dining area into a library. The design was tailored to accommodate the client's growing art collection, incorporating eclectic vintage French and Italian furniture and bespoke elements like a custom rug, reimagined kitchen, and hand-painted chinoiserie wallpaper. We aimed to create a flexible, visually striking space where contemporary artworks and one-of-a-kind furnishings could harmoniously coexist."
+  },
+  {
+    "id": 2,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/9869850e3fbc41a4711f95bab8c51d3ccadc9876-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 3,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/f79721c6ce155ecb0df50e8cd2cbb782728aaf3b-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 4,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/51788ce8cb081538042a280cc1ea0bb9257261c9-1860x1201.jpg?w=1860&amp;h=1201&amp;auto=format",
+    "aspect": "landscape"
+  },
+  {
+    "id": 5,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/45a2c2a11346ddd7dc923a665e5c7a1b2be7ecc9-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 6,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/116e4e781d76ee54b10d974f290b47653f596b4d-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 7,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/981f41ecc16d7f5bd6bc64c526f1e351ea43ffa3-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "aspect": "landscape"
+  },
+  {
+    "id": 8,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/83bccf7b6a21cf5911fd75724693691e44093e6f-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 9,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/32ff7641d5bbbef5c63a5157a0a1d4809a974b11-1860x1201.jpg?w=1860&amp;h=1201&amp;auto=format",
+    "aspect": "portrait"
+  }
+]

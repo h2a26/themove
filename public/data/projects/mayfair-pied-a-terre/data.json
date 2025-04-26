@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/9e91c20edd51eb8d52c075783a6446e733bbab2f-3600x2325.jpg?w=3600&amp;h=2325&amp;auto=format",
+    "aspect": "landscape",
+    "caption": "Mayfair Pied-à-Terre",
+    "featured": true,
+    "client": "IULIUS Real Estate",
+    "location": "Iași, Romania",
+    "status": "In progress",
+    "sectors": ["Residential"],
+    "purpose": "Palas Residential, located in the heart of Iasi, Romania, redefines urban living by blending the city’s rich historical heritage with its dynamic present. Situated near the iconic Palace of Culture and surrounded by monuments, churches, and vibrant urban developments like the Palas Campus and Palas Iasi Ensemble, this project creates a new urban community that connects the past, present, and future."
+  },
+  {
+    "id": 2,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/c04a86c3615fef9bb3346ae02a11d341a8bd611e-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 3,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/2e24b4fa5920169d62b0b7ccb2f97cae0d2fc19d-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 4,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/4a2870da68bc41ce6bfa2cc7a5e0539ef3ea2454-3600x2325.jpg?w=3600&amp;h=2325&amp;auto=format",
+    "aspect": "landscape"
+  },
+  {
+    "id": 5,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/53e38edfd13647f31de577252f02b0f4daac1ac8-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 6,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/c2a8df021fe1e715ab9d487b87420a328ebf6eab-5127x6836.jpg?w=5127&amp;h=6836&amp;auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 7,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/b3afd8a397ae8237ccd75d0cbbd54f4102bdcdf6-5647x7530.jpg?w=5647&amp;h=7530&amp;auto=format",
+    "aspect": "landscape"
+  },
+  {
+    "id": 8,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/d20888edca4f32d2e8ccbf08d17ad5cab7e5a7be-3600x2325.jpg?w=3600&amp;h=2325&amp;auto=format",
+    "aspect": "portrait"
+  },
+  {
+    "id": 9,
+    "image": "https://cdn.sanity.io/images/4jb8q7bc/production/fe7650e099703b95782f99c8402c994287017bf2-1440x1860.jpg?w=1440&amp;h=1860&amp;auto=format",
+    "aspect": "portrait"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "image": "https://images.unsplash.com/photo-1722605893088-01345b0daebf?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "caption": "Clerkenwell Apartment",
+    "description": "Tucked within a quiet corner of London’s historic Clerkenwell district, this refined apartment embodies a dialogue between British restraint and Parisian elegance. Clean lines, curated textures, and a muted palette come together in quiet harmony—where every element speaks softly, yet with intention. A study in understated luxury, the space invites calm, presence, and the subtle poetry of thoughtful design."
+  },
+  {
+    "id": 2,
+    "image": "https://images.unsplash.com/photo-1722942630155-399299c209a0?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "caption": "Montmartre Residence",
+    "description": "In the heart of Paris’ storied Montmartre, this residence captures the soul of quiet luxury. Sunlight spills across a warm, tactile interior where neutral tones, raw textures, and sculptural simplicity meet in poetic balance. A seamless blend of form and feeling, the space offers a sense of stillness—elevated yet grounded, timeless yet intimately personal."
+  },
+  {
+    "id": 3,
+    "image": "https://images.unsplash.com/photo-1722605920269-98ebdab4fa9f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "caption": "Notting Hill Flat",
+    "description": "Bathed in soft natural light, this Notting Hill flat distills the essence of effortless refinement. Every element—curved forms, muted tones, and tactile finishes—has been chosen with quiet intention. It’s a space where London’s architectural charm meets Parisian sensibility, creating a haven that feels at once airy, intimate, and beautifully composed."
+  },
+  {
+    "id": 4,
+    "image": "https://images.unsplash.com/photo-1721201346868-103e27305ec7?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "caption": "Chelsea Garden Apartment",
+    "description": "A serene retreat tucked behind the verdant charm of Chelsea, this garden-level apartment exudes quiet elegance. Soft linen textures, weathered wood, and a neutral palette come together in effortless harmony. The atmosphere is both lived-in and elevated—where London’s timeless architecture is softened by a whisper of Parisian minimalism."
+  },
+  {
+    "id": 5,
+    "image": "https://images.unsplash.com/photo-1723257131861-7acc17ed1330?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "caption": "Marais Loft",
+    "description": "Set within the historic fabric of Le Marais, this Parisian loft speaks in a language of warm minimalism and architectural restraint. Exposed materials, soft amber lighting, and an earthy palette create a grounded atmosphere that feels both contemporary and timeless. It’s a space that doesn’t shout—only whispers, with intention and elegance."
+  },
+  {
+    "id": 6,
+    "image": "https://images.unsplash.com/photo-1722942430777-9f18c4519ac6?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "caption": "South Kensington Studio",
+    "description": "In London’s cultured South Kensington, this studio apartment is a masterclass in quiet sophistication. Stone, linen, and oak converge in a muted symphony of tone and texture, crafting a space that feels both intimate and expansive. Understated yet deeply expressive, it’s a celebration of mindful design and lived-in elegance."
+  },
+  {
+    "id": 7,
+    "image": "https://images.unsplash.com/photo-1721742130939-4f9938ebf1a6?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "caption": "Primrose Hill Apartment",
+    "description": "Perched above the quiet charm of Primrose Hill, this apartment is a luminous expression of minimalism and soul. With its softened silhouettes, curated palette, and sculptural accents, the space feels more like a gallery of calm than a residence. A gentle interplay of light and materiality invites reflection, ease, and effortless luxury."
+  },
+  {
+    "id": 8,
+    "image": "https://images.unsplash.com/photo-1722247480879-738fda730b31?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "caption": "Rue Saint-Honoré Residence",
+    "description": "Tucked away in one of Paris’ most iconic districts, this residence along Rue Saint-Honoré offers a study in cultivated calm. Clean architectural lines, earthy finishes, and softened edges create a setting that is both grounded and elevated. Minimal yet richly layered, the space invites slow living and subtle luxury, where every detail feels considered and complete."
+  }
+]
