@@ -1,5 +1,5 @@
 import './globals.css';
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import React from 'react';
 import { acaslonPro, euclidCircularB, euclid, allrounderAntiqua } from './fonts';
@@ -18,6 +18,20 @@ export const metadata: Metadata = {
     description: 'Discover The Move — a luxury & minimalist interior design studio in Myanmar specializing in aesthetic, minimalist, and functional spaces for homes and businesses.',
     images: 'https://themovearchids.vercel.app/preview.jpg'
   },
+  icons: {
+    shortcut: '/favicon.ico',
+    apple: [{url: '/apple-touch-icon.png', sizes: '180x180'}],
+  },
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: 'The Move',
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#FFFFFF",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

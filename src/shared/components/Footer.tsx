@@ -1,6 +1,7 @@
 'use client';
 import { InstagramLogo, YoutubeLogo, TiktokLogo } from 'phosphor-react';
 import Link from 'next/link';
+import { PWAInstallButton } from '@/shared/components/PWAInstallButton';
 
 export function Footer() {
   return (
@@ -30,6 +31,11 @@ export function Footer() {
               <Link href="/contact">contact</Link>
             </p>
           </div>
+        </div>
+
+        {/* PWA Install Button */}
+        <div className="flex justify-center mt-8">
+          <PWAInstallButton />
         </div>
 
         {/* Icon */}
@@ -62,7 +68,7 @@ export function Footer() {
           </a>
         </div>
 
-        {/* Bottom Line */}
+        {/* Copyright & Policies */}
         <div className="text-xs text-center sm:text-left flex flex-col sm:flex-row justify-center sm:justify-between gap-2 sm:gap-4">
           <p> 2025 The Move Ltd. All Rights Reserved.</p>
           <div className="flex flex-wrap justify-center sm:justify-start items-center gap-x-2">
