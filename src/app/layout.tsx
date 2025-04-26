@@ -4,6 +4,8 @@ import { MainLayout } from '@/shared/layouts/MainLayout';
 import React from 'react';
 import { acaslonPro, euclidCircularB, euclid, allrounderAntiqua } from './fonts';
 import { LenisProvider } from '@/shared/components/LenisProvider';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: 'The Move',
@@ -30,6 +32,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       ].join(' ')}
     >
       <body className="bg-light-beige">
+        <SpeedInsights />
+        <Analytics />
+
         <LenisProvider>
           <MainLayout>{children}</MainLayout>
         </LenisProvider>
