@@ -4,12 +4,11 @@ import { Footer } from '@/shared/components/Footer';
 
 type MainLayoutProps = {
   children: React.ReactNode;
-  navbar?: React.ReactNode;
 };
 
-export const MainLayout = ({ children, navbar = <Navbar /> }: MainLayoutProps) => (
+export const MainLayout = ({ children }: MainLayoutProps) => (
   <div className="flex flex-col min-h-screen">
-    {navbar}
+    <Navbar />
     <main className="flex-grow bg-light-beige/80">{children}</main>
     <Footer />
   </div>

@@ -11,13 +11,10 @@ const MENU_ITEMS = [
   { label: 'Contact', href: '/contact' },
 ];
 
-export function Navbar({ isScrolled = true }: { isScrolled?: boolean }) {
+export function Navbar() {
   const pathname = usePathname();
 
-  // Dynamic background and text color
-  const navColor = isScrolled
-    ? 'bg-white/75 backdrop-blur-md text-deep-black shadow-[0_2px_8px_rgba(0,0,0,0.05)]'
-    : 'bg-transparent text-white hover:text-gray-200';
+  const navColor = 'bg-white/75 backdrop-blur-md text-deep-black shadow-[0_2px_8px_rgba(0,0,0,0.05)]';
 
   return (
     <motion.nav
@@ -41,19 +38,27 @@ export function Navbar({ isScrolled = true }: { isScrolled?: boolean }) {
         </div>
 
         {/* Desktop Links */}
-        <ul className="hidden lg:flex flex-1 justify-center gap-10 uppercase text-[12px] tracking-[2px] transition-colors duration-300">
+        <ul className="hidden lg:flex flex-1 justify-center gap-10 uppercase text-[12px] tracking-[2px]">
           {MENU_ITEMS.map((item) => {
             const isActive = pathname === item.href;
             return (
-              <li key={item.href}>
+              <li key={item.href} className="relative overflow-hidden">
                 <Link
                   href={item.href}
-                  className={`${isActive ? 'text-olive font-bold underline underline-offset-4' : 'hover:text-olive'}`}
+                  className={`block font-bold transition-colors duration-300 ${isActive ? 'text-olive' : 'text-deep-black hover:text-olive'}`}
                   aria-current={isActive ? 'page' : undefined}
                   style={{ fontFamily: 'var(--font-acaslon-pro)' }}
                 >
                   {item.label}
                 </Link>
+                {/* Animated underline */}
+                <motion.span
+                  className="absolute left-0 bottom-0 w-full h-[1px] bg-olive origin-left"
+                  initial={{ scaleX: isActive ? 1 : 0 }}
+                  animate={{ scaleX: isActive ? 1 : 0 }}
+                  whileHover={{ scaleX: 1 }}
+                  transition={{ duration: 0.4, ease: [0.43, 0.13, 0.23, 0.96] }}
+                />
               </li>
             );
           })}
