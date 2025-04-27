@@ -46,7 +46,7 @@ export function PWAInstallButton({
   return (
     <button
       ref={buttonRef}
-      className={`px-4 py-2 rounded-lg bg-olive text-light-beige font-bold shadow-lg hover:bg-deep-black transition-colors duration-300 ${className}`}
+      className={`px-4 py-2 rounded-lg bg-olive text-light-beige font-bold tracking-[0.6px] shadow-md hover:bg-deep-black hover:cursor-pointer transition-colors duration-300 ${className}`}
       style={{ fontFamily: 'var(--font-acaslon-pro, sans-serif)' }}
       onClick={handleInstall}
       aria-label="Install this app as a PWA"

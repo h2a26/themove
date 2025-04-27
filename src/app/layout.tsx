@@ -22,7 +22,6 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
     apple: [{url: '/apple-touch-icon.png', sizes: '180x180'}],
   },
-  manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
