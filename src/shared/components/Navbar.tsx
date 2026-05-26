@@ -7,14 +7,15 @@ import { motion } from 'framer-motion';
 
 const MENU_ITEMS = [
   { label: 'Projects', href: '/projects' },
-  { label: 'About',   href: '/about'   },
+  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
 
-  const navColor = 'bg-white/75 backdrop-blur-md text-deep-black shadow-[0_2px_8px_rgba(0,0,0,0.05)]';
+  const navColor =
+    'bg-white/75 backdrop-blur-md text-deep-black shadow-[0_2px_8px_rgba(0,0,0,0.05)]';
 
   return (
     <motion.nav

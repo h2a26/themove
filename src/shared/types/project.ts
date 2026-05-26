@@ -12,4 +12,3 @@ export type Project = {
   sectors?: string[];
   purpose?: string;
 };
-

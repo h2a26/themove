@@ -14,10 +14,7 @@ interface MobileMenuProps {
 }
 
 function getNavItemClass(isActive: boolean, base: string) {
-  return [
-    base,
-    isActive ? 'text-olive font-bold underline underline-offset-4' : '',
-  ].join(' ');
+  return [base, isActive ? 'text-olive font-bold underline underline-offset-4' : ''].join(' ');
 }
 
 export default function MobileMenu({ menuItems, textColor, pathname }: MobileMenuProps) {

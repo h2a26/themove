@@ -1,8 +1,8 @@
-import type { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'The Move', 
+    name: 'The Move',
     short_name: 'The Move',
     description: 'A luxury & minimalist interior design studio in Myanmar.',
     start_url: '/',
@@ -22,29 +22,29 @@ export default function manifest(): MetadataRoute.Manifest {
         type: 'image/png',
       },
     ],
-    "screenshots": [
+    screenshots: [
       {
         src: '/icons/iPad-home-screen-1024x1366.png',
         sizes: '1024x1366',
         type: 'image/png',
         form_factor: 'wide',
         label: 'Home - Tablet View',
-        platform: 'ipados'
+        platform: 'ipados',
       },
       {
-        src: "/icons/iPad-projects-screen-1024x1366.png",
+        src: '/icons/iPad-projects-screen-1024x1366.png',
         sizes: '1024x1366',
         type: 'image/png',
         form_factor: 'wide',
         label: 'Projects - Tablet View',
-        platform: 'ipados'
+        platform: 'ipados',
       },
       {
         src: '/icons/iphone-contact-screen-390x844.png',
         sizes: '390x844',
         type: 'image/png',
         label: 'Home - Mobile View',
-        platform: 'ios'
+        platform: 'ios',
       },
       {
         src: '/icons/iphone-home-screen-390x844.png',
@@ -52,7 +52,7 @@ export default function manifest(): MetadataRoute.Manifest {
         type: 'image/png',
         form_factor: 'narrow',
         label: 'Home - Mobile View',
-        platform: 'ios'
+        platform: 'ios',
       },
       {
         src: '/icons/iphone-contact-screen-390x844.png',
@@ -60,15 +60,14 @@ export default function manifest(): MetadataRoute.Manifest {
         type: 'image/png',
         form_factor: 'narrow',
         label: 'Contact - Mobile View',
-        platform: 'ios'
+        platform: 'ios',
       },
-
     ],
     protocol_handlers: [
       {
-        protocol: "web+interiordesign",
-        url: "/handle-protocol?url=%s"
-      }
+        protocol: 'web+interiordesign',
+        url: '/handle-protocol?url=%s',
+      },
     ],
-  }
+  };
 }

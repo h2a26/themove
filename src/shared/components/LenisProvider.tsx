@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { ReactNode, useRef, useEffect } from 'react';
 import Lenis from 'lenis';

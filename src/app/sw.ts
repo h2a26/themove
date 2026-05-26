@@ -1,8 +1,8 @@
-import { defaultCache } from "@serwist/next/worker";
-import type { PrecacheEntry, SerwistGlobalConfig, RuntimeCaching } from "serwist";
-import { Serwist, CacheFirst } from "serwist";
-import { ExpirationPlugin } from "workbox-expiration";
-import { CacheableResponsePlugin } from "workbox-cacheable-response";
+import { defaultCache } from '@serwist/next/worker';
+import type { PrecacheEntry, SerwistGlobalConfig, RuntimeCaching } from 'serwist';
+import { Serwist, CacheFirst } from 'serwist';
+import { ExpirationPlugin } from 'workbox-expiration';
+import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 
 declare global {
   interface WorkerGlobalScope extends SerwistGlobalConfig {
@@ -15,10 +15,10 @@ declare const self: ServiceWorkerGlobalScope;
 // Advanced image caching rule for all images (local & remote)
 const imageCaching: RuntimeCaching = {
   matcher: ({ request }) =>
-    request.destination === "image" ||
+    request.destination === 'image' ||
     /\.(png|jpg|jpeg|gif|webp|svg|ico|bmp|tiff)$/i.test(request.url),
   handler: new CacheFirst({
-    cacheName: "images-cache",
+    cacheName: 'images-cache',
     plugins: [
       new ExpirationPlugin({
         maxEntries: 100,
@@ -36,16 +36,13 @@ const serwist = new Serwist({
   skipWaiting: true,
   clientsClaim: true,
   navigationPreload: true,
-  runtimeCaching: [
-    ...defaultCache,
-    imageCaching,
-  ],
+  runtimeCaching: [...defaultCache, imageCaching],
   fallbacks: {
     entries: [
       {
-        url: "/~offline",
+        url: '/~offline',
         matcher({ request }) {
-          return request.destination === "document";
+          return request.destination === 'document';
         },
       },
     ],

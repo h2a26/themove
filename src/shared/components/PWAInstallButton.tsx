@@ -1,14 +1,14 @@
 'use client';
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
-  userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
 }
 
 export function PWAInstallButton({
-  className = "",
-  children = "Install App",
+  className = '',
+  children = 'Install App',
 }: {
   className?: string;
   children?: React.ReactNode;
@@ -20,14 +20,14 @@ export function PWAInstallButton({
   useEffect(() => {
     // Listen for the beforeinstallprompt event
     const handler = (e: Event) => {
-      console.log("beforeinstallprompt fired", e);
+      console.log('beforeinstallprompt fired', e);
       e.preventDefault();
       setDeferredPrompt(e as BeforeInstallPromptEvent);
       setVisible(true);
     };
-    window.addEventListener("beforeinstallprompt", handler as EventListener, { once: true });
+    window.addEventListener('beforeinstallprompt', handler as EventListener, { once: true });
     return () => {
-      window.removeEventListener("beforeinstallprompt", handler as EventListener);
+      window.removeEventListener('beforeinstallprompt', handler as EventListener);
     };
   }, []);
 
@@ -35,7 +35,7 @@ export function PWAInstallButton({
     if (!deferredPrompt) return;
     await deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    if (outcome === "accepted") {
+    if (outcome === 'accepted') {
       setVisible(false);
       setDeferredPrompt(null);
     }

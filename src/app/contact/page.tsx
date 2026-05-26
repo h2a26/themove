@@ -3,21 +3,14 @@ import Image from 'next/image';
 import contactData from '@/public/data/contact.json';
 
 export default function ContactPage() {
-  const {
-    image,
-    address,
-    telephone,
-    generalEnquiries,
-    newBusinessEnquiries,
-    careers,
-  } = contactData[0];
+  const { image, address, telephone, generalEnquiries, newBusinessEnquiries, careers } =
+    contactData[0];
 
   return (
     <>
       <MotionWrapper>
         <section className="w-full max-w-[1920px] mx-auto pt-13 overflow-hidden">
           <div className="flex flex-col md:flex-row min-h-screen md:min-h-[75vh] lg:min-h-[75vh] xl:min-h-screen">
-
             {/* Image Section */}
             {/* Image Section */}
             <div className="relative w-full h-[70vh] md:w-1/2 md:h-auto aspect-[3/4] md:aspect-auto">
@@ -30,7 +23,6 @@ export default function ContactPage() {
                 className="object-cover"
               />
             </div>
-
 
             {/* Text Section */}
             <div className="w-full md:w-1/2 flex bg-deep-chocolate text-light-beige px-5 md:px-[5vw] lg:px-[4vw] py-5 md:py-[4vw] lg:py-[4vw]">
@@ -52,17 +44,11 @@ export default function ContactPage() {
                     >
                       {title}
                     </h2>
-                    <p
-                      className="tracking-wider"
-                      style={{ fontFamily: 'var(--font-euclid)' }}
-                    >
+                    <p className="tracking-wider" style={{ fontFamily: 'var(--font-euclid)' }}>
                       {content}
                     </p>
                     {title === 'Address' && (
-                      <p
-                        className="mt-2 text-sm"
-                        style={{ fontFamily: 'var(--font-euclid)' }}
-                      >
+                      <p className="mt-2 text-sm" style={{ fontFamily: 'var(--font-euclid)' }}>
                         We’re open Monday – Friday, 9am – 5pm
                       </p>
                     )}
@@ -70,7 +56,6 @@ export default function ContactPage() {
                 ))}
               </div>
             </div>
-
           </div>
         </section>
       </MotionWrapper>

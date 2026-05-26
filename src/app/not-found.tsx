@@ -6,9 +6,12 @@ export default function NotFound() {
   return (
     <MotionWrapper>
       <div className="min-h-screen flex flex-col items-center justify-center bg-white px-4 text-center">
-        <h1 className="text-4xl font-light tracking-wide text-deep-black"
-            style={{ fontFamily: 'var(--font-acaslon-pro, sans-serif)' }}
-        >404 – Page Not Found</h1>
+        <h1
+          className="text-4xl font-light tracking-wide text-deep-black"
+          style={{ fontFamily: 'var(--font-acaslon-pro, sans-serif)' }}
+        >
+          404 – Page Not Found
+        </h1>
 
         <Link
           href="/"

@@ -37,8 +37,8 @@ export default function HandleProtocolPage() {
       const match = url.match(/^web\+interiordesign:\/\/projects\/([^/]+)/);
       if (match) {
         const slug = match[1];
-        const valid = (projectList as ProjectListItem[]).some(
-          (item) => item.routeTo?.endsWith(slug)
+        const valid = (projectList as ProjectListItem[]).some((item) =>
+          item.routeTo?.endsWith(slug),
         );
         if (valid) {
           router.replace(`/projects/${slug}`);
@@ -56,9 +56,7 @@ export default function HandleProtocolPage() {
       <h1 className="text-2xl font-bold mb-4">Protocol Handler</h1>
       {error && <p className="text-red-600 mb-4">{error}</p>}
       {!error && <p>Processing protocol link...</p>}
-      {url && (
-        <code className="block bg-gray-100 p-2 rounded text-sm mt-4">{url}</code>
-      )}
+      {url && <code className="block bg-gray-100 p-2 rounded text-sm mt-4">{url}</code>}
     </div>
   );
 }
