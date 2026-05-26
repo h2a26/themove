@@ -1,10 +1,11 @@
-import { Carousel } from '@/shared/components/Carousel';
-import { MotionWrapper } from '@/shared/components/MotionWrapper';
+import { Header } from '@/shared/components/the-move/header';
+import { HeroSection } from '@/shared/components/the-move/hero-section';
 
 export default function Home() {
   return (
-    <MotionWrapper>
-      <Carousel />
-    </MotionWrapper>
+    <main className="relative">
+      <Header />
+      <HeroSection />
+    </main>
   );
 }
