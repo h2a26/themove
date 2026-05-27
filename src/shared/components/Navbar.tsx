@@ -9,6 +9,7 @@ import { useWeatherMode } from '@/shared/state/weather-mode-context';
 
 const MENU_ITEMS = [
   { label: 'Projects', href: '/projects' },
+  { label: 'Books', href: '/books' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
