@@ -1,18 +1,34 @@
 export type WeatherMode = 'sunlit' | 'rain';
 
 export type ShinkaiWeatherTheme = {
-  hero: {
-    from: string;
-    via: string;
-    to: string;
+  surface: {
+    bgFrom: string;
+    bgVia: string;
+    bgTo: string;
+    panel: string;
+    panelHover: string;
   };
-  shimmer: string;
-  dustMote: string;
-  rainDrops: {
-    via: string;
-    to: string;
+  text: {
+    primary: string;
+    secondary: string;
+    tertiary: string;
+    inverse: string;
   };
-  panelBg: string;
+  border: {
+    subtle: string;
+    strong: string;
+  };
+  stroke: {
+    primary: string;
+    light: string;
+    faint: string;
+    wood: string;
+  };
+  particle: {
+    color: string;
+    glow: string;
+    shimmer: string;
+  };
   cord: {
     primary: string;
     highlight: string;
@@ -28,18 +44,34 @@ export type ShinkaiWeatherTheme = {
 };
 
 const SUNLIT: ShinkaiWeatherTheme = {
-  hero: {
-    from: '#fffdf8',
-    via: '#f8f4e8', // warm ivory
-    to: 'rgba(246, 240, 222, 0.72)', // warm beige haze
+  surface: {
+    bgFrom: '#fffdf8',
+    bgVia: '#f8f4e8',
+    bgTo: 'rgba(246, 240, 222, 0.72)',
+    panel: 'rgba(255, 252, 244, 0.72)',
+    panelHover: 'rgba(255, 250, 240, 0.88)',
   },
-  shimmer: 'rgba(255, 220, 150, 0.1)',
-  dustMote: 'rgba(253, 230, 138, 0.4)', // amber-200/40
-  rainDrops: {
-    via: 'rgba(148, 163, 184, 0.3)', // slate-400/30
-    to: 'rgba(148, 163, 184, 0.1)', // slate-400/10
+  text: {
+    primary: '#1a1a22',
+    secondary: '#64748b',
+    tertiary: '#94a3b8',
+    inverse: '#fafaf8',
   },
-  panelBg: 'rgba(255, 252, 244, 0.68)',
+  border: {
+    subtle: 'rgba(120, 113, 108, 0.12)',
+    strong: 'rgba(120, 113, 108, 0.28)',
+  },
+  stroke: {
+    primary: '#78716c',
+    light: '#a8a29e',
+    faint: '#d6d3d1',
+    wood: '#78716c',
+  },
+  particle: {
+    color: 'rgba(251, 191, 36, 0.35)',
+    glow: 'rgba(251, 191, 36, 0.08)',
+    shimmer: 'rgba(255, 220, 150, 0.1)',
+  },
   cord: {
     primary: '#c53030',
     highlight: '#fc8181',
@@ -49,30 +81,46 @@ const SUNLIT: ShinkaiWeatherTheme = {
     warmGlow: 'rgba(197, 48, 48, 0.08)',
   },
   toggleIcon: {
-    sunlit: '#f59e0b', // amber-500
-    rain: '#60a5fa', // blue-400
+    sunlit: '#f59e0b',
+    rain: '#60a5fa',
   },
 };
 
 const RAIN: ShinkaiWeatherTheme = {
-  hero: {
-    from: '#eef2f7',
-    via: '#dbe4ef', // rainy blue-grey
-    to: 'rgba(160, 176, 198, 0.5)', // deeper cool cast
+  surface: {
+    bgFrom: '#eef2f7',
+    bgVia: '#dbe4ef',
+    bgTo: 'rgba(160, 176, 198, 0.5)',
+    panel: 'rgba(226, 235, 246, 0.60)',
+    panelHover: 'rgba(215, 228, 245, 0.78)',
   },
-  shimmer: 'rgba(150, 180, 220, 0.08)',
-  dustMote: 'rgba(253, 230, 138, 0.0)', // unused; keeps shape
-  rainDrops: {
-    via: 'rgba(148, 163, 184, 0.3)',
-    to: 'rgba(148, 163, 184, 0.1)',
+  text: {
+    primary: '#1a1a22',
+    secondary: '#475569',
+    tertiary: '#64748b',
+    inverse: '#f1f5f9',
   },
-  panelBg: 'rgba(226, 235, 246, 0.56)',
+  border: {
+    subtle: 'rgba(71, 85, 105, 0.14)',
+    strong: 'rgba(71, 85, 105, 0.30)',
+  },
+  stroke: {
+    primary: '#475569',
+    light: '#64748b',
+    faint: '#94a3b8',
+    wood: '#57534e',
+  },
+  particle: {
+    color: 'rgba(148, 163, 184, 0.45)',
+    glow: 'rgba(148, 163, 184, 0.08)',
+    shimmer: 'rgba(150, 180, 220, 0.08)',
+  },
   cord: {
     primary: '#9b2c2c',
     highlight: '#e53e3e',
     midtone: '#c53030',
     shadow: '#63171b',
-    lightMote: 'rgba(229, 62, 62, 0.1)',
+    lightMote: 'rgba(229, 62, 62, 0.10)',
     warmGlow: 'rgba(155, 44, 44, 0.06)',
   },
   toggleIcon: {
@@ -93,14 +141,27 @@ export function getShinkaiWeatherTheme(mode: WeatherMode): ShinkaiWeatherTheme {
 export function getShinkaiWeatherCssVars(mode: WeatherMode): Record<string, string> {
   const t = getShinkaiWeatherTheme(mode);
   return {
-    '--shinkai-hero-from': t.hero.from,
-    '--shinkai-hero-via': t.hero.via,
-    '--shinkai-hero-to': t.hero.to,
-    '--shinkai-shimmer': t.shimmer,
-    '--shinkai-dust-mote': t.dustMote,
-    '--shinkai-rain-via': t.rainDrops.via,
-    '--shinkai-rain-to': t.rainDrops.to,
-    '--shinkai-panel-bg': t.panelBg,
+    '--mode-bg-from': t.surface.bgFrom,
+    '--mode-bg-via': t.surface.bgVia,
+    '--mode-bg-to': t.surface.bgTo,
+    '--mode-surface': t.surface.panel,
+    '--mode-surface-hover': t.surface.panelHover,
+    '--mode-text-primary': t.text.primary,
+    '--mode-text-secondary': t.text.secondary,
+    '--mode-text-tertiary': t.text.tertiary,
+    '--mode-text-inverse': t.text.inverse,
+    '--mode-border': t.border.subtle,
+    '--mode-border-strong': t.border.strong,
+    '--mode-stroke-primary': t.stroke.primary,
+    '--mode-stroke-light': t.stroke.light,
+    '--mode-stroke-faint': t.stroke.faint,
+    '--mode-stroke-wood': t.stroke.wood,
+    '--mode-shimmer': t.particle.shimmer,
+    '--mode-particle': t.particle.color,
+    '--mode-particle-glow': t.particle.glow,
+    '--mode-cord': t.cord.primary,
+    '--mode-cord-highlight': t.cord.highlight,
+    '--mode-cord-shadow': t.cord.shadow,
+    '--mode-cord-glow': t.cord.warmGlow,
   };
 }
-

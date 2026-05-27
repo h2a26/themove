@@ -15,7 +15,7 @@ export function HeroSection() {
     <section
       className="relative min-h-screen w-full overflow-hidden transition-colors duration-1000"
       style={{
-        backgroundImage: `linear-gradient(to bottom right, var(--shinkai-hero-from), var(--shinkai-hero-via), var(--shinkai-hero-to))`,
+        backgroundImage: `linear-gradient(to bottom right, var(--mode-bg-from), var(--mode-bg-via), var(--mode-bg-to))`,
       }}
     >
       <WeatherEffects mode={weatherMode} />
@@ -44,16 +44,16 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          <span className="block font-serif text-5xl md:text-6xl lg:text-7xl text-slate-800 leading-tight tracking-tight">
+          <span className="block font-serif text-5xl md:text-6xl lg:text-7xl text-[var(--mode-text-primary)] leading-tight tracking-tight">
             Interior stories
           </span>
-          <span className="block font-serif text-5xl md:text-6xl lg:text-7xl text-slate-800 leading-tight tracking-tight">
+          <span className="block font-serif text-5xl md:text-6xl lg:text-7xl text-[var(--mode-text-primary)] leading-tight tracking-tight">
             in quiet motion.
           </span>
         </motion.h1>
         
         <motion.p 
-          className="mt-8 text-center text-lg md:text-xl text-slate-500 max-w-lg"
+          className="mt-8 text-center text-lg md:text-xl text-[var(--mode-text-secondary)] max-w-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
@@ -69,11 +69,11 @@ export function HeroSection() {
         >
           <Link
             href="/projects"
-            className="group inline-flex flex-col items-center gap-2 text-slate-500 hover:text-slate-700 transition-colors"
+            className="group inline-flex flex-col items-center gap-2 text-[var(--mode-text-secondary)] hover:text-[var(--mode-cord)] transition-colors"
           >
             <span className="text-xs font-medium tracking-[0.35em] uppercase">explore</span>
             <motion.span
-              className="block h-px w-8 bg-slate-400 group-hover:w-12 transition-all duration-700"
+              className="block h-px w-8 bg-[var(--mode-stroke-light)] group-hover:w-12 transition-all duration-700"
               style={{ transitionTimingFunction: 'cubic-bezier(0.43, 0.13, 0.23, 0.96)' }}
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}

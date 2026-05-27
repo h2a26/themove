@@ -131,12 +131,12 @@ export const ProjectDetails = ({
   ].filter((row) => Boolean(row.value));
 
   return (
-    <div className="text-deep-black px-8 md:px-20 py-20 grid md:grid-cols-12 gap-y-12 text-xs md:text-sm">
+    <div className="text-[var(--mode-text-primary)] px-8 md:px-20 py-20 grid md:grid-cols-12 gap-y-12 text-xs md:text-sm">
       <aside className="md:col-span-3 md:pr-8">
         <div className="max-w-[15rem]">
           {caption && (
             <p
-              className="text-[10px] uppercase tracking-[0.32em] text-deep-black/70"
+              className="text-[10px] uppercase tracking-[0.32em] text-[var(--mode-text-primary)]/70"
               style={{ fontFamily: 'var(--font-euclid-circular-b)' }}
             >
               {caption}
@@ -148,13 +148,13 @@ export const ProjectDetails = ({
               {metaRows.map(({ label, value }) => (
                 <div key={label}>
                   <p
-                    className="text-[10px] uppercase tracking-[0.32em] text-deep-black/70"
+                    className="text-[10px] uppercase tracking-[0.32em] text-[var(--mode-text-primary)]/70"
                     style={{ fontFamily: 'var(--font-euclid-circular-b)' }}
                   >
                     {label}
                   </p>
                   <p
-                    className="mt-2 text-[12px] leading-6 tracking-[0.08em] text-deep-black whitespace-pre-line"
+                    className="mt-2 text-[12px] leading-6 tracking-[0.08em] text-[var(--mode-text-primary)] whitespace-pre-line"
                     style={{ fontFamily: 'var(--font-allrounder-antiqua)' }}
                   >
                     {value}
@@ -170,13 +170,13 @@ export const ProjectDetails = ({
         {poemDescription && (
           <div className="max-w-[40ch]">
             <p
-              className="text-[9px] uppercase tracking-[0.34em] text-deep-black/65"
+              className="text-[9px] uppercase tracking-[0.34em] text-[var(--mode-text-primary)]/65"
               style={{ fontFamily: 'var(--font-euclid-circular-b)' }}
             >
               DESCRIPTION
             </p>
             <p
-              className="mt-4 text-[13px] leading-7 tracking-[0.08em] text-deep-black whitespace-pre-line"
+              className="mt-4 text-[13px] leading-7 tracking-[0.08em] text-[var(--mode-text-primary)] whitespace-pre-line"
               style={{ fontFamily: 'var(--font-euclid)' }}
             >
               {poemDescription}
@@ -187,13 +187,13 @@ export const ProjectDetails = ({
         {poemPhilosophy && (
           <div className="max-w-[40ch]">
             <p
-              className="text-[9px] uppercase tracking-[0.34em] text-deep-black/65"
+              className="text-[9px] uppercase tracking-[0.34em] text-[var(--mode-text-primary)]/65"
               style={{ fontFamily: 'var(--font-euclid-circular-b)' }}
             >
               PHILOSOPHY
             </p>
             <p
-              className="mt-4 text-[13px] leading-7 tracking-[0.12em] text-deep-black whitespace-pre-line"
+              className="mt-4 text-[13px] leading-7 tracking-[0.12em] text-[var(--mode-text-primary)] whitespace-pre-line"
               style={{ fontFamily: 'var(--font-allrounder-antiqua)' }}
             >
               {poemPhilosophy}
@@ -204,13 +204,13 @@ export const ProjectDetails = ({
         {poemPurpose && (
           <div className="max-w-[40ch]">
             <p
-              className="text-[9px] uppercase tracking-[0.34em] text-deep-black/65"
+              className="text-[9px] uppercase tracking-[0.34em] text-[var(--mode-text-primary)]/65"
               style={{ fontFamily: 'var(--font-euclid-circular-b)' }}
             >
               STORY
             </p>
             <p
-              className="mt-4 text-[13px] leading-8 tracking-[0.06em] text-deep-black whitespace-pre-line"
+              className="mt-4 text-[13px] leading-8 tracking-[0.06em] text-[var(--mode-text-primary)] whitespace-pre-line"
               style={{ fontFamily: 'var(--font-euclid)' }}
             >
               {poemPurpose}

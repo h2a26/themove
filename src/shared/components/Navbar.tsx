@@ -17,7 +17,7 @@ export function Navbar() {
   const pathname = usePathname();
   const { mode, toggle } = useWeatherMode();
 
-  const navColor = 'shinkai-panel text-deep-black shadow-[0_2px_8px_rgba(0,0,0,0.05)]';
+  const navColor = 'shinkai-panel text-[var(--mode-text-primary)] shadow-[0_2px_8px_rgba(0,0,0,0.05)]';
 
   return (
     <motion.nav
@@ -33,7 +33,7 @@ export function Navbar() {
         <div className="flex-1">
           <Link
             href="/"
-            className="text-[18px] uppercase hover:text-olive font-[800] tracking-[8px]"
+            className="text-[18px] uppercase hover:text-[var(--mode-cord)] font-[800] tracking-[8px]"
             style={{ fontFamily: 'var(--font-acaslon-pro)' }}
           >
             TheMove
@@ -48,7 +48,7 @@ export function Navbar() {
               <li key={item.href} className="relative overflow-hidden">
                 <Link
                   href={item.href}
-                  className={`block font-bold transition-colors duration-300 ${isActive ? 'text-olive' : 'text-deep-black hover:text-olive'}`}
+                  className={`block font-bold transition-colors duration-300 ${isActive ? 'text-[var(--mode-cord)]' : 'text-[var(--mode-text-primary)] hover:text-[var(--mode-cord)]'}`}
                   aria-current={isActive ? 'page' : undefined}
                   style={{ fontFamily: 'var(--font-acaslon-pro)' }}
                 >
@@ -56,7 +56,7 @@ export function Navbar() {
                 </Link>
                 {/* Animated underline */}
                 <motion.span
-                  className="absolute left-0 bottom-0 w-full h-[1px] bg-olive origin-left"
+                  className="absolute left-0 bottom-0 w-full h-[1px] bg-[var(--mode-cord)] origin-left"
                   initial={{ scaleX: isActive ? 1 : 0 }}
                   animate={{ scaleX: isActive ? 1 : 0 }}
                   whileHover={{ scaleX: 1 }}
@@ -74,7 +74,7 @@ export function Navbar() {
           </div>
           <MobileMenu
             menuItems={MENU_ITEMS}
-            textColor={navColor.includes('text-deep-black') ? 'text-deep-black' : 'text-white'}
+            textColor="text-[var(--mode-text-primary)]"
             pathname={pathname}
           />
         </div>

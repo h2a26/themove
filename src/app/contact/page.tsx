@@ -25,7 +25,7 @@ export default function ContactPage() {
             </div>
 
             {/* Text Section */}
-            <div className="w-full md:w-1/2 flex shinkai-panel text-deep-black px-5 md:px-[5vw] lg:px-[4vw] py-5 md:py-[4vw] lg:py-[4vw]">
+            <div className="w-full md:w-1/2 flex shinkai-panel text-[var(--mode-text-primary)] px-5 md:px-[5vw] lg:px-[4vw] py-5 md:py-[4vw] lg:py-[4vw]">
               <div
                 className="max-w-xl space-y-6 text-sm leading-relaxed tracking-[0.5px]"
                 style={{ fontFamily: 'var(--font-allrounder-antiqua)' }}
@@ -44,11 +44,11 @@ export default function ContactPage() {
                     >
                       {title}
                     </h2>
-                    <p className="tracking-wider text-deep-black/90" style={{ fontFamily: 'var(--font-euclid)' }}>
+                    <p className="tracking-wider text-[var(--mode-text-primary)]/90" style={{ fontFamily: 'var(--font-euclid)' }}>
                       {content}
                     </p>
                     {title === 'Address' && (
-                      <p className="mt-2 text-sm text-deep-black/80" style={{ fontFamily: 'var(--font-euclid)' }}>
+                      <p className="mt-2 text-sm text-[var(--mode-text-primary)]/80" style={{ fontFamily: 'var(--font-euclid)' }}>
                         We’re open Monday – Friday, 9am – 5pm
                       </p>
                     )}

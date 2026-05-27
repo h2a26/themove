@@ -156,7 +156,7 @@ export function SpaceVignette({ title, image, routeTo, description, ...meta }: S
         </div>
 
         <p
-          className="mt-6 text-center text-xs uppercase tracking-[0.2em] text-deep-gray opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+          className="mt-6 text-center text-xs uppercase tracking-[0.2em] text-[var(--mode-text-tertiary)] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
           style={{ fontFamily: 'var(--font-euclid)' }}
         >
           View project

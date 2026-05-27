@@ -14,7 +14,7 @@ interface MobileMenuProps {
 }
 
 function getNavItemClass(isActive: boolean, base: string) {
-  return [base, isActive ? 'text-olive font-bold underline underline-offset-4' : ''].join(' ');
+  return [base, isActive ? 'text-[var(--mode-cord)] font-bold underline underline-offset-4' : ''].join(' ');
 }
 
 export default function MobileMenu({ menuItems, textColor, pathname }: MobileMenuProps) {
@@ -24,7 +24,7 @@ export default function MobileMenu({ menuItems, textColor, pathname }: MobileMen
     <>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="lg:hidden z-50 text-deep-black"
+        className="lg:hidden z-50 text-[var(--mode-text-primary)]"
         aria-label="Toggle menu"
         aria-expanded={open}
         aria-controls="mobile-menu"
