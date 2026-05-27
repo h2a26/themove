@@ -1,7 +1,6 @@
 'use client';
 import { InstagramLogo, YoutubeLogo, TiktokLogo } from 'phosphor-react';
 import Link from 'next/link';
-import { PWAInstallButton } from '@/shared/components/PWAInstallButton';
 
 export function Footer() {
   return (
@@ -31,11 +30,6 @@ export function Footer() {
               <Link href="/contact">contact</Link>
             </p>
           </div>
-        </div>
-
-        {/* PWA Install Button */}
-        <div className="flex justify-center mt-8">
-          <PWAInstallButton />
         </div>
 
         {/* Icon */}

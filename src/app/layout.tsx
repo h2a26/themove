@@ -27,11 +27,6 @@ export const metadata: Metadata = {
     shortcut: '/favicon.ico',
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
   },
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'default',
-    title: 'The Move',
-  },
 };
 
 export const viewport: Viewport = {
