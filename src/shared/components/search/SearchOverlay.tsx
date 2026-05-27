@@ -70,10 +70,13 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase()
-    if (!q) return []
     const pool = category === 'all'
       ? ALL_RESULTS
       : ALL_RESULTS.filter((r) => r.type !== 'project' || r.category === category)
+    // No query + no category selected → show nothing (empty state hint)
+    if (!q && category === 'all') return []
+    // Category selected but no query → show all in that category
+    if (!q) return pool.slice(0, 20)
     return pool.filter(
       (r) => r.title.toLowerCase().includes(q) || r.meta.toLowerCase().includes(q)
     ).slice(0, 10)
