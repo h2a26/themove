@@ -19,10 +19,10 @@ export function Navbar() {
 
   const { scrollY } = useScroll();
   // 0 → 80px scroll: bg opacity 0.0 → 0.78, border 0 → 1
-  const bgOpacity    = useTransform(scrollY, [0, 80], [0.0, 0.78])
+  const bgOpacity     = useTransform(scrollY, [0, 80], [0.0, 0.18])
   const borderOpacity = useTransform(scrollY, [0, 80], [0, 1])
 
-  const baseBg  = mode === 'rain' ? '241,245,249' : '255,255,255'
+  const baseBg = mode === 'rain' ? '220,228,240' : '255,255,255'
 
   return (
     <motion.nav
@@ -32,10 +32,10 @@ export function Navbar() {
       className="fixed w-full top-0 z-50 text-[var(--mode-text-primary)]"
       style={{
         backgroundColor: useTransform(bgOpacity, (v) => `rgba(${baseBg},${v})`),
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
+        backdropFilter: 'blur(32px) saturate(180%)',
+        WebkitBackdropFilter: 'blur(32px) saturate(180%)',
         borderBottom: '1px solid transparent',
-        borderColor: useTransform(borderOpacity, (v) => `rgba(120,113,108,${v * 0.1})`),
+        borderColor: useTransform(borderOpacity, (v) => `rgba(255,255,255,${v * 0.25})`),
       }}
       data-lenis-prevent
       aria-label="Main navigation"
