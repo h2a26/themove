@@ -4,7 +4,7 @@
 
 /** Scroll of Spaces: lines dissolve → weather lingers → photo to full clarity */
 export const SCROLL_TRANSITION = {
-  drawMs: 2000,
+  drawMs: 3200,
   titleFadeMs: 500,
   linesDissolveMs: 700,
   weatherLingerMs: 900,
@@ -14,6 +14,6 @@ export const SCROLL_TRANSITION = {
 
 /** Project detail: facade draws once, then fully dissolves into first photograph */
 export const DETAIL_OPENING_TRANSITION = {
-  drawMs: 1500,
+  drawMs: 2500,
   dissolveMs: 1000,
 } as const;

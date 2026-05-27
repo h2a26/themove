@@ -32,7 +32,7 @@ function ChapterIcon({
 
   // Reserve layout space before section enters viewport
   if (!shouldDraw) {
-    return <svg viewBox="0 0 160 120" className="mx-auto h-24 w-32" aria-hidden />;
+    return <svg viewBox="0 0 160 120" className="mx-auto h-36 w-48" aria-hidden />;
   }
 
   // useMountAnimation fires on mount — paths mount only when shouldDraw becomes true
@@ -41,7 +41,7 @@ function ChapterIcon({
 
   if (category === 'residential') {
     return (
-      <svg viewBox="0 0 160 120" className="mx-auto h-24 w-32" aria-hidden>
+      <svg viewBox="0 0 160 120" className="mx-auto h-36 w-48" aria-hidden>
         <g fill="none" strokeLinecap="round" strokeLinejoin="round">
           {/* — far layer — */}
           <AnimatedPath
@@ -173,7 +173,7 @@ function ChapterIcon({
 
   if (category === 'commercial') {
     return (
-      <svg viewBox="0 0 160 120" className="mx-auto h-24 w-32" aria-hidden>
+      <svg viewBox="0 0 160 120" className="mx-auto h-36 w-48" aria-hidden>
         <g fill="none" strokeLinecap="round" strokeLinejoin="round">
           {/* — far layer — */}
           <AnimatedPath
@@ -295,7 +295,7 @@ function ChapterIcon({
 
   // hospitality
   return (
-    <svg viewBox="0 0 160 120" className="mx-auto h-24 w-32" aria-hidden>
+    <svg viewBox="0 0 160 120" className="mx-auto h-36 w-48" aria-hidden>
       <g fill="none" strokeLinecap="round" strokeLinejoin="round">
         {/* — far layer — */}
         <AnimatedPath
