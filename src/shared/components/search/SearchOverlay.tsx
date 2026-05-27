@@ -6,23 +6,27 @@ import { motion, AnimatePresence } from 'framer-motion'
 import projectsData from '@/public/data/project-list.json'
 import booksData    from '@/public/data/books.json'
 
+type CategoryFilter = 'all' | 'residential' | 'commercial' | 'hospitality'
+
 interface SearchResult {
   id:       string
   title:    string
-  meta:     string   // category / subtitle
+  meta:     string
   href:     string
   type:     'project' | 'book'
+  category: string
 }
 
 const ALL_PROJECTS: SearchResult[] = (projectsData as {
   id: number; slug: string; title: string; category: string;
   locationCity: string; description: string; routeTo: string
 }[]).map((p) => ({
-  id:    `project-${p.id}`,
-  title: p.title,
-  meta:  `${p.category} · ${p.locationCity}`,
-  href:  p.routeTo,
-  type:  'project',
+  id:       `project-${p.id}`,
+  title:    p.title,
+  meta:     `${p.category} · ${p.locationCity}`,
+  href:     p.routeTo,
+  type:     'project',
+  category: p.category,
 }))
 
 const ALL_BOOKS: SearchResult[] = (booksData as {
@@ -30,14 +34,22 @@ const ALL_BOOKS: SearchResult[] = (booksData as {
 }[])
   .filter((b) => b.published)
   .map((b) => ({
-    id:    `book-${b.id}`,
-    title: b.title,
-    meta:  b.subtitle ?? 'Book',
-    href:  '/books',
-    type:  'book',
+    id:       `book-${b.id}`,
+    title:    b.title,
+    meta:     b.subtitle ?? 'Book',
+    href:     '/books',
+    type:     'book',
+    category: 'book',
   }))
 
 const ALL_RESULTS = [...ALL_PROJECTS, ...ALL_BOOKS]
+
+const CATEGORIES: { value: CategoryFilter; label: string }[] = [
+  { value: 'all',         label: 'All'         },
+  { value: 'residential', label: 'Residential' },
+  { value: 'commercial',  label: 'Commercial'  },
+  { value: 'hospitality', label: 'Hospitality' },
+]
 
 interface SearchOverlayProps {
   open:    boolean
@@ -47,24 +59,32 @@ interface SearchOverlayProps {
 export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
   const router    = useRouter()
   const inputRef  = useRef<HTMLInputElement>(null)
-  const [query,   setQuery  ] = useState('')
-  const [focused, setFocused] = useState(0)
+  const [query,    setQuery   ] = useState('')
+  const [focused,  setFocused ] = useState(0)
+  const [category, setCategory] = useState<CategoryFilter>('all')
+
+  const categoryCount = useMemo(() => {
+    if (category === 'all') return ALL_PROJECTS.length
+    return ALL_PROJECTS.filter((r) => r.category === category).length
+  }, [category])
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase()
     if (!q) return []
-    return ALL_RESULTS.filter(
-      (r) =>
-        r.title.toLowerCase().includes(q) ||
-        r.meta.toLowerCase().includes(q)
+    const pool = category === 'all'
+      ? ALL_RESULTS
+      : ALL_RESULTS.filter((r) => r.type !== 'project' || r.category === category)
+    return pool.filter(
+      (r) => r.title.toLowerCase().includes(q) || r.meta.toLowerCase().includes(q)
     ).slice(0, 10)
-  }, [query])
+  }, [query, category])
 
   // Reset on open/close
   useEffect(() => {
     if (open) {
       setQuery('')
       setFocused(0)
+      setCategory('all')
       setTimeout(() => inputRef.current?.focus(), 60)
     }
   }, [open])
@@ -76,15 +96,12 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
       if (e.key === 'Escape') { onClose(); return }
       if (e.key === 'ArrowDown') { e.preventDefault(); setFocused((f) => Math.min(f + 1, results.length - 1)) }
       if (e.key === 'ArrowUp')   { e.preventDefault(); setFocused((f) => Math.max(f - 1, 0)) }
-      if (e.key === 'Enter' && results[focused]) {
-        navigate(results[focused])
-      }
+      if (e.key === 'Enter' && results[focused]) navigate(results[focused])
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [open, results, focused, onClose])
 
-  // Reset focused index when results change
   useEffect(() => setFocused(0), [results])
 
   function navigate(result: SearchResult) {
@@ -123,7 +140,7 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
           </button>
 
           <div className="w-full max-w-2xl mx-auto px-6 pt-24 pb-8 flex flex-col">
-            {/* Input */}
+            {/* Input row */}
             <div className="flex items-center gap-4 border-b border-[var(--mode-stroke-faint)] pb-4">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="text-[var(--mode-text-tertiary)] flex-none" aria-hidden="true">
                 <circle cx="7.5" cy="7.5" r="5.5" stroke="currentColor" strokeWidth="1.4"/>
@@ -153,11 +170,29 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
               )}
             </div>
 
+            {/* Category filter */}
+            <div className="flex gap-7 mt-3.5">
+              {CATEGORIES.map(({ value, label }) => (
+                <button
+                  key={value}
+                  onClick={() => { setCategory(value); setFocused(0) }}
+                  className={`text-[9px] uppercase tracking-[3px] transition-colors duration-200 ${
+                    category === value
+                      ? 'text-[var(--mode-cord)]'
+                      : 'text-[var(--mode-text-tertiary)] hover:text-[var(--mode-text-secondary)]'
+                  }`}
+                  style={{ fontFamily: 'var(--font-acaslon-pro)' }}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+
             {/* Results */}
             <AnimatePresence mode="wait">
               {results.length > 0 && (
                 <motion.div
-                  className="mt-4 space-y-6"
+                  className="mt-5 space-y-6"
                   initial={{ opacity: 0, y: 6 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
@@ -202,7 +237,9 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
                   initial={{ opacity: 0 }} animate={{ opacity: 1 }}
                   style={{ fontFamily: 'var(--font-acaslon-pro)' }}
                 >
-                  {ALL_PROJECTS.length} projects · {ALL_BOOKS.length} books
+                  {category === 'all'
+                    ? `${ALL_PROJECTS.length} projects · ${ALL_BOOKS.length} books`
+                    : `${categoryCount} ${category} projects`}
                 </motion.p>
               )}
             </AnimatePresence>
