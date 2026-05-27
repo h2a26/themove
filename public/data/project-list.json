@@ -7,7 +7,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/725850fa288c724585c4e76e2655005cc3ce83ca-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/kt-residence",
     "category": "residential",
-    "chapterOrder": 1,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -18,8 +17,7 @@
       "modern"
     ],
     "style": "contemporary",
-    "frameArchetype": "interior-chamber",
-    "borderColor": "#633b2f"
+    "frameArchetype": "interior-chamber"
   },
   {
     "id": 2,
@@ -29,7 +27,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/abca6c234d691644d59b14b1ecc7fbcaee683948-3600x2571.jpg?w=3600&h=2571&auto=format",
     "routeTo": "/projects/maak-residence",
     "category": "residential",
-    "chapterOrder": 2,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -40,8 +37,7 @@
       "warm-minimal"
     ],
     "style": "traditional",
-    "frameArchetype": "heritage",
-    "borderColor": "#B0BFDE"
+    "frameArchetype": "heritage"
   },
   {
     "id": 3,
@@ -51,7 +47,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/476280b78f60252d73e37d572fbc09fb2e4520fb-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/ssl-residence",
     "category": "residential",
-    "chapterOrder": 3,
     "locationCity": "Yangon",
     "locationCountry": "Myanmar",
     "location": "Yangon, Myanmar",
@@ -62,8 +57,7 @@
       "warm-minimal"
     ],
     "style": "contemporary",
-    "frameArchetype": "urban",
-    "borderColor": "#EEE9E2"
+    "frameArchetype": "urban"
   },
   {
     "id": 4,
@@ -73,7 +67,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/4f1de826c7e68b775547d87e04b439fa2042c319-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/klg-residence",
     "category": "residential",
-    "chapterOrder": 4,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -85,8 +78,7 @@
       "accessible"
     ],
     "style": "traditional",
-    "frameArchetype": "heritage",
-    "borderColor": "#AFDDFF"
+    "frameArchetype": "heritage"
   },
   {
     "id": 5,
@@ -96,7 +88,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/893a121595e0480b0fd3fa7dedcb310462b16289-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/mpp-residence",
     "category": "residential",
-    "chapterOrder": 5,
     "locationCity": "Pyin Oo Lwin",
     "locationCountry": "Myanmar",
     "location": "Pyin Oo Lwin, Myanmar",
@@ -107,8 +98,7 @@
       "contemporary"
     ],
     "style": "contemporary",
-    "frameArchetype": "interior-chamber",
-    "borderColor": "#645E26"
+    "frameArchetype": "interior-chamber"
   },
   {
     "id": 6,
@@ -118,7 +108,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/9c18893ae2c5cd4f35241ce3fc0a8cde846eb687-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/uwl-residence",
     "category": "residential",
-    "chapterOrder": 6,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -129,8 +118,7 @@
       "warm-minimal"
     ],
     "style": "contemporary",
-    "frameArchetype": "garden",
-    "borderColor": "#C6A664"
+    "frameArchetype": "garden"
   },
   {
     "id": 7,
@@ -140,7 +128,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/45a2c2a11346ddd7dc923a665e5c7a1b2be7ecc9-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/bungalow",
     "category": "residential",
-    "chapterOrder": 7,
     "locationCity": "Yangon",
     "locationCountry": "Myanmar",
     "location": "Yangon, Myanmar",
@@ -151,8 +138,7 @@
       "biophilic"
     ],
     "style": "contemporary",
-    "frameArchetype": "garden",
-    "borderColor": "#FF8282"
+    "frameArchetype": "garden"
   },
   {
     "id": 8,
@@ -162,7 +148,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/d49f78867e71355689930b999f45bcef36a4c1e5-1860x1201.jpg?w=1860&h=1201&auto=format",
     "routeTo": "/projects/tm-residence",
     "category": "residential",
-    "chapterOrder": 8,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -173,8 +158,7 @@
       "minimal"
     ],
     "style": "contemporary",
-    "frameArchetype": "urban",
-    "borderColor": "#45519F"
+    "frameArchetype": "urban"
   },
   {
     "id": 9,
@@ -184,7 +168,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/e0d4a31a31b34bbc740dcbe653201009b1ec8cb9-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/239-residence",
     "category": "residential",
-    "chapterOrder": 9,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -194,8 +177,7 @@
       "warm-minimal"
     ],
     "style": "contemporary",
-    "frameArchetype": "interior-chamber",
-    "borderColor": "#893521"
+    "frameArchetype": "interior-chamber"
   },
   {
     "id": 10,
@@ -205,7 +187,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/9869850e3fbc41a4711f95bab8c51d3ccadc9876-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/twa-residence",
     "category": "residential",
-    "chapterOrder": 10,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -215,8 +196,7 @@
       "warm-minimal"
     ],
     "style": "contemporary",
-    "frameArchetype": "interior-chamber",
-    "borderColor": "#f2e5dc"
+    "frameArchetype": "interior-chamber"
   },
   {
     "id": 11,
@@ -226,7 +206,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/805b1f201587b66cf51a2fd247d408e7279d064f-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/hmm-residence",
     "category": "residential",
-    "chapterOrder": 11,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -236,8 +215,7 @@
       "warm-minimal"
     ],
     "style": "contemporary",
-    "frameArchetype": "interior-chamber",
-    "borderColor": "#c3c0bb"
+    "frameArchetype": "interior-chamber"
   },
   {
     "id": 12,
@@ -247,7 +225,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/c04a86c3615fef9bb3346ae02a11d341a8bd611e-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/better-u-hair-and-wellness",
     "category": "commercial",
-    "chapterOrder": 12,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -258,8 +235,7 @@
       "serene"
     ],
     "style": "contemporary",
-    "frameArchetype": "hospitality-glow",
-    "borderColor": "#8B7355"
+    "frameArchetype": "hospitality-glow"
   },
   {
     "id": 13,
@@ -269,7 +245,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/9e91c20edd51eb8d52c075783a6446e733bbab2f-3600x2325.jpg?w=3600&h=2325&auto=format",
     "routeTo": "/projects/atlas-outlet",
     "category": "commercial",
-    "chapterOrder": 13,
     "locationCity": "Pyin Oo Lwin",
     "locationCountry": "Myanmar",
     "location": "Pyin Oo Lwin, Myanmar",
@@ -279,8 +254,7 @@
       "retail"
     ],
     "style": "contemporary",
-    "frameArchetype": "threshold",
-    "borderColor": "#633b2f"
+    "frameArchetype": "threshold"
   },
   {
     "id": 14,
@@ -290,7 +264,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/697a7b32d12b34f9a26e2043d088fba0e1898d5a-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/beauty-empire-cosmetic-shop",
     "category": "commercial",
-    "chapterOrder": 14,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -300,8 +273,7 @@
       "retail"
     ],
     "style": "contemporary",
-    "frameArchetype": "threshold",
-    "borderColor": "#B0BFDE"
+    "frameArchetype": "threshold"
   },
   {
     "id": 15,
@@ -311,7 +283,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/2e24b4fa5920169d62b0b7ccb2f97cae0d2fc19d-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/moe-kaung-gold-shop",
     "category": "commercial",
-    "chapterOrder": 15,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -322,8 +293,7 @@
       "gold"
     ],
     "style": "traditional",
-    "frameArchetype": "threshold",
-    "borderColor": "#EEE9E2"
+    "frameArchetype": "threshold"
   },
   {
     "id": 16,
@@ -333,7 +303,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/52956ba9c93f0929fad99cd73024945a38be2f8e-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/lmt-office",
     "category": "commercial",
-    "chapterOrder": 16,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -344,8 +313,7 @@
       "minimal"
     ],
     "style": "contemporary",
-    "frameArchetype": "urban",
-    "borderColor": "#AFDDFF"
+    "frameArchetype": "urban"
   },
   {
     "id": 17,
@@ -355,7 +323,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/725850fa288c724585c4e76e2655005cc3ce83ca-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/mini-mart",
     "category": "commercial",
-    "chapterOrder": 17,
     "locationCity": "Yangon",
     "locationCountry": "Myanmar",
     "location": "Yangon, Myanmar",
@@ -365,8 +332,7 @@
       "retail"
     ],
     "style": "contemporary",
-    "frameArchetype": "threshold",
-    "borderColor": "#645E26"
+    "frameArchetype": "threshold"
   },
   {
     "id": 18,
@@ -376,7 +342,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/abca6c234d691644d59b14b1ecc7fbcaee683948-3600x2571.jpg?w=3600&h=2571&auto=format",
     "routeTo": "/projects/mandalay-mahar-akarit",
     "category": "commercial",
-    "chapterOrder": 18,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -386,8 +351,7 @@
       "retail"
     ],
     "style": "contemporary",
-    "frameArchetype": "threshold",
-    "borderColor": "#C6A664"
+    "frameArchetype": "threshold"
   },
   {
     "id": 19,
@@ -397,7 +361,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/476280b78f60252d73e37d572fbc09fb2e4520fb-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/royal-auto-service",
     "category": "commercial",
-    "chapterOrder": 19,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -407,8 +370,7 @@
       "urban"
     ],
     "style": "contemporary",
-    "frameArchetype": "urban",
-    "borderColor": "#FF8282"
+    "frameArchetype": "urban"
   },
   {
     "id": 20,
@@ -418,7 +380,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/4f1de826c7e68b775547d87e04b439fa2042c319-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/shwe-bonthar-gold-and-jewellery-shop",
     "category": "commercial",
-    "chapterOrder": 20,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -429,8 +390,7 @@
       "gold"
     ],
     "style": "traditional",
-    "frameArchetype": "threshold",
-    "borderColor": "#45519F"
+    "frameArchetype": "threshold"
   },
   {
     "id": 21,
@@ -440,7 +400,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/893a121595e0480b0fd3fa7dedcb310462b16289-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/shwe-yamin-fancy-and-bag-shop",
     "category": "commercial",
-    "chapterOrder": 21,
     "locationCity": "Monywa",
     "locationCountry": "Myanmar",
     "location": "Monywa, Myanmar",
@@ -450,8 +409,7 @@
       "retail"
     ],
     "style": "contemporary",
-    "frameArchetype": "threshold",
-    "borderColor": "#893521"
+    "frameArchetype": "threshold"
   },
   {
     "id": 22,
@@ -461,7 +419,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/9c18893ae2c5cd4f35241ce3fc0a8cde846eb687-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/universe-51-japanese-restaurant",
     "category": "hospitality",
-    "chapterOrder": 22,
     "locationCity": "Yangon",
     "locationCountry": "Myanmar",
     "location": "Yangon, Myanmar",
@@ -472,8 +429,7 @@
       "urban"
     ],
     "style": "contemporary",
-    "frameArchetype": "hospitality-glow",
-    "borderColor": "#f2e5dc"
+    "frameArchetype": "hospitality-glow"
   },
   {
     "id": 23,
@@ -483,7 +439,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/45a2c2a11346ddd7dc923a665e5c7a1b2be7ecc9-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/yadanar-moe-cafe",
     "category": "hospitality",
-    "chapterOrder": 23,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -493,8 +448,7 @@
       "warm-minimal"
     ],
     "style": "contemporary",
-    "frameArchetype": "hospitality-glow",
-    "borderColor": "#c3c0bb"
+    "frameArchetype": "hospitality-glow"
   },
   {
     "id": 24,
@@ -504,7 +458,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/d49f78867e71355689930b999f45bcef36a4c1e5-1860x1201.jpg?w=1860&h=1201&auto=format",
     "routeTo": "/projects/coffee-burma-restaurant",
     "category": "hospitality",
-    "chapterOrder": 24,
     "locationCity": "Pyin Oo Lwin",
     "locationCountry": "Myanmar",
     "location": "Pyin Oo Lwin, Myanmar",
@@ -514,8 +467,7 @@
       "warm-minimal"
     ],
     "style": "contemporary",
-    "frameArchetype": "hospitality-glow",
-    "borderColor": "#8B7355"
+    "frameArchetype": "hospitality-glow"
   },
   {
     "id": 25,
@@ -525,7 +477,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/e0d4a31a31b34bbc740dcbe653201009b1ec8cb9-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/she-cafe",
     "category": "hospitality",
-    "chapterOrder": 25,
     "locationCity": "Pyin Oo Lwin",
     "locationCountry": "Myanmar",
     "location": "Pyin Oo Lwin, Myanmar",
@@ -535,8 +486,7 @@
       "warm-minimal"
     ],
     "style": "contemporary",
-    "frameArchetype": "hospitality-glow",
-    "borderColor": "#633b2f"
+    "frameArchetype": "hospitality-glow"
   },
   {
     "id": 26,
@@ -546,7 +496,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/9869850e3fbc41a4711f95bab8c51d3ccadc9876-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/bokki",
     "category": "hospitality",
-    "chapterOrder": 26,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -556,8 +505,7 @@
       "contemporary"
     ],
     "style": "contemporary",
-    "frameArchetype": "hospitality-glow",
-    "borderColor": "#B0BFDE"
+    "frameArchetype": "hospitality-glow"
   },
   {
     "id": 27,
@@ -567,7 +515,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/805b1f201587b66cf51a2fd247d408e7279d064f-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/uvs-canteen",
     "category": "hospitality",
-    "chapterOrder": 27,
     "locationCity": "Yangon",
     "locationCountry": "Myanmar",
     "location": "Yangon, Myanmar",
@@ -577,8 +524,7 @@
       "urban"
     ],
     "style": "contemporary",
-    "frameArchetype": "hospitality-glow",
-    "borderColor": "#EEE9E2"
+    "frameArchetype": "hospitality-glow"
   },
   {
     "id": 28,
@@ -588,7 +534,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/c04a86c3615fef9bb3346ae02a11d341a8bd611e-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/buzz-kaffee",
     "category": "hospitality",
-    "chapterOrder": 28,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -598,8 +543,7 @@
       "warm-minimal"
     ],
     "style": "contemporary",
-    "frameArchetype": "hospitality-glow",
-    "borderColor": "#AFDDFF"
+    "frameArchetype": "hospitality-glow"
   },
   {
     "id": 29,
@@ -609,7 +553,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/9e91c20edd51eb8d52c075783a6446e733bbab2f-3600x2325.jpg?w=3600&h=2325&auto=format",
     "routeTo": "/projects/ingyin-myaing-academy",
     "category": "hospitality",
-    "chapterOrder": 29,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -619,8 +562,7 @@
       "serene"
     ],
     "style": "contemporary",
-    "frameArchetype": "interior-chamber",
-    "borderColor": "#645E26"
+    "frameArchetype": "interior-chamber"
   },
   {
     "id": 30,
@@ -630,7 +572,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/697a7b32d12b34f9a26e2043d088fba0e1898d5a-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/coffee-education-center",
     "category": "hospitality",
-    "chapterOrder": 30,
     "locationCity": "Pyin Oo Lwin",
     "locationCountry": "Myanmar",
     "location": "Pyin Oo Lwin, Myanmar",
@@ -640,8 +581,7 @@
       "warm-minimal"
     ],
     "style": "contemporary",
-    "frameArchetype": "hospitality-glow",
-    "borderColor": "#C6A664"
+    "frameArchetype": "hospitality-glow"
   },
   {
     "id": 31,
@@ -651,7 +591,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/2e24b4fa5920169d62b0b7ccb2f97cae0d2fc19d-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/hotel-wonderland",
     "category": "hospitality",
-    "chapterOrder": 31,
     "locationCity": "Mandalay",
     "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
@@ -662,8 +601,7 @@
       "hospitality"
     ],
     "style": "contemporary",
-    "frameArchetype": "hospitality-glow",
-    "borderColor": "#FF8282"
+    "frameArchetype": "hospitality-glow"
   },
   {
     "id": 32,
@@ -673,7 +611,6 @@
     "image": "https://cdn.sanity.io/images/4jb8q7bc/production/52956ba9c93f0929fad99cd73024945a38be2f8e-1440x1860.jpg?w=1440&h=1860&auto=format",
     "routeTo": "/projects/apollo-bar-and-ktv",
     "category": "hospitality",
-    "chapterOrder": 32,
     "locationCity": "Yangon",
     "locationCountry": "Myanmar",
     "location": "Yangon, Myanmar",
@@ -684,7 +621,6 @@
       "night"
     ],
     "style": "contemporary",
-    "frameArchetype": "hospitality-glow",
-    "borderColor": "#45519F"
+    "frameArchetype": "hospitality-glow"
   }
 ]

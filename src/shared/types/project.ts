@@ -43,7 +43,6 @@ export type ProjectCatalogueEntry = {
   image: string;
   routeTo: string;
   category: ProjectCategory;
-  chapterOrder: number;
   locationCity: string;
   locationCountry: string;
   location: string;
@@ -52,7 +51,6 @@ export type ProjectCatalogueEntry = {
   moodTags: string[];
   style?: FrameStyle;
   frameArchetype: FrameArchetype | 'auto';
-  borderColor?: string;
 };
 
 /** Flattened gallery row for detail layout (meta merged into featured image) */
