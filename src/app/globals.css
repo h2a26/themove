@@ -1,49 +1,20 @@
 @import 'tailwindcss';
 
 @theme {
-  /* --- Void to Paper --- */
-  --color-void: #0d0d12;
-  --color-ink: #1a1a22;
-  --color-graphite: #3d3d4a;
-  --color-slate: #64748b;
-  --color-silver: #94a3b8;
-  --color-mist: #cbd5e1;
-  --color-cloud: #f1f5f9;
-  --color-paper: #fafaf8;
-  --color-ivory: #f5f2eb;
-  --color-cream: #fdf8f0;
+  /* Retained: actively used as Tailwind utility classes or var(--color-*) in CSS */
   --color-white: #ffffff;
-
-  /* --- Material Layer --- */
-  --color-stone: #a8a29e;
-  --color-wood: #78716c;
-  --color-brass: #b5924d;
-  --color-linen: #e7e5df;
-  --color-plaster: #e8e4dc;
+  --color-ivory: #f5f2eb;
   --color-deep-earth: #38421f;
-
-  /* --- Kumihimo Red --- */
-  --color-cord-sunlit: #c53030;
-  --color-cord-rain: #9b2c2c;
-  --color-cord-highlight: #fc8181;
-  --color-cord-shadow: #822727;
-
-  /* --- Shinkai Atmospheric Accents --- */
-  --color-kataware: #f8c97a;
-  --color-twilight: #6366a8;
-  --color-comet: #e879a0;
-  --color-sky-clear: #e0f2fe;
-  --color-sky-rain: #607b8b;
-  --color-clearing: #7ec8e3;
 }
 
 /* Layer 2 — weather mode variables. Sunlit defaults; overridden at runtime by WeatherModeProvider. */
 :root {
-  --mode-bg-from: #fffdf8;
-  --mode-bg-via: #f8f4e8;
-  --mode-bg-to: rgba(246, 240, 222, 0.72);
-  --mode-surface: rgba(255, 252, 244, 0.72);
-  --mode-surface-hover: rgba(255, 250, 240, 0.88);
+  /* Sunlit: white → slate-50 → sky-100/60 (bottom-right diagonal) */
+  --mode-bg-from: #ffffff;
+  --mode-bg-via: #f8fafc;
+  --mode-bg-to: rgba(224, 242, 254, 0.60);
+  --mode-surface: rgba(255, 255, 255, 0.72);
+  --mode-surface-hover: rgba(248, 250, 252, 0.88);
   --mode-text-primary: #1a1a22;
   --mode-text-secondary: #64748b;
   --mode-text-tertiary: #94a3b8;
@@ -99,7 +70,11 @@ html {
 }
 
 body {
-  background: radial-gradient(ellipse at 60% 30%, var(--mode-shimmer) 0%, transparent 60%);
+  /* Base gradient: bottom-right diagonal, driven by weather mode CSS vars */
+  background:
+    radial-gradient(ellipse at 60% 30%, var(--mode-shimmer) 0%, transparent 60%),
+    linear-gradient(to bottom right, var(--mode-bg-from), var(--mode-bg-via), var(--mode-bg-to));
+  min-height: 100dvh;
 }
 
 /* Swiper pagination */

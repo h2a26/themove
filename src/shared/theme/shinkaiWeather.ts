@@ -45,11 +45,11 @@ export type ShinkaiWeatherTheme = {
 
 const SUNLIT: ShinkaiWeatherTheme = {
   surface: {
-    bgFrom: '#fffdf8',
-    bgVia: '#f8f4e8',
-    bgTo: 'rgba(246, 240, 222, 0.72)',
-    panel: 'rgba(255, 252, 244, 0.72)',
-    panelHover: 'rgba(255, 250, 240, 0.88)',
+    bgFrom: '#ffffff',
+    bgVia: '#f8fafc',
+    bgTo: 'rgba(224, 242, 254, 0.60)',
+    panel: 'rgba(255, 255, 255, 0.72)',
+    panelHover: 'rgba(248, 250, 252, 0.88)',
   },
   text: {
     primary: '#1a1a22',
@@ -88,11 +88,11 @@ const SUNLIT: ShinkaiWeatherTheme = {
 
 const RAIN: ShinkaiWeatherTheme = {
   surface: {
-    bgFrom: '#eef2f7',
-    bgVia: '#dbe4ef',
-    bgTo: 'rgba(160, 176, 198, 0.5)',
-    panel: 'rgba(226, 235, 246, 0.60)',
-    panelHover: 'rgba(215, 228, 245, 0.78)',
+    bgFrom: '#f1f5f9',
+    bgVia: '#e2e8f0',
+    bgTo: 'rgba(203, 213, 225, 0.60)',
+    panel: 'rgba(241, 245, 249, 0.72)',
+    panelHover: 'rgba(226, 232, 240, 0.88)',
   },
   text: {
     primary: '#1a1a22',
