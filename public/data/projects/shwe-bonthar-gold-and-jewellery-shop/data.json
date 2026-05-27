@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "slug": "shwe-bonthar-gold-and-jewellery-shop",
+    "title": "Shwe BonThar Gold & Jewellery Shop",
+    "category": "commercial",
+    "locationCity": "Mandalay",
+    "locationCountry": "Myanmar",
+    "location": "Mandalay, Myanmar",
+    "projectType": "interior",
+    "projectArea": null,
+    "moodTags": [
+      "retail",
+      "gold"
+    ],
+    "style": "traditional",
+    "frameArchetype": "threshold",
+    "oneLine": "Jewellery retail—display, light, and material warmth.",
+    "purpose": "Jewellery retail—display, light, and material warmth.",
+    "showcaseYear": "2023-2025"
+  },
+  "gallery": [
+    {
+      "id": 1,
+      "image": "https://cdn.sanity.io/images/4jb8q7bc/production/2e24b4fa5920169d62b0b7ccb2f97cae0d2fc19d-1440x1860.jpg?w=1440&h=1860&auto=format",
+      "aspect": "portrait"
+    },
+    {
+      "id": 2,
+      "image": "https://cdn.sanity.io/images/4jb8q7bc/production/9869850e3fbc41a4711f95bab8c51d3ccadc9876-1440x1860.jpg?w=1440&h=1860&auto=format",
+      "aspect": "portrait"
+    },
+    {
+      "id": 3,
+      "image": "https://cdn.sanity.io/images/4jb8q7bc/production/893a121595e0480b0fd3fa7dedcb310462b16289-1440x1860.jpg?w=1440&h=1860&auto=format",
+      "aspect": "portrait"
+    },
+    {
+      "id": 4,
+      "image": "https://cdn.sanity.io/images/4jb8q7bc/production/52956ba9c93f0929fad99cd73024945a38be2f8e-1440x1860.jpg?w=1440&h=1860&auto=format",
+      "aspect": "portrait"
+    },
+    {
+      "id": 5,
+      "image": "https://cdn.sanity.io/images/4jb8q7bc/production/805b1f201587b66cf51a2fd247d408e7279d064f-1440x1860.jpg?w=1440&h=1860&auto=format",
+      "aspect": "portrait"
+    }
+  ]
+}

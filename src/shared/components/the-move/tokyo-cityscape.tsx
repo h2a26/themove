@@ -1,16 +1,21 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { getHeroStrokes } from "@/shared/components/line-art/tokens"
 
 interface TokyoCityscapeProps {
   weatherMode: "sunlit" | "rain"
 }
 
+/**
+ * Hero right: urban contemporary Move archetype in Shinkai Tokyo vocabulary.
+ * Skyscrapers, trains, and shrine stairs evoke city apartments & commercial precision
+ * (e.g. Mayfair pied-à-terre, London projects)—not a literal film location.
+ * See THE_MOVE_MASTER_CONTEXT.md §6.
+ */
 export function TokyoCityscape({ weatherMode }: TokyoCityscapeProps) {
-  // Taki's Tokyo - modern urban buildings with Makoto Shinkai's detailed line art style
-  const strokeColor = weatherMode === "sunlit" ? "#64748b" : "#475569"
-  const strokeLight = weatherMode === "sunlit" ? "#94a3b8" : "#64748b"
-  const strokeFaint = weatherMode === "sunlit" ? "#cbd5e1" : "#94a3b8"
+  const { primary: strokeColor, light: strokeLight, faint: strokeFaint } =
+    getHeroStrokes(weatherMode)
   
   return (
     <svg 

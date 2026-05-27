@@ -1,10 +1,11 @@
 import type { MetadataRoute } from 'next';
+import { SITE_DESCRIPTION, SITE_NAME } from '@/shared/constants/site-metadata';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'The Move',
-    short_name: 'The Move',
-    description: 'A luxury & minimalist interior design studio in Myanmar.',
+    name: SITE_NAME,
+    short_name: SITE_NAME,
+    description: SITE_DESCRIPTION,
     start_url: '/',
     id: 'themovearchids.vercel.app',
     display: 'standalone',

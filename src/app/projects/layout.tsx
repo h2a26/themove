@@ -1,23 +1,28 @@
 import { Metadata } from 'next';
 import React from 'react';
+import {
+  OG_IMAGE,
+  OG_IMAGE_ALT,
+  PROJECTS_DESCRIPTION,
+  PROJECTS_TITLE,
+  SITE_URL,
+} from '@/shared/constants/site-metadata';
 
 export const metadata: Metadata = {
-  title: 'Projects | The Move',
-  description:
-    'Explore our portfolio of luxury interior design projects in Myanmar, spanning commercial, residential, and hospitality spaces.',
+  title: PROJECTS_TITLE,
+  description: PROJECTS_DESCRIPTION,
   alternates: {
-    canonical: 'https://themovearchids.vercel.app/projects',
+    canonical: `${SITE_URL}/projects`,
   },
   openGraph: {
-    title: 'Projects | The Move',
-    description:
-      'Explore our portfolio of luxury & minimalist interior design projects in Myanmar, spanning commercial, residential, and hospitality spaces.',
+    title: PROJECTS_TITLE,
+    description: PROJECTS_DESCRIPTION,
     images: [
       {
-        url: 'https://themovearchids.vercel.app/preview.jpg',
+        url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: 'The Move — a luxury & minimalist interior design studio in Myanmar',
+        alt: OG_IMAGE_ALT,
       },
     ],
   },

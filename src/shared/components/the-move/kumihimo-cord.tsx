@@ -1,9 +1,16 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { getShinkaiWeatherTheme } from '@/shared/theme/shinkaiWeather'
 
 interface KumihimoCordProps {
   weatherMode: "sunlit" | "rain"
+}
+
+/** Deterministic 0–1 value — avoids SSR/client hydration mismatch from Math.random() */
+function variation(seed: number): number {
+  const x = Math.sin(seed * 127.1 + 311.7) * 43758.5453123
+  return x - Math.floor(x)
 }
 
 /**
@@ -26,16 +33,7 @@ interface KumihimoCordProps {
  * It needs to be felt.
  */
 export function KumihimoCord({ weatherMode }: KumihimoCordProps) {
-  // Makoto Shinkai's atmospheric color palette
-  const colors = {
-    primary: weatherMode === "sunlit" ? "#c53030" : "#9b2c2c",
-    highlight: weatherMode === "sunlit" ? "#fc8181" : "#e53e3e",
-    midtone: weatherMode === "sunlit" ? "#e53e3e" : "#c53030",
-    shadow: weatherMode === "sunlit" ? "#822727" : "#63171b",
-    // Atmosphere colors - for invisible connection
-    lightMote: weatherMode === "sunlit" ? "rgba(252, 129, 129, 0.15)" : "rgba(229, 62, 62, 0.1)",
-    warmGlow: weatherMode === "sunlit" ? "rgba(197, 48, 48, 0.08)" : "rgba(155, 44, 44, 0.06)",
-  }
+  const colors = getShinkaiWeatherTheme(weatherMode).cord
   
   const opacity = weatherMode === "sunlit" ? 0.9 : 0.75
 
@@ -80,9 +78,11 @@ export function KumihimoCord({ weatherMode }: KumihimoCordProps) {
         mx: centerX + xOff * 0.6 + curve,
         my: startY + length * 0.5,
         ex: centerX + xOff + curve,
-        ey: startY + length + Math.random() * 4,
+        ey: startY + length + variation(i) * 4,
         delay: i * 0.025,
         color: i % 3,
+        strokeWidth: 0.4 + variation(i + 100) * 0.2,
+        opacity: 0.6 + variation(i + 200) * 0.3,
       })
     }
     return threads
@@ -226,9 +226,9 @@ export function KumihimoCord({ weatherMode }: KumihimoCordProps) {
               d={`M ${t.sx} ${t.sy} Q ${t.mx} ${t.my}, ${t.ex} ${t.ey}`}
               fill="none"
               stroke={t.color === 0 ? colors.primary : t.color === 1 ? colors.highlight : colors.midtone}
-              strokeWidth={0.4 + Math.random() * 0.2}
+              strokeWidth={t.strokeWidth}
               strokeLinecap="round"
-              opacity={0.6 + Math.random() * 0.3}
+              opacity={t.opacity}
               initial={{ pathLength: 0 }}
               animate={{
                 pathLength: 1,
@@ -260,11 +260,11 @@ export function KumihimoCord({ weatherMode }: KumihimoCordProps) {
             key={`mote-${i}`}
             className="absolute rounded-full"
             style={{
-              width: 1.5 + Math.random(),
-              height: 1.5 + Math.random(),
+              width: 1.5 + variation(i) * 1,
+              height: 1.5 + variation(i + 50) * 1,
               backgroundColor: colors.lightMote,
-              left: `${5 + i * 8 + Math.random() * 5}%`,
-              top: `${35 + i * 3 + Math.random() * 10}%`,
+              left: `${5 + i * 8 + variation(i + 25) * 5}%`,
+              top: `${35 + i * 3 + variation(i + 75) * 10}%`,
               filter: "blur(0.5px)",
             }}
             initial={{ opacity: 0, scale: 0 }}

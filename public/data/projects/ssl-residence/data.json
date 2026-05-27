@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "slug": "ssl-residence",
+    "title": "SSL Residence",
+    "category": "residential",
+    "locationCity": "Yangon",
+    "locationCountry": "Myanmar",
+    "location": "Yangon, Myanmar",
+    "projectType": "interior",
+    "projectArea": "456 sqft",
+    "moodTags": [
+      "urban",
+      "warm-minimal"
+    ],
+    "style": "contemporary",
+    "frameArchetype": "urban",
+    "oneLine": "A minimalist Yangon condo—calm, clarity, and soft material palettes.",
+    "purpose": "Located in Yangon, SSL Residence is a minimalist condo interior designed to bring calm and clarity into everyday urban living through simplicity, soft material palettes, and carefully balanced proportions.",
+    "showcaseYear": "2023-2025"
+  },
+  "gallery": [
+    {
+      "id": 1,
+      "image": "https://cdn.sanity.io/images/4jb8q7bc/production/697a7b32d12b34f9a26e2043d088fba0e1898d5a-1440x1860.jpg?w=1440&h=1860&auto=format",
+      "aspect": "portrait"
+    },
+    {
+      "id": 2,
+      "image": "https://cdn.sanity.io/images/4jb8q7bc/production/e0d4a31a31b34bbc740dcbe653201009b1ec8cb9-1440x1860.jpg?w=1440&h=1860&auto=format",
+      "aspect": "portrait"
+    },
+    {
+      "id": 3,
+      "image": "https://cdn.sanity.io/images/4jb8q7bc/production/4f1de826c7e68b775547d87e04b439fa2042c319-1440x1860.jpg?w=1440&h=1860&auto=format",
+      "aspect": "portrait"
+    },
+    {
+      "id": 4,
+      "image": "https://cdn.sanity.io/images/4jb8q7bc/production/2e24b4fa5920169d62b0b7ccb2f97cae0d2fc19d-1440x1860.jpg?w=1440&h=1860&auto=format",
+      "aspect": "portrait"
+    },
+    {
+      "id": 5,
+      "image": "https://cdn.sanity.io/images/4jb8q7bc/production/9869850e3fbc41a4711f95bab8c51d3ccadc9876-1440x1860.jpg?w=1440&h=1860&auto=format",
+      "aspect": "portrait"
+    }
+  ]
+}

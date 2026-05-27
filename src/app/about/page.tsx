@@ -31,15 +31,15 @@ export default function AboutPage() {
                 {/* Text Content */}
                 <div
                   className={`w-full md:w-1/2 flex ${
-                    item.bg || 'bg-light-beige'
-                  } text-white px-5 md:px-[5vw] lg:px-[4vw] py-5 md:py-[4vw] lg:py-[4vw]`}
+                    'shinkai-panel'
+                  } text-deep-black px-5 md:px-[5vw] lg:px-[4vw] py-5 md:py-[4vw] lg:py-[4vw]`}
                 >
                   <div
                     className="max-w-xl space-y-6 text-sm leading-relaxed tracking-[0.5px]"
                     style={{ fontFamily: 'var(--font-allrounder-antiqua)' }}
                   >
                     <h2
-                      className="tracking-[2px] uppercase text-[14px] md:text-[18px] mb-2"
+                      className="tracking-[2px] uppercase text-[14px] md:text-[18px] mb-2 text-deep-black"
                       style={{ fontFamily: 'var(--font-euclid-circular-b)' }}
                     >
                       {item.title}
@@ -56,7 +56,7 @@ export default function AboutPage() {
                     {item.description.map((para, i) => (
                       <p
                         key={i}
-                        className="opacity-90 text-light-beige text-[13px] md:text-[15px] tracking-wide"
+                        className="opacity-90 text-deep-black text-[13px] md:text-[15px] tracking-wide"
                       >
                         {para}
                       </p>
@@ -66,7 +66,7 @@ export default function AboutPage() {
 
                 {/* Image Content */}
                 {item.title === 'Pyae Thiri' ? (
-                  <div className="w-full md:w-1/2 flex items-center justify-center bg-light-beige p-5">
+                  <div className="w-full md:w-1/2 flex items-center justify-center p-5">
                     <Image
                       src={item.image}
                       alt={item.title}

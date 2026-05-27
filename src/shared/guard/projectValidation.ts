@@ -5,15 +5,15 @@ export function getValidSlugs(): string[] {
   const projectListPath = path.join(process.cwd(), 'public/data/project-list.json');
   if (!fs.existsSync(projectListPath)) return [];
   const raw = fs.readFileSync(projectListPath, 'utf-8');
-  let list: { routeTo: string }[];
+  let list: { slug?: string; routeTo?: string }[];
   try {
     list = JSON.parse(raw);
   } catch {
     return [];
   }
-  // Ensure only strings are returned, filter out undefined
   return list
     .map((item) => {
+      if (typeof item.slug === 'string') return item.slug;
       const slug = item.routeTo?.split('/').pop();
       return typeof slug === 'string' ? slug : undefined;
     })

@@ -1,43 +1,43 @@
 "use client"
 
-import { useState } from "react"
+import Link from "next/link"
 import { motion } from "framer-motion"
-import { CaretRight, Sun, CloudRain } from "phosphor-react"
 import { KumihimoCord } from "./kumihimo-cord"
 import { TokyoCityscape } from "./tokyo-cityscape"
 import { ItomoriVillage } from "./itomori-village"
 import { WeatherEffects } from "./weather-effects"
-import { WeatherToggle } from "./weather-toggle"
+import { useWeatherMode } from "@/shared/state/weather-mode-context"
 
 export function HeroSection() {
-  const [weatherMode, setWeatherMode] = useState<"sunlit" | "rain">("sunlit")
-  
-  const toggleWeather = () => {
-    setWeatherMode(prev => prev === "sunlit" ? "rain" : "sunlit")
-  }
-  
-  // Background gradient based on weather mode
-  const bgGradient = weatherMode === "sunlit" 
-    ? "bg-gradient-to-br from-white via-slate-50 to-sky-100/60"
-    : "bg-gradient-to-br from-slate-100 via-slate-200 to-slate-300/60"
+  const { mode: weatherMode } = useWeatherMode()
   
   return (
-    <section className={`relative min-h-screen w-full overflow-hidden transition-colors duration-1000 ${bgGradient}`}>
-      {/* Weather effects overlay */}
+    <section
+      className="relative min-h-screen w-full overflow-hidden transition-colors duration-1000"
+      style={{
+        backgroundImage: `linear-gradient(to bottom right, var(--shinkai-hero-from), var(--shinkai-hero-via), var(--shinkai-hero-to))`,
+      }}
+    >
       <WeatherEffects mode={weatherMode} />
       
-      {/* Kumihimo cord - the red string of fate connecting Taki and Mitsuha */}
       <KumihimoCord weatherMode={weatherMode} />
       
-      {/* Itomori Village - Mitsuha's rural home (left side) */}
-      <ItomoriVillage weatherMode={weatherMode} />
+      {/* Clickable atmospheric halves → /projects */}
+      <Link
+        href="/projects"
+        className="absolute left-0 top-0 z-[8] h-full w-1/2"
+        aria-label="Explore projects — heritage and tradition"
+      />
+      <Link
+        href="/projects"
+        className="absolute right-0 top-0 z-[8] h-full w-1/2"
+        aria-label="Explore projects — contemporary and urban"
+      />
       
-      {/* Tokyo Cityscape - Taki's urban world (right side) */}
+      <ItomoriVillage weatherMode={weatherMode} />
       <TokyoCityscape weatherMode={weatherMode} />
       
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 pt-20">
-        {/* Main headline */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 pt-20 pointer-events-none">
         <motion.h1 
           className="text-center"
           initial={{ opacity: 0, y: 30 }}
@@ -52,7 +52,6 @@ export function HeroSection() {
           </span>
         </motion.h1>
         
-        {/* Subheadline */}
         <motion.p 
           className="mt-8 text-center text-lg md:text-xl text-slate-500 max-w-lg"
           initial={{ opacity: 0, y: 20 }}
@@ -62,31 +61,27 @@ export function HeroSection() {
           A gentle catalogue of spaces, light, and memory.
         </motion.p>
         
-        {/* CTA Button */}
-        <motion.button
-          className="mt-10 group flex items-center gap-3 px-8 py-4 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div
+          className="mt-12 pointer-events-auto"
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
+          transition={{ duration: 0.6, delay: 0.85 }}
         >
-          <span className="text-sm font-medium tracking-widest uppercase">Explore the Story</span>
-          <motion.span
-            animate={{ x: [0, 4, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          <Link
+            href="/projects"
+            className="group inline-flex flex-col items-center gap-2 text-slate-500 hover:text-slate-700 transition-colors"
           >
-            <CaretRight className="w-4 h-4" weight="bold" />
-          </motion.span>
-        </motion.button>
-        
-        {/* Weather Toggle */}
-        <div className="mt-16">
-          <WeatherToggle mode={weatherMode} onToggle={toggleWeather} />
-        </div>
+            <span className="text-xs font-medium tracking-[0.35em] uppercase">explore</span>
+            <motion.span
+              className="block h-px w-8 bg-slate-400 group-hover:w-12 transition-all duration-700"
+              style={{ transitionTimingFunction: 'cubic-bezier(0.43, 0.13, 0.23, 0.96)' }}
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+            />
+          </Link>
+        </motion.div>
       </div>
       
-      {/* Subtle vignette overlay */}
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-white/20" />
     </section>
   )

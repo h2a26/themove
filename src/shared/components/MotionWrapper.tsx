@@ -2,14 +2,16 @@
 import { motion, Variants } from 'framer-motion';
 import React from 'react';
 
+const SHINKAI_BEZIER = [0.43, 0.13, 0.23, 0.96] as [number, number, number, number];
+
 const transitions = {
   smooth: {
     duration: 0.6,
-    ease: [0.43, 0.13, 0.23, 0.96], // Apple-style luxury curve
+    ease: SHINKAI_BEZIER, // Apple-style luxury curve
   },
   slow: {
     duration: 1,
-    ease: [0.43, 0.13, 0.23, 0.96],
+    ease: SHINKAI_BEZIER,
   },
 };
 

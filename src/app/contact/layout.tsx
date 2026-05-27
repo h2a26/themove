@@ -1,23 +1,28 @@
 import { Metadata } from 'next';
 import React from 'react';
+import {
+  CONTACT_DESCRIPTION,
+  CONTACT_TITLE,
+  OG_IMAGE,
+  OG_IMAGE_ALT,
+  SITE_URL,
+} from '@/shared/constants/site-metadata';
 
 export const metadata: Metadata = {
-  title: 'Contact | The Move',
-  description:
-    'Contact The Move — luxury interior designers in Myanmar. Get in touch for collaborations, inquiries, or consultations.',
+  title: CONTACT_TITLE,
+  description: CONTACT_DESCRIPTION,
   alternates: {
-    canonical: 'https://themovearchids.vercel.app/contact',
+    canonical: `${SITE_URL}/contact`,
   },
   openGraph: {
-    title: 'Contact | The Move',
-    description:
-      'Contact The Move — luxury interior designers in Myanmar. Get in touch for collaborations, inquiries, or consultations.',
+    title: CONTACT_TITLE,
+    description: CONTACT_DESCRIPTION,
     images: [
       {
-        url: 'https://themovearchids.vercel.app/preview.jpg',
+        url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: 'The Move — a luxury & minimalist interior design studio in Myanmar',
+        alt: OG_IMAGE_ALT,
       },
     ],
   },

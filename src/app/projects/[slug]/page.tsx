@@ -2,14 +2,14 @@ import { notFound } from 'next/navigation';
 import { ProjectSection } from '@/shared/components/project/ProjectSection';
 import { ProjectDetails } from '@/shared/components/project/ProjectDetails';
 import { featuredProjectGuard } from '@/shared/guard/featuredProjectGuard';
-import ProjectIndexGalleryClient from './ProjectIndexGalleryClient';
+import { parseProjectData, toDetailGallery } from '@/shared/lib/project-data';
 import { isValidProjectSlug } from '@/shared/guard/projectValidation';
 
 async function getProjectData(slug: string) {
   if (!isValidProjectSlug(slug)) return null;
   try {
     const data = await import(`@/public/data/projects/${slug}/data`);
-    return data.default;
+    return toDetailGallery(parseProjectData(data.default));
   } catch {
     return null;
   }
@@ -28,7 +28,6 @@ export default async function ProjectSlugPage({ params }: PageProps) {
     <>
       <ProjectSection projects={projects} />
       {featuredProject && <ProjectDetails {...featuredProject} />}
-      <ProjectIndexGalleryClient slug={slug} />
     </>
   );
 }

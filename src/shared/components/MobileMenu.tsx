@@ -49,7 +49,7 @@ export default function MobileMenu({ menuItems, textColor, pathname }: MobileMen
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.3 }}
-              className="absolute top-full left-0 w-full bg-light-beige/95 backdrop-blur-md shadow-md z-50 py-6 px-8"
+              className="absolute top-full left-0 w-full shinkai-panel shadow-md z-50 py-6 px-8"
               id="mobile-menu"
               role="menu"
             >

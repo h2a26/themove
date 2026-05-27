@@ -52,11 +52,17 @@ export default function HandleProtocolPage() {
   }, [url, router]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-light-beige text-deep-black p-8">
-      <h1 className="text-2xl font-bold mb-4">Protocol Handler</h1>
-      {error && <p className="text-red-600 mb-4">{error}</p>}
-      {!error && <p>Processing protocol link...</p>}
-      {url && <code className="block bg-gray-100 p-2 rounded text-sm mt-4">{url}</code>}
+    <div className="min-h-screen flex flex-col items-center justify-center text-deep-black p-8 text-center">
+      <div className="shinkai-panel rounded-2xl px-8 py-10 shadow-sm max-w-xl w-full">
+        <h1 className="text-2xl font-bold mb-4">Protocol Handler</h1>
+        {error && <p className="text-red-600 mb-4">{error}</p>}
+        {!error && <p>Processing protocol link...</p>}
+        {url && (
+          <code className="block shinkai-panel p-2 rounded text-sm mt-4 break-all">
+            {url}
+          </code>
+        )}
+      </div>
     </div>
   );
 }

@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import MobileMenu from './MobileMenu';
 import { motion } from 'framer-motion';
+import { WeatherToggle } from './the-move/weather-toggle';
+import { useWeatherMode } from '@/shared/state/weather-mode-context';
 
 const MENU_ITEMS = [
   { label: 'Projects', href: '/projects' },
@@ -13,9 +15,9 @@ const MENU_ITEMS = [
 
 export function Navbar() {
   const pathname = usePathname();
+  const { mode, toggle } = useWeatherMode();
 
-  const navColor =
-    'bg-white/75 backdrop-blur-md text-deep-black shadow-[0_2px_8px_rgba(0,0,0,0.05)]';
+  const navColor = 'shinkai-panel text-deep-black shadow-[0_2px_8px_rgba(0,0,0,0.05)]';
 
   return (
     <motion.nav
@@ -66,7 +68,10 @@ export function Navbar() {
         </ul>
 
         {/* Mobile Menu */}
-        <div className="flex-1 flex justify-end lg:justify-end">
+        <div className="flex-1 flex justify-end lg:justify-end items-center gap-3">
+          <div className="pointer-events-auto">
+            <WeatherToggle mode={mode} onToggle={toggle} compact />
+          </div>
           <MobileMenu
             menuItems={MENU_ITEMS}
             textColor={navColor.includes('text-deep-black') ? 'text-deep-black' : 'text-white'}

@@ -27,12 +27,13 @@ function DustMotes() {
       {motes.map((mote) => (
         <motion.div
           key={mote.id}
-          className="absolute rounded-full bg-amber-200/40"
+          className="absolute rounded-full"
           style={{
             left: `${mote.x}%`,
             top: `${mote.y}%`,
             width: mote.size,
             height: mote.size,
+            backgroundColor: 'var(--shinkai-dust-mote)',
           }}
           animate={{
             y: [0, -30, 0],
@@ -70,10 +71,13 @@ function RainDrops() {
       {drops.map((drop) => (
         <motion.div
           key={drop.id}
-          className="absolute w-px bg-gradient-to-b from-transparent via-slate-400/30 to-slate-400/10"
+          className="absolute"
           style={{
             left: `${drop.x}%`,
             height: 30 + Math.random() * 20,
+            width: 1,
+            background:
+              'linear-gradient(to bottom, transparent, var(--shinkai-rain-via), var(--shinkai-rain-to))',
           }}
           animate={{
             y: ["-10%", "110%"],
@@ -92,14 +96,13 @@ function RainDrops() {
 }
 
 // Light shimmer effect
-function LightShimmer({ mode }: { mode: "sunlit" | "rain" }) {
-  const color = mode === "sunlit" ? "rgba(255, 220, 150, 0.1)" : "rgba(150, 180, 220, 0.08)"
-  
+function LightShimmer() {
   return (
     <motion.div
       className="absolute inset-0 pointer-events-none"
       style={{
-        background: `radial-gradient(ellipse at 60% 30%, ${color} 0%, transparent 60%)`,
+        background:
+          'radial-gradient(ellipse at 60% 30%, var(--shinkai-shimmer) 0%, transparent 60%)',
       }}
       animate={{
         opacity: [0.5, 0.8, 0.5],
@@ -116,7 +119,7 @@ function LightShimmer({ mode }: { mode: "sunlit" | "rain" }) {
 export function WeatherEffects({ mode }: WeatherEffectsProps) {
   return (
     <div className="absolute inset-0 pointer-events-none">
-      <LightShimmer mode={mode} />
+      <LightShimmer />
       {mode === "sunlit" ? <DustMotes /> : <RainDrops />}
     </div>
   )

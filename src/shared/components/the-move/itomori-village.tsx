@@ -1,17 +1,20 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { getHeroStrokes } from "@/shared/components/line-art/tokens"
 
 interface ItomoriVillageProps {
   weatherMode: "sunlit" | "rain"
 }
 
+/**
+ * Hero left: heritage / traditional Move archetype in Shinkai Itomori vocabulary.
+ * Torii, irimoya roof, shoji, and mountains evoke restoration & craft (e.g. listed homes,
+ * Cotswolds estates)—not a literal film location. See THE_MOVE_MASTER_CONTEXT.md §6.
+ */
 export function ItomoriVillage({ weatherMode }: ItomoriVillageProps) {
-  // Mitsuha's rural Itomori - traditional Japanese architecture
-  const strokeColor = weatherMode === "sunlit" ? "#64748b" : "#475569"
-  const strokeLight = weatherMode === "sunlit" ? "#94a3b8" : "#64748b"
-  const strokeFaint = weatherMode === "sunlit" ? "#cbd5e1" : "#94a3b8"
-  const woodColor = weatherMode === "sunlit" ? "#78716c" : "#57534e"
+  const { primary: strokeColor, light: strokeLight, faint: strokeFaint, wood: woodColor } =
+    getHeroStrokes(weatherMode)
   
   return (
     <svg 

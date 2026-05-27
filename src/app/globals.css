@@ -2,18 +2,34 @@
 
 @theme {
   --color-light-beige: #f5f2eb;
-  --color-deep-beige: #f6f0de;
-  --color-gold: #c6a664;
   --color-olive: #38421f;
   --color-white: #ffffff;
-  --color-light-black: #383839;
   --color-deep-black: #1a1a1a;
   --color-light-gray: #c6c5bc;
   --color-deep-gray: #5c5b50;
-  --color-deep-chocolate: #633b2f;
+  /* Shinkai atmosphere palette (projects journey) */
+  --color-shinkai-twilight: #6366a8;
+  --color-shinkai-sky: #e0f2fe;
+  --color-shinkai-golden: #fbbf24;
+  --color-shinkai-rain: #94a3b8;
+  --line-art-stroke-faint: #cbd5e1;
+  --line-art-stroke-light: #94a3b8;
+  --line-art-stroke-primary: #64748b;
+
+  /* Shinkai weather theme vars (set by WeatherModeProvider) */
+  --shinkai-shimmer: rgba(255, 220, 150, 0.1);
+  --shinkai-dust-mote: rgba(253, 230, 138, 0.4);
+  --shinkai-rain-via: rgba(148, 163, 184, 0.3);
+  --shinkai-rain-to: rgba(148, 163, 184, 0.1);
+  --shinkai-panel-bg: rgba(255, 252, 244, 0.68);
 }
 
 @layer utilities {
+
+  .shinkai-panel {
+    backdrop-filter: blur(10px);
+  }
+
   .border-overlay {
     @apply absolute inset-0 border-[0px] border-olive opacity-0 z-10 pointer-events-none;
     transition:
@@ -26,6 +42,16 @@
     border-width: 20px;
     opacity: 1;
   }
+
+  .shinkai-projects-canvas {
+    padding-left: 0;
+  }
+
+  @media (min-width: 768px) {
+    .shinkai-projects-canvas {
+      padding-left: 1.5rem;
+    }
+  }
 }
 
 /* Removed @font-face and font utility classes. Fonts now loaded with next/font/local. */
@@ -33,6 +59,10 @@
 html {
   scrollbar-width: thin;
   scrollbar-color: var(--color-olive) transparent;
+}
+
+body {
+  background: radial-gradient(ellipse at 60% 30%, var(--shinkai-shimmer) 0%, transparent 60%);
 }
 
 /* Elevate bullet section positioning */
