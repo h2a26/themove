@@ -26,6 +26,35 @@ export function UrbanFrame({
       aria-hidden
     >
       <g fill="none" strokeLinecap="round">
+        {/* Power lines — Shinkai signature (far layer, draws first) */}
+        <AnimatedPath
+          d="M 130 95 L 130 68"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.09}
+          opacity={0.30}
+        />
+        <AnimatedPath
+          d="M 0 75 Q 60 80, 125 72 Q 180 65, 250 70"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.12}
+          opacity={0.35}
+        />
+        <AnimatedPath
+          d="M 0 85 Q 60 90, 125 82 Q 180 75, 250 80"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.18}
+          opacity={0.28}
+        />
+
         {/* Distant tower */}
         <AnimatedPath
           d="M 175 220 L 175 100 L 188 88 L 201 100 L 201 220"
@@ -126,6 +155,17 @@ export function UrbanFrame({
           useMountAnimation={useMountAnimation}
           delay={1.05}
           opacity={0.7}
+        />
+
+        {/* Wet ground reflection — rain atmosphere */}
+        <AnimatedPath
+          d="M 0 235 Q 125 230, 250 232"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={1.12}
+          opacity={0.20}
         />
 
         {/* Balcony apartment */}

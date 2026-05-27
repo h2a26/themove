@@ -22,14 +22,14 @@ export function ScrollCord({ containerRef }: ScrollCordProps) {
     offset: ['start start', 'end end'],
   });
 
-  const opacity = useTransform(scrollYProgress, [0, 0.06, 0.94, 1], [0, 0.2, 0.2, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.06, 0.94, 1], [0, 0.35, 0.35, 0]);
   const strokeDashoffset = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   if (reducedMotion) return null;
 
   return (
     <motion.div
-      className="pointer-events-none absolute left-3 top-0 z-10 hidden h-full w-4 md:left-6 md:block lg:left-10"
+      className="pointer-events-none absolute left-3 top-0 z-10 block h-full w-4 md:left-6 lg:left-10"
       style={{ opacity }}
       aria-hidden
     >

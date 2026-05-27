@@ -45,6 +45,58 @@ export function InteriorChamberFrame({
           useMountAnimation={useMountAnimation}
           delay={0.5}
         />
+        {/* Window grid — light source detail */}
+        <AnimatedLine
+          x1={125}
+          y1={55}
+          x2={125}
+          y2={110}
+          stroke={s.light}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.55}
+          opacity={0.35}
+        />
+        <AnimatedLine
+          x1={75}
+          y1={80}
+          x2={175}
+          y2={80}
+          stroke={s.light}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.58}
+          opacity={0.30}
+        />
+        {/* Window sill */}
+        <AnimatedLine
+          x1={72}
+          y1={112}
+          x2={178}
+          y2={112}
+          stroke={s.light}
+          strokeWidth={STROKE_WEIGHT.light}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.62}
+          opacity={0.55}
+        />
+        {/* Ceiling beam hint */}
+        <AnimatedLine
+          x1={75}
+          y1={110}
+          x2={175}
+          y2={110}
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.42}
+          opacity={0.25}
+        />
+        {/* Light ray above window */}
         <AnimatedLine
           x1={125}
           y1={55}
@@ -80,6 +132,26 @@ export function InteriorChamberFrame({
           useMountAnimation={useMountAnimation}
           delay={0.85}
           opacity={0.65}
+        />
+
+        {/* Floor material grain — handcraft texture */}
+        <AnimatedPath
+          d="M 55 155 Q 125 152, 195 155"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.75}
+          opacity={0.15}
+        />
+        <AnimatedPath
+          d="M 55 183 Q 125 180, 195 183"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.78}
+          opacity={0.12}
         />
       </g>
     </svg>

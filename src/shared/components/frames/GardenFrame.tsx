@@ -38,6 +38,26 @@ export function GardenFrame({
           delay={0.2}
           opacity={0.35}
         />
+        {/* Water surface ripples */}
+        <AnimatedPath
+          d="M 0 202 Q 80 197, 160 200 Q 210 198, 250 201"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.25}
+          opacity={0.30}
+        />
+        <AnimatedPath
+          d="M 20 208 Q 100 204, 180 207"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.30}
+          opacity={0.22}
+        />
+
         <AnimatedPath
           d="M 30 175 Q 45 120, 60 175"
           stroke={s.wood}
@@ -46,6 +66,16 @@ export function GardenFrame({
           useMountAnimation={useMountAnimation}
           delay={0.35}
         />
+        {/* Left tree foliage — organic swept form */}
+        <AnimatedPath
+          d="M 15 175 Q 30 155, 50 165 Q 60 145, 30 135"
+          stroke={s.wood}
+          strokeWidth={STROKE_WEIGHT.light}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.38}
+          opacity={0.50}
+        />
         <AnimatedPath
           d="M 180 175 Q 195 110, 210 175"
           stroke={s.wood}
@@ -53,6 +83,16 @@ export function GardenFrame({
           drawProgress={drawProgress}
           useMountAnimation={useMountAnimation}
           delay={0.42}
+        />
+        {/* Right tree foliage — mirrored */}
+        <AnimatedPath
+          d="M 165 175 Q 180 155, 200 165 Q 210 145, 180 135"
+          stroke={s.wood}
+          strokeWidth={STROKE_WEIGHT.light}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.45}
+          opacity={0.50}
         />
         <AnimatedPath
           d="M 85 220 L 85 165 L 165 165 L 165 220"
@@ -89,6 +129,26 @@ export function GardenFrame({
           drawProgress={drawProgress}
           useMountAnimation={useMountAnimation}
           delay={0.95}
+        />
+
+        {/* Bamboo / grass marks — right edge foreground */}
+        <AnimatedPath
+          d="M 220 220 L 215 185"
+          stroke={s.wood}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.60}
+          opacity={0.40}
+        />
+        <AnimatedPath
+          d="M 228 220 L 225 190"
+          stroke={s.wood}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.65}
+          opacity={0.35}
         />
       </g>
     </svg>
