@@ -89,14 +89,14 @@ export function KumihimoCord({ weatherMode }: KumihimoCordProps) {
   }
 
   const cx = 38 // Position near left edge, subtle
-  const bw = 5 // Thin width - delicate
+  const bw = 12 // Visible cord width — reads as a real cord, not a thread
   const startY = -5
   const stitchH = 2.5 // Small stitches for fine detail
   const stitchCount = 140
   const endY = startY + stitchCount * stitchH
 
   const braidPattern = generateBraidPattern(cx, startY, bw, stitchCount, stitchH)
-  const tassel = generateTassel(cx, endY + 8, 9, 10, 22)
+  const tassel = generateTassel(cx, endY + 8, 11, 16, 28)
 
   return (
     <>
@@ -124,7 +124,7 @@ export function KumihimoCord({ weatherMode }: KumihimoCordProps) {
           width={bw}
           height={stitchCount * stitchH}
           fill="url(#braidGrad)"
-          opacity={0.2 * opacity}
+          opacity={0.38 * opacity}
           initial={{ scaleY: 0 }}
           animate={{ scaleY: 1 }}
           style={{ transformOrigin: "top" }}
@@ -135,8 +135,8 @@ export function KumihimoCord({ weatherMode }: KumihimoCordProps) {
         <motion.line
           x1={cx - bw / 2} y1={startY} x2={cx - bw / 2} y2={endY}
           stroke={colors.shadow}
-          strokeWidth="0.4"
-          opacity={0.5 * opacity}
+          strokeWidth="0.7"
+          opacity={0.75 * opacity}
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
@@ -144,8 +144,8 @@ export function KumihimoCord({ weatherMode }: KumihimoCordProps) {
         <motion.line
           x1={cx + bw / 2} y1={startY} x2={cx + bw / 2} y2={endY}
           stroke={colors.shadow}
-          strokeWidth="0.4"
-          opacity={0.5 * opacity}
+          strokeWidth="0.7"
+          opacity={0.75 * opacity}
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
@@ -164,33 +164,33 @@ export function KumihimoCord({ weatherMode }: KumihimoCordProps) {
               <line
                 x1={s.left.x1} y1={s.left.y1} x2={s.left.x2} y2={s.left.y2}
                 stroke={s.even ? colors.primary : colors.midtone}
-                strokeWidth="0.35"
+                strokeWidth="0.5"
                 strokeLinecap="round"
-                opacity={0.7}
+                opacity={0.85}
               />
               {/* Chevron right arm */}
               <line
                 x1={s.right.x1} y1={s.right.y1} x2={s.right.x2} y2={s.right.y2}
                 stroke={s.even ? colors.midtone : colors.primary}
-                strokeWidth="0.35"
+                strokeWidth="0.5"
                 strokeLinecap="round"
-                opacity={0.7}
+                opacity={0.85}
               />
               {/* Return - left */}
               <line
                 x1={s.leftReturn.x1} y1={s.leftReturn.y1} x2={s.leftReturn.x2} y2={s.leftReturn.y2}
                 stroke={s.even ? colors.shadow : colors.primary}
-                strokeWidth="0.3"
+                strokeWidth="0.4"
                 strokeLinecap="round"
-                opacity={0.5}
+                opacity={0.65}
               />
               {/* Return - right */}
               <line
                 x1={s.rightReturn.x1} y1={s.rightReturn.y1} x2={s.rightReturn.x2} y2={s.rightReturn.y2}
                 stroke={s.even ? colors.primary : colors.shadow}
-                strokeWidth="0.3"
+                strokeWidth="0.4"
                 strokeLinecap="round"
-                opacity={0.5}
+                opacity={0.65}
               />
             </motion.g>
           ))}
