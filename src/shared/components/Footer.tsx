@@ -5,7 +5,7 @@ import Link from 'next/link';
 export function Footer() {
   return (
     <footer
-      className="shinkai-panel text-deep-black text-sm px-6 md:px-16 py-12 text-[13px]"
+      className="shinkai-panel text-[var(--mode-text-primary)] text-sm px-6 md:px-16 py-12 text-[13px]"
       style={{ fontFamily: 'var(--font-euclid)' }}
     >
       <div className="max-w-6xl mx-auto space-y-12">
@@ -15,7 +15,7 @@ export function Footer() {
           Move.
         </p>
 
-        <hr className="border-light-gray" />
+        <hr className="border-[var(--mode-border)]" />
 
         {/* Contact & Links */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left justify-items-center">
@@ -40,7 +40,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="group w-7 h-7 flex items-center justify-center border border-deep-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
           >
-            <InstagramLogo className="w-5 h-5 text-deep-gray transition-colors duration-300 group-hover:text-light-beige" />
+            <InstagramLogo className="w-5 h-5 text-[var(--mode-text-secondary)] transition-colors duration-300 group-hover:text-ivory" />
           </a>
 
           <a
@@ -49,7 +49,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="group w-7 h-7 flex items-center justify-center border border-deep-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
           >
-            <YoutubeLogo className="w-5 h-5 text-deep-gray transition-colors duration-300 group-hover:text-light-beige" />
+            <YoutubeLogo className="w-5 h-5 text-[var(--mode-text-secondary)] transition-colors duration-300 group-hover:text-ivory" />
           </a>
 
           <a
@@ -58,7 +58,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="group w-7 h-7 flex items-center justify-center border border-deep-gray rounded-full transition-all duration-300 hover:border-black hover:bg-black"
           >
-            <TiktokLogo className="w-5 h-5 text-deep-gray transition-colors duration-300 group-hover:text-light-beige" />
+            <TiktokLogo className="w-5 h-5 text-[var(--mode-text-secondary)] transition-colors duration-300 group-hover:text-ivory" />
           </a>
         </div>
 
@@ -74,7 +74,7 @@ export function Footer() {
               Terms & Conditions
             </a>
             <span>|</span>
-            <span className="italic hover:text-[#C9485B] hover:cursor-pointer">For Thi</span>
+            <span className="italic hover:text-[var(--mode-cord)] hover:cursor-pointer">For Thi</span>
           </div>
         </div>
       </div>

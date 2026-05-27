@@ -1,37 +1,76 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-light-beige: #f5f2eb;
-  --color-olive: #38421f;
+  /* --- Void to Paper --- */
+  --color-void: #0d0d12;
+  --color-ink: #1a1a22;
+  --color-graphite: #3d3d4a;
+  --color-slate: #64748b;
+  --color-silver: #94a3b8;
+  --color-mist: #cbd5e1;
+  --color-cloud: #f1f5f9;
+  --color-paper: #fafaf8;
+  --color-ivory: #f5f2eb;
+  --color-cream: #fdf8f0;
   --color-white: #ffffff;
-  --color-deep-black: #1a1a1a;
-  --color-light-gray: #c6c5bc;
-  --color-deep-gray: #5c5b50;
-  /* Shinkai atmosphere palette (projects journey) */
-  --color-shinkai-twilight: #6366a8;
-  --color-shinkai-sky: #e0f2fe;
-  --color-shinkai-golden: #fbbf24;
-  --color-shinkai-rain: #94a3b8;
-  --line-art-stroke-faint: #cbd5e1;
-  --line-art-stroke-light: #94a3b8;
-  --line-art-stroke-primary: #64748b;
 
-  /* Shinkai weather theme vars (set by WeatherModeProvider) */
-  --shinkai-shimmer: rgba(255, 220, 150, 0.1);
-  --shinkai-dust-mote: rgba(253, 230, 138, 0.4);
-  --shinkai-rain-via: rgba(148, 163, 184, 0.3);
-  --shinkai-rain-to: rgba(148, 163, 184, 0.1);
-  --shinkai-panel-bg: rgba(255, 252, 244, 0.68);
+  /* --- Material Layer --- */
+  --color-stone: #a8a29e;
+  --color-wood: #78716c;
+  --color-brass: #b5924d;
+  --color-linen: #e7e5df;
+  --color-plaster: #e8e4dc;
+  --color-deep-earth: #38421f;
+
+  /* --- Kumihimo Red --- */
+  --color-cord-sunlit: #c53030;
+  --color-cord-rain: #9b2c2c;
+  --color-cord-highlight: #fc8181;
+  --color-cord-shadow: #822727;
+
+  /* --- Shinkai Atmospheric Accents --- */
+  --color-kataware: #f8c97a;
+  --color-twilight: #6366a8;
+  --color-comet: #e879a0;
+  --color-sky-clear: #e0f2fe;
+  --color-sky-rain: #607b8b;
+  --color-clearing: #7ec8e3;
+}
+
+/* Layer 2 — weather mode variables. Sunlit defaults; overridden at runtime by WeatherModeProvider. */
+:root {
+  --mode-bg-from: #fffdf8;
+  --mode-bg-via: #f8f4e8;
+  --mode-bg-to: rgba(246, 240, 222, 0.72);
+  --mode-surface: rgba(255, 252, 244, 0.72);
+  --mode-surface-hover: rgba(255, 250, 240, 0.88);
+  --mode-text-primary: #1a1a22;
+  --mode-text-secondary: #64748b;
+  --mode-text-tertiary: #94a3b8;
+  --mode-text-inverse: #fafaf8;
+  --mode-border: rgba(120, 113, 108, 0.12);
+  --mode-border-strong: rgba(120, 113, 108, 0.28);
+  --mode-stroke-primary: #78716c;
+  --mode-stroke-light: #a8a29e;
+  --mode-stroke-faint: #d6d3d1;
+  --mode-stroke-wood: #78716c;
+  --mode-shimmer: rgba(255, 220, 150, 0.1);
+  --mode-particle: rgba(251, 191, 36, 0.35);
+  --mode-particle-glow: rgba(251, 191, 36, 0.08);
+  --mode-cord: #c53030;
+  --mode-cord-highlight: #fc8181;
+  --mode-cord-shadow: #822727;
+  --mode-cord-glow: rgba(197, 48, 48, 0.08);
 }
 
 @layer utilities {
-
   .shinkai-panel {
+    background-color: var(--mode-surface);
     backdrop-filter: blur(10px);
   }
 
   .border-overlay {
-    @apply absolute inset-0 border-[0px] border-olive opacity-0 z-10 pointer-events-none;
+    @apply absolute inset-0 border-[0px] border-deep-earth opacity-0 z-10 pointer-events-none;
     transition:
       border-width 2s cubic-bezier(0.19, 1, 0.22, 1),
       opacity 2s cubic-bezier(0.19, 1, 0.22, 1);
@@ -54,26 +93,23 @@
   }
 }
 
-/* Removed @font-face and font utility classes. Fonts now loaded with next/font/local. */
-
 html {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-olive) transparent;
+  scrollbar-color: var(--color-deep-earth) transparent;
 }
 
 body {
-  background: radial-gradient(ellipse at 60% 30%, var(--shinkai-shimmer) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 60% 30%, var(--mode-shimmer) 0%, transparent 60%);
 }
 
-/* Elevate bullet section positioning */
+/* Swiper pagination */
 .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
-  bottom: 80px; /* a little closer for elegance, adjust as needed */
+  bottom: 80px;
   display: flex;
   justify-content: center;
-  gap: 16px; /* Space between bullets for clean layout */
+  gap: 16px;
 }
 
-/* Base bullet styling */
 .swiper-pagination-bullet {
   width: 14px;
   height: 14px;
@@ -85,15 +121,13 @@ body {
   transition: all 0.3s ease;
 }
 
-/* Active bullet styling for luxurious look */
 .swiper-pagination-bullet-active {
-  background-color: var(--color-olive) !important;
+  background-color: var(--color-deep-earth) !important;
   border: 1px solid var(--color-white);
-  box-shadow: 0 0 6px var(--color-olive) !important;
+  box-shadow: 0 0 6px var(--color-deep-earth) !important;
   transform: scale(1);
 }
 
-/* Hover effect for a luxury feel */
 .swiper-pagination-bullet:hover {
   transform: scale(1.2);
   background-color: var(--color-white);

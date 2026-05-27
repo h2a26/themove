@@ -20,7 +20,7 @@ function ChapterIcon({
   category: ProjectCategory;
   drawProgress: number;
 }) {
-  const stroke = '#64748b';
+  const stroke = 'var(--mode-stroke-primary)';
 
   if (category === 'residential') {
     return (
@@ -124,13 +124,13 @@ export function ChapterInterstitial({ chapter }: ChapterInterstitialProps) {
     >
       <ChapterIcon category={chapter.category} drawProgress={reducedMotion ? 1 : drawProgress} />
       <p
-        className="mt-8 text-center text-[0.65rem] uppercase tracking-[0.35em] text-slate-500"
+        className="mt-8 text-center text-[0.65rem] uppercase tracking-[0.35em] text-[var(--mode-text-tertiary)]"
         style={{ fontFamily: 'var(--font-euclid)' }}
       >
         {chapter.subtitle}
       </p>
       <h2
-        className="mt-3 text-center text-xl tracking-[0.12em] text-deep-gray md:text-2xl"
+        className="mt-3 text-center text-xl tracking-[0.12em] text-[var(--mode-text-secondary)] md:text-2xl"
         style={{ fontFamily: 'var(--font-acaslon-pro)' }}
       >
         {chapter.title}

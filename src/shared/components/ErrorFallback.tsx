@@ -28,10 +28,10 @@ const ErrorFallback: React.FC<ErrorFallbackProps> = ({
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center">
       <h2 className="text-2xl font-bold text-red-600 mb-4">{title}</h2>
-      {message && <p className="mb-2 text-gray-700">{message}</p>}
-      <p className="mb-6 text-gray-700">{error.message}</p>
+      {message && <p className="mb-2 text-[var(--mode-text-secondary)]">{message}</p>}
+      <p className="mb-6 text-[var(--mode-text-secondary)]">{error.message}</p>
       <button
-        className="px-6 py-2 bg-olive text-white rounded hover:bg-olive-dark transition hover:cursor-pointer"
+        className="px-6 py-2 bg-deep-earth text-white rounded transition hover:cursor-pointer hover:opacity-90"
         onClick={() => {
           reset();
           onFullReset?.();

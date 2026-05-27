@@ -29,7 +29,7 @@ export function AtmosphereLayer({
     : isGolden
       ? 'rgba(251, 191, 36, 0.4)'
       : variant === 'blueHour'
-        ? 'rgba(147, 197, 253, 0.35)'
+        ? 'rgba(99, 102, 168, 0.30)'
         : 'rgba(203, 213, 225, 0.4)';
 
   return (

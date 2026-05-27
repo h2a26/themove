@@ -32,14 +32,14 @@ export default function AboutPage() {
                 <div
                   className={`w-full md:w-1/2 flex ${
                     'shinkai-panel'
-                  } text-deep-black px-5 md:px-[5vw] lg:px-[4vw] py-5 md:py-[4vw] lg:py-[4vw]`}
+                  } text-[var(--mode-text-primary)] px-5 md:px-[5vw] lg:px-[4vw] py-5 md:py-[4vw] lg:py-[4vw]`}
                 >
                   <div
                     className="max-w-xl space-y-6 text-sm leading-relaxed tracking-[0.5px]"
                     style={{ fontFamily: 'var(--font-allrounder-antiqua)' }}
                   >
                     <h2
-                      className="tracking-[2px] uppercase text-[14px] md:text-[18px] mb-2 text-deep-black"
+                      className="tracking-[2px] uppercase text-[14px] md:text-[18px] mb-2 text-[var(--mode-text-primary)]"
                       style={{ fontFamily: 'var(--font-euclid-circular-b)' }}
                     >
                       {item.title}
@@ -56,7 +56,7 @@ export default function AboutPage() {
                     {item.description.map((para, i) => (
                       <p
                         key={i}
-                        className="opacity-90 text-deep-black text-[13px] md:text-[15px] tracking-wide"
+                        className="opacity-90 text-[var(--mode-text-primary)] text-[13px] md:text-[15px] tracking-wide"
                       >
                         {para}
                       </p>

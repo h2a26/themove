@@ -33,7 +33,7 @@ function DustMotes() {
             top: `${mote.y}%`,
             width: mote.size,
             height: mote.size,
-            backgroundColor: 'var(--shinkai-dust-mote)',
+            backgroundColor: 'var(--mode-particle)',
           }}
           animate={{
             y: [0, -30, 0],
@@ -77,7 +77,7 @@ function RainDrops() {
             height: 30 + Math.random() * 20,
             width: 1,
             background:
-              'linear-gradient(to bottom, transparent, var(--shinkai-rain-via), var(--shinkai-rain-to))',
+              'linear-gradient(to bottom, transparent, var(--mode-particle), transparent)',
           }}
           animate={{
             y: ["-10%", "110%"],
@@ -102,7 +102,7 @@ function LightShimmer() {
       className="absolute inset-0 pointer-events-none"
       style={{
         background:
-          'radial-gradient(ellipse at 60% 30%, var(--shinkai-shimmer) 0%, transparent 60%)',
+          'radial-gradient(ellipse at 60% 30%, var(--mode-shimmer) 0%, transparent 60%)',
       }}
       animate={{
         opacity: [0.5, 0.8, 0.5],
