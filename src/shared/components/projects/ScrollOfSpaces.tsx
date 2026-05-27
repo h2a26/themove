@@ -1,10 +1,8 @@
 'use client';
 
-import { Fragment } from 'react';
 import chapters from '@/public/data/chapters.json';
 import { groupCatalogueByChapter, type ChapterDefinition } from '@/shared/lib/group-catalogue-by-chapter';
 import { ChapterInterstitial } from './ChapterInterstitial';
-import { CordSegment } from './CordSegment';
 import { SpaceVignette, type SpaceVignetteProps } from './SpaceVignette';
 
 export type ScrollOfSpacesProject = SpaceVignetteProps & {
@@ -27,11 +25,8 @@ export function ScrollOfSpaces({ projects }: ScrollOfSpacesProps) {
       {groups.map(({ chapter, projects: chapterProjects }) => (
         <div key={chapter.id} data-chapter={chapter.id}>
           <ChapterInterstitial chapter={chapter} />
-          {chapterProjects.map((project, idx) => (
-            <Fragment key={project.id}>
-              {idx > 0 && <CordSegment />}
-              <SpaceVignette {...project} />
-            </Fragment>
+          {chapterProjects.map((project) => (
+            <SpaceVignette key={project.id} {...project} />
           ))}
         </div>
       ))}
