@@ -42,7 +42,7 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-8 py-3 flex items-center">
         {/* Logo */}
-        <div className="flex-1">
+        <div className="flex-none">
           <Link
             href="/"
             className="text-[18px] uppercase hover:text-[var(--mode-cord)] font-[800] tracking-[8px]"
@@ -53,7 +53,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop Links */}
-        <ul className="hidden lg:flex flex-1 justify-center gap-10 uppercase text-[12px] tracking-[2px]">
+        <ul className="hidden lg:flex ml-auto gap-10 uppercase text-[12px] tracking-[2px]">
           {MENU_ITEMS.map((item) => {
             const isActive = pathname === item.href;
             return (
@@ -80,7 +80,7 @@ export function Navbar() {
         </ul>
 
         {/* Mobile Menu */}
-        <div className="flex-1 flex justify-end lg:justify-end items-center gap-3">
+        <div className="flex-none flex items-center gap-3 ml-8">
           <div className="pointer-events-auto">
             <WeatherToggle mode={mode} onToggle={toggle} compact />
           </div>
