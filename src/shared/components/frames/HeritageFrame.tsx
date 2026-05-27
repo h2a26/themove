@@ -126,6 +126,58 @@ export function HeritageFrame({
           delay={1.1}
           opacity={0.5}
         />
+
+        {/* Second mountain layer — deeper atmosphere */}
+        <AnimatedPath
+          d="M -20 210 Q 80 160, 150 180 Q 200 165, 270 190"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.05}
+          opacity={0.20}
+        />
+
+        {/* Pine trunk — left foreground */}
+        <AnimatedPath
+          d="M 20 220 L 20 175"
+          stroke={s.wood}
+          strokeWidth={STROKE_WEIGHT.light}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.85}
+          opacity={0.55}
+        />
+        {/* Pine foliage — upper triangle */}
+        <AnimatedPath
+          d="M 10 185 L 20 170 L 30 185"
+          stroke={s.wood}
+          strokeWidth={STROKE_WEIGHT.light}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.95}
+          opacity={0.50}
+        />
+        {/* Pine branch overhang — sweeps into composition */}
+        <AnimatedPath
+          d="M 10 180 Q 45 175, 80 185"
+          stroke={s.wood}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={1.0}
+          opacity={0.45}
+        />
+        {/* Ground shadow — organic foreground texture */}
+        <AnimatedPath
+          d="M 30 225 Q 80 220, 100 222"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={1.15}
+          opacity={0.25}
+        />
       </g>
     </svg>
   );

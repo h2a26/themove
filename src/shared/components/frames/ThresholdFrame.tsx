@@ -20,6 +20,17 @@ export function ThresholdFrame({
       aria-hidden
     >
       <g fill="none" strokeLinecap="round">
+        {/* Overhead power line — Shinkai city signal */}
+        <AnimatedPath
+          d="M 0 100 Q 125 95, 250 98"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.1}
+          opacity={0.30}
+        />
+
         <AnimatedPath
           d="M 40 220 L 40 120 L 210 120 L 210 220"
           stroke={s.primary}
@@ -75,6 +86,55 @@ export function ThresholdFrame({
           useMountAnimation={useMountAnimation}
           delay={0.95}
           opacity={0.45}
+        />
+
+        {/* Stone courses — material texture */}
+        <AnimatedPath
+          d="M 40 150 Q 125 147, 210 150"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.28}
+          opacity={0.22}
+        />
+        <AnimatedPath
+          d="M 40 170 Q 125 167, 210 170"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.32}
+          opacity={0.22}
+        />
+        <AnimatedPath
+          d="M 40 190 Q 125 187, 210 190"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.36}
+          opacity={0.22}
+        />
+        {/* Wrought iron arch — decorative detail above door */}
+        <AnimatedPath
+          d="M 40 120 Q 55 108, 70 120"
+          stroke={s.light}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.60}
+          opacity={0.55}
+        />
+        {/* Window sill detail */}
+        <AnimatedPath
+          d="M 55 145 L 85 145"
+          stroke={s.faint}
+          strokeWidth={STROKE_WEIGHT.faint}
+          drawProgress={drawProgress}
+          useMountAnimation={useMountAnimation}
+          delay={0.70}
+          opacity={0.35}
         />
       </g>
     </svg>
