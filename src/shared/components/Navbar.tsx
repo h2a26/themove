@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import MobileMenu from './MobileMenu';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useScroll } from 'framer-motion';
 import { WeatherToggle } from './the-move/weather-toggle';
 import { useWeatherMode } from '@/shared/state/weather-mode-context';
 
@@ -17,14 +17,26 @@ export function Navbar() {
   const pathname = usePathname();
   const { mode, toggle } = useWeatherMode();
 
-  const navColor = 'shinkai-panel text-[var(--mode-text-primary)] shadow-[0_2px_8px_rgba(0,0,0,0.05)]';
+  const { scrollY } = useScroll();
+  // 0 → 80px scroll: bg opacity 0.0 → 0.78, border 0 → 1
+  const bgOpacity    = useTransform(scrollY, [0, 80], [0.0, 0.78])
+  const borderOpacity = useTransform(scrollY, [0, 80], [0, 1])
+
+  const baseBg  = mode === 'rain' ? '241,245,249' : '255,255,255'
 
   return (
     <motion.nav
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1.4, ease: [0.43, 0.13, 0.23, 0.96] }}
-      className={`fixed w-full top-0 z-50 z-50 transition-all duration-700 ease-[cubic-bezier(0.43, 0.13, 0.23, 0.96)] ${navColor}`}
+      className="fixed w-full top-0 z-50 text-[var(--mode-text-primary)]"
+      style={{
+        backgroundColor: useTransform(bgOpacity, (v) => `rgba(${baseBg},${v})`),
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderBottom: '1px solid transparent',
+        borderColor: useTransform(borderOpacity, (v) => `rgba(120,113,108,${v * 0.1})`),
+      }}
       data-lenis-prevent
       aria-label="Main navigation"
     >
