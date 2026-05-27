@@ -6,77 +6,99 @@ import { usePrefersReducedMotion } from '@/shared/hooks/usePrefersReducedMotion'
 import { useWeatherMode } from '@/shared/state/weather-mode-context';
 import { getShinkaiWeatherTheme } from '@/shared/theme/shinkaiWeather';
 
+/** Deterministic 0–1 seed — no SSR/client hydration mismatch */
+function variation(seed: number): number {
+  const x = Math.sin(seed * 127.1 + 311.7) * 43758.5453123;
+  return x - Math.floor(x);
+}
+
 /**
  * CordSegment — Akai Ito (赤い糸)
  *
  * "Musubi — the threads twist, tangle, unravel, connect again.
  *  That's time. That's musubi." — Miyamizu Hitoha, Your Name
  *
- * A short piece of authentic 8-bobbin kumihimo cord rendered between
- * adjacent project cards. As each gap enters the viewport the cord
- * draws in — the red string of fate connecting each client's story
- * to the next. Musubi. The binding of fates across The Move's work.
+ * A short piece of Mitsuha's kumihimo cord rendered between adjacent
+ * project cards. Like the red string of fate it flows naturally —
+ * curving, hanging free — connecting each client's story to the next.
  *
- * Structure (viewBox 0 0 24 70, cord body x=6–18):
- *   TopBinding    — 3 mount-animated binding wraps (the knot at the top)
- *   EdgeLines     — left + right shadow edges giving cylindrical form
- *   BraidStitches — 10 rows × 4 lines = 40 chevron stitches (8-bobbin)
- *   BottomBinding — 3 wraps mirroring the top
+ * Structure:
+ *   TopBinding    — 2 subtle wraps where the cord is tied above
+ *   CordBody      — 4 overlapping S-curved paths giving cylindrical depth
+ *                   (left shadow + highlight + center spine + right shadow)
+ *   BraidHints    — 4 crossing diagonals suggesting herringbone weave
+ *   Tassel        — 5 threads hanging free, gentle infinite Bézier sway
+ *
+ * Visual technique: same 3-path depth method as the Shinkai hero cord.
+ * The S-curve (Q control points offset ±1.5 units) gives natural hang.
+ * No rigid horizontal caps → no spool. Tassel makes it read as cord.
  */
 export function CordSegment() {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: '-15% 0px' });
+  const inView = useInView(ref, { once: true, margin: '-10% 0px' });
   const reducedMotion = usePrefersReducedMotion();
   const { mode } = useWeatherMode();
   const cord = getShinkaiWeatherTheme(mode).cord;
-  // Each instance needs a unique gradient ID — there are ~30 CordSegments per page
+  // Each of the ~30 instances needs its own gradient id — no duplicate IDs
   const gradId = useId();
 
   const shouldDraw = inView || reducedMotion;
 
-  // Convenience: skip pathLength animation in reduced-motion
-  const pl = (delay: number) =>
-    reducedMotion
-      ? { initial: { pathLength: 1 }, animate: { pathLength: 1 }, transition: {} }
-      : {
-          initial: { pathLength: 0 },
-          animate: { pathLength: 1 },
-          transition: { duration: 0.18, ease: 'easeOut' as const, delay },
-        };
+  // Tassel: 5 threads fanning from the cord's free end
+  const tassels = Array.from({ length: 5 }, (_, i) => {
+    const t   = i / 4 - 0.5;           // −0.5 … +0.5
+    const xOff = t * 9;
+    const bow  = Math.abs(t) * 3.5;
+    const sx   = 12 + xOff * 0.18;     // start near centre (tassel knot)
+    const sy   = 78;
+    const mx   = 12 + xOff * 0.65 + bow;
+    const my   = 86;
+    const ex   = 12 + xOff + bow;
+    const ey   = 93 + variation(i) * 3;
+    const sw   = 0.48 + variation(i + 100) * 0.22;
+    const op   = 0.55 + variation(i + 200) * 0.35;
+    const stroke =
+      i % 3 === 0 ? cord.primary
+      : i % 3 === 1 ? cord.highlight
+      : cord.midtone;
+    return { sx, sy, mx, my, ex, ey, sw, op, stroke };
+  });
 
   return (
     <div
       ref={ref}
-      className="flex justify-center py-2"
+      className="flex justify-center py-1"
       aria-hidden
     >
       {!shouldDraw ? (
-        // Reserve layout space while the segment is off-screen — prevents shift
-        <div className="h-[56px] w-8" />
+        // Reserve identical height while off-screen — no layout shift
+        <div className="h-24 w-8" />
       ) : (
         <svg
-          viewBox="0 0 24 70"
-          className="h-[56px] w-8"
+          viewBox="0 0 24 96"
+          className="h-24 w-8"
           preserveAspectRatio="none"
           aria-hidden
         >
           <defs>
-            {/* Horizontal gradient: darker at edges, vibrant at center (3D depth) */}
+            {/* Horizontal gradient: shadow at edges → vibrant at centre (3D depth) */}
             <linearGradient id={gradId} x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%"   stopColor={cord.shadow}  stopOpacity="0.5" />
-              <stop offset="50%"  stopColor={cord.primary} stopOpacity="0.85" />
-              <stop offset="100%" stopColor={cord.shadow}  stopOpacity="0.5" />
+              <stop offset="0%"   stopColor={cord.shadow}  stopOpacity="0.50" />
+              <stop offset="40%"  stopColor={cord.primary} stopOpacity="0.85" />
+              <stop offset="60%"  stopColor={cord.primary} stopOpacity="0.85" />
+              <stop offset="100%" stopColor={cord.shadow}  stopOpacity="0.50" />
             </linearGradient>
           </defs>
 
-          {/* Ambient depth fill — subtle cord body behind the stitches */}
-          <rect x="6" y="10" width="12" height="50" fill={`url(#${gradId})`} opacity={0.28} />
+          {/* Ambient depth fill — subtle warm body behind the strokes */}
+          <rect x="6" y="6" width="12" height="72" fill={`url(#${gradId})`} opacity={0.20} />
 
-          {/* ── Top binding — 3 wraps, where the cord is knotted ──────────── */}
+          {/* ── Top binding — 2 wraps, where the cord is tied ─────────────
+              Minimal — just enough to show the knot at the attachment
+              point. Kept subtle so the eye reads "cord" not "spool".    */}
           {[
-            { y: 4,  x1: 6.5, x2: 17.5, sw: 1.2, op: 0.90, stroke: cord.primary, d: 0.00 },
-            { y: 6,  x1: 7.0, x2: 17.0, sw: 0.9, op: 0.75, stroke: cord.primary, d: 0.06 },
-            { y: 8,  x1: 7.5, x2: 16.5, sw: 0.6, op: 0.55, stroke: cord.shadow,  d: 0.10 },
+            { y: 2,   x1: 5.5, x2: 18.5, sw: 1.0, op: 0.80, stroke: cord.primary, d: 0.00 },
+            { y: 3.8, x1: 6.2, x2: 17.8, sw: 0.7, op: 0.55, stroke: cord.shadow,  d: 0.06 },
           ].map(({ y, x1, x2, sw, op, stroke, d }, i) => (
             <motion.line
               key={`tb-${i}`}
@@ -88,110 +110,174 @@ export function CordSegment() {
               opacity={op}
               initial={{ pathLength: reducedMotion ? 1 : 0 }}
               animate={{ pathLength: 1 }}
-              transition={{ duration: 0.2, ease: 'easeOut', delay: reducedMotion ? 0 : d }}
+              transition={{ duration: 0.25, ease: 'easeOut', delay: reducedMotion ? 0 : d }}
             />
           ))}
 
-          {/* ── Left edge line ─────────────────────────────────────────────── */}
-          <motion.line
-            x1={6} y1={10} x2={6} y2={60}
+          {/* ── Cord body — S-curved paths, 3D depth technique ────────────
+              Four overlapping paths share the same gentle S-curve.
+              Upper half bows ≈1.5 units right, lower half ≈1.5 left —
+              the natural catenary hang of a cord tied at its top end.
+              vectorEffect="non-scaling-stroke" keeps stroke widths in px
+              regardless of the preserveAspectRatio="none" stretch.       */}
+
+          {/* Left shadow edge */}
+          <motion.path
+            d="M 6 6 Q 7.5 28 6 52 Q 4.5 68 6 78"
+            fill="none"
             stroke={cord.shadow}
-            strokeWidth={0.8}
+            strokeWidth={1.2}
             strokeLinecap="round"
+            opacity={0.55}
             vectorEffect="non-scaling-stroke"
-            opacity={0.70}
             initial={{ pathLength: reducedMotion ? 1 : 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0 }}
+            animate={reducedMotion ? { pathLength: 1 } : {
+              pathLength: 1,
+              d: [
+                'M 6 6 Q 7.5 28 6 52 Q 4.5 68 6 78',
+                'M 6 6 Q 8.0 28 6 52 Q 4.0 68 6 78',
+                'M 6 6 Q 7.0 28 6 52 Q 5.0 68 6 78',
+                'M 6 6 Q 7.5 28 6 52 Q 4.5 68 6 78',
+              ],
+            }}
+            transition={{
+              pathLength: { duration: 0.65, ease: 'easeOut', delay: 0.08 },
+              ...(reducedMotion ? {} : {
+                d: { duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 2.0 },
+              }),
+            }}
           />
 
-          {/* ── Right edge line ────────────────────────────────────────────── */}
-          <motion.line
-            x1={18} y1={10} x2={18} y2={60}
-            stroke={cord.shadow}
-            strokeWidth={0.8}
+          {/* Highlight luster — silk sheen, slightly left of centre */}
+          <motion.path
+            d="M 9.5 6 Q 11 28 9.5 52 Q 8 68 9.5 78"
+            fill="none"
+            stroke={cord.highlight}
+            strokeWidth={0.4}
             strokeLinecap="round"
+            opacity={0.32}
             vectorEffect="non-scaling-stroke"
-            opacity={0.70}
             initial={{ pathLength: reducedMotion ? 1 : 0 }}
             animate={{ pathLength: 1 }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: reducedMotion ? 0 : 0.05 }}
+            transition={{ duration: 0.65, ease: 'easeOut', delay: reducedMotion ? 0 : 0.05 }}
           />
 
-          {/* ── Chevron braid stitches — 10 rows, 8-bobbin pattern ─────────
-              Each row: left arm + right arm converge at center midpoint,
-              then left return + right return diverge to the next row.
-              Even rows use primary→midtone, odd rows use midtone→primary,
-              creating the alternating weave colour of real kumihimo.         */}
-          {Array.from({ length: 10 }, (_, i) => {
-            const y     = 10 + i * 5;
-            const midY  = y + 2.5;
-            const nextY = y + 5;
-            const even  = i % 2 === 0;
-            const delay = 0.12 + i * 0.04;
-            return (
-              <g key={`cs-${i}`}>
-                {/* Left arm: outer-left → centre-mid */}
-                <motion.line
-                  x1={6}  y1={y}    x2={12} y2={midY}
-                  stroke={even ? cord.primary : cord.midtone}
-                  strokeWidth={0.5}
-                  strokeLinecap="round"
-                  vectorEffect="non-scaling-stroke"
-                  opacity={even ? 0.75 : 0.65}
-                  {...pl(delay)}
-                />
-                {/* Right arm: outer-right → centre-mid */}
-                <motion.line
-                  x1={18} y1={y}    x2={12} y2={midY}
-                  stroke={even ? cord.midtone : cord.primary}
-                  strokeWidth={0.5}
-                  strokeLinecap="round"
-                  vectorEffect="non-scaling-stroke"
-                  opacity={even ? 0.75 : 0.65}
-                  {...pl(delay)}
-                />
-                {/* Left return: centre-mid → outer-left-next */}
-                <motion.line
-                  x1={12} y1={midY} x2={6}  y2={nextY}
-                  stroke={even ? cord.shadow : cord.primary}
-                  strokeWidth={0.4}
-                  strokeLinecap="round"
-                  vectorEffect="non-scaling-stroke"
-                  opacity={even ? 0.65 : 0.55}
-                  {...pl(delay + 0.02)}
-                />
-                {/* Right return: centre-mid → outer-right-next */}
-                <motion.line
-                  x1={12} y1={midY} x2={18} y2={nextY}
-                  stroke={even ? cord.primary : cord.shadow}
-                  strokeWidth={0.4}
-                  strokeLinecap="round"
-                  vectorEffect="non-scaling-stroke"
-                  opacity={even ? 0.65 : 0.55}
-                  {...pl(delay + 0.02)}
-                />
-              </g>
-            );
-          })}
+          {/* Centre spine — the akai ito, the primary cord */}
+          <motion.path
+            d="M 12 6 Q 13.5 28 12 52 Q 10.5 68 12 78"
+            fill="none"
+            stroke={cord.primary}
+            strokeWidth={2.2}
+            strokeLinecap="round"
+            opacity={1.0}
+            vectorEffect="non-scaling-stroke"
+            initial={{ pathLength: reducedMotion ? 1 : 0 }}
+            animate={reducedMotion ? { pathLength: 1 } : {
+              pathLength: 1,
+              d: [
+                'M 12 6 Q 13.5 28 12 52 Q 10.5 68 12 78',
+                'M 12 6 Q 14.0 28 12 52 Q 10.0 68 12 78',
+                'M 12 6 Q 13.0 28 12 52 Q 11.0 68 12 78',
+                'M 12 6 Q 13.5 28 12 52 Q 10.5 68 12 78',
+              ],
+            }}
+            transition={{
+              pathLength: { duration: 0.65, ease: 'easeOut', delay: reducedMotion ? 0 : 0.03 },
+              ...(reducedMotion ? {} : {
+                d: { duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 2.0 },
+              }),
+            }}
+          />
 
-          {/* ── Bottom binding — 3 wraps, the knot at the cord's free end ── */}
+          {/* Right shadow edge */}
+          <motion.path
+            d="M 18 6 Q 19.5 28 18 52 Q 16.5 68 18 78"
+            fill="none"
+            stroke={cord.shadow}
+            strokeWidth={1.2}
+            strokeLinecap="round"
+            opacity={0.55}
+            vectorEffect="non-scaling-stroke"
+            initial={{ pathLength: reducedMotion ? 1 : 0 }}
+            animate={reducedMotion ? { pathLength: 1 } : {
+              pathLength: 1,
+              d: [
+                'M 18 6 Q 19.5 28 18 52 Q 16.5 68 18 78',
+                'M 18 6 Q 20.0 28 18 52 Q 16.0 68 18 78',
+                'M 18 6 Q 19.0 28 18 52 Q 17.0 68 18 78',
+                'M 18 6 Q 19.5 28 18 52 Q 16.5 68 18 78',
+              ],
+            }}
+            transition={{
+              pathLength: { duration: 0.65, ease: 'easeOut', delay: reducedMotion ? 0 : 0.10 },
+              ...(reducedMotion ? {} : {
+                d: { duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 2.0 },
+              }),
+            }}
+          />
+
+          {/* ── Braid texture hints — 4 crossing diagonals ────────────────
+              Four alternating diagonals (left→right, right→left …) span
+              the full cord width at even intervals. Subtle enough to read
+              as weave texture without dominating the cord silhouette.
+              Opacity 0.28 — the eye fills in the pattern.               */}
           {[
-            { y: 62, x1: 6.5, x2: 17.5, sw: 1.2, op: 0.90, stroke: cord.primary, d: 0.60 },
-            { y: 64, x1: 7.0, x2: 17.0, sw: 0.9, op: 0.75, stroke: cord.primary, d: 0.64 },
-            { y: 66, x1: 7.5, x2: 16.5, sw: 0.6, op: 0.55, stroke: cord.shadow,  d: 0.68 },
-          ].map(({ y, x1, x2, sw, op, stroke, d }, i) => (
+            { x1: 6, y1: 18, x2: 18, y2: 25, d: 0.20 },
+            { x1: 18, y1: 35, x2: 6, y2: 42, d: 0.26 },
+            { x1: 6, y1: 50, x2: 18, y2: 57, d: 0.32 },
+            { x1: 18, y1: 63, x2: 6, y2: 70, d: 0.38 },
+          ].map(({ x1, y1, x2, y2, d }, i) => (
             <motion.line
-              key={`bb-${i}`}
-              x1={x1} y1={y} x2={x2} y2={y}
+              key={`bh-${i}`}
+              x1={x1} y1={y1} x2={x2} y2={y2}
+              stroke={cord.midtone}
+              strokeWidth={0.4}
+              strokeLinecap="round"
+              vectorEffect="non-scaling-stroke"
+              opacity={0.28}
+              initial={{ pathLength: reducedMotion ? 1 : 0 }}
+              animate={{ pathLength: 1 }}
+              transition={{ duration: 0.22, ease: 'easeOut', delay: reducedMotion ? 0 : d }}
+            />
+          ))}
+
+          {/* ── Tassel — 5 threads, free end, gentle infinite sway ────────
+              Threads fan from the cord's lower knot (y=78) and curve down
+              to staggered endpoints. Infinite Bézier morphing simulates
+              the gentle movement of real silk threads in still air.      */}
+          {tassels.map(({ sx, sy, mx, my, ex, ey, sw, op, stroke }, i) => (
+            <motion.path
+              key={`tt-${i}`}
+              d={`M ${sx} ${sy} Q ${mx} ${my}, ${ex} ${ey}`}
+              fill="none"
               stroke={stroke}
               strokeWidth={sw}
               strokeLinecap="round"
               vectorEffect="non-scaling-stroke"
               opacity={op}
               initial={{ pathLength: reducedMotion ? 1 : 0 }}
-              animate={{ pathLength: 1 }}
-              transition={{ duration: 0.2, ease: 'easeOut', delay: reducedMotion ? 0 : d }}
+              animate={{
+                pathLength: 1,
+                ...(reducedMotion ? {} : {
+                  d: [
+                    `M ${sx} ${sy} Q ${mx} ${my}, ${ex} ${ey}`,
+                    `M ${sx} ${sy} Q ${mx + 1.0} ${my + 1.2}, ${ex + 0.3} ${ey + 0.6}`,
+                    `M ${sx} ${sy} Q ${mx - 0.4} ${my + 0.5}, ${ex - 0.3} ${ey + 0.3}`,
+                    `M ${sx} ${sy} Q ${mx} ${my}, ${ex} ${ey}`,
+                  ],
+                }),
+              }}
+              transition={{
+                pathLength: { duration: 0.4, ease: 'easeOut', delay: reducedMotion ? 0 : 0.50 + i * 0.05 },
+                ...(reducedMotion ? {} : {
+                  d: {
+                    duration: 4.2 + i * 0.3,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: 1.8 + i * 0.15,
+                  },
+                }),
+              }}
             />
           ))}
         </svg>
