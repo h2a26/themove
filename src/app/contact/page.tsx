@@ -1,10 +1,12 @@
 import { MotionWrapper } from '@/shared/components/MotionWrapper';
 import Image from 'next/image';
-import contactData from '@/public/data/contact.json';
+import { getContact } from '@/shared/lib/blob-data';
+import { blobMediaUrl } from '@/shared/lib/blob-client';
 
-export default function ContactPage() {
-  const { image, address, telephone, generalEnquiries, newBusinessEnquiries, careers } =
-    contactData[0];
+export default async function ContactPage() {
+  const contactData = await getContact();
+  const { image, address, telephone, generalEnquiries, newBusinessEnquiries, careers } = contactData;
+  const imageSrc = blobMediaUrl(image);
 
   return (
     <>
@@ -12,10 +14,9 @@ export default function ContactPage() {
         <section className="w-full max-w-[1920px] mx-auto pt-13 overflow-hidden">
           <div className="flex flex-col md:flex-row min-h-screen md:min-h-[75vh] lg:min-h-[75vh] xl:min-h-screen">
             {/* Image Section */}
-            {/* Image Section */}
             <div className="relative w-full h-[70vh] md:w-1/2 md:h-auto aspect-[3/4] md:aspect-auto">
               <Image
-                src={image}
+                src={imageSrc}
                 alt="Contact Image"
                 priority
                 fill
@@ -49,7 +50,7 @@ export default function ContactPage() {
                     </p>
                     {title === 'Address' && (
                       <p className="mt-2 text-sm text-[var(--mode-text-primary)]/80" style={{ fontFamily: 'var(--font-euclid)' }}>
-                        We’re open Monday – Friday, 9am – 5pm
+                        We&apos;re open Monday – Friday, 9am – 5pm
                       </p>
                     )}
                   </div>

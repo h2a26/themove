@@ -1,18 +1,10 @@
 import { MotionWrapper } from '@/shared/components/MotionWrapper';
 import Image from 'next/image';
-import aboutData from '@/public/data/about.json';
+import { getAbout } from '@/shared/lib/blob-data';
+import { blobMediaUrl } from '@/shared/lib/blob-client';
 
-interface About {
-  id: number;
-  title: string;
-  position?: string;
-  image: string;
-  description: string[];
-  bg: string;
-}
-
-export default function AboutPage() {
-  const about: About[] = aboutData;
+export default async function AboutPage() {
+  const about = await getAbout();
   if (!about.length) return null;
 
   return (
@@ -21,6 +13,7 @@ export default function AboutPage() {
         <section className="w-full max-w-[1920px] mx-auto pt-13">
           {about.map((item, index) => {
             const isReversed = index % 2 !== 0;
+            const imageSrc = blobMediaUrl(item.image);
 
             return (
               <div
@@ -68,7 +61,7 @@ export default function AboutPage() {
                 {item.title === 'Pyae Thiri' ? (
                   <div className="w-full md:w-1/2 flex items-center justify-center p-5">
                     <Image
-                      src={item.image}
+                      src={imageSrc}
                       alt={item.title}
                       width={400}
                       height={300}
@@ -80,7 +73,7 @@ export default function AboutPage() {
                 ) : (
                   <div className="w-full md:w-1/2">
                     <Image
-                      src={item.image}
+                      src={imageSrc}
                       alt={item.title}
                       width={400}
                       height={300}

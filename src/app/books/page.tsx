@@ -1,9 +1,13 @@
 import { BooksGrid } from '@/shared/components/books/BooksGrid'
 import { Book } from '@/shared/types/book'
-import booksData from '@/public/data/books.json'
+import { getBooks } from '@/shared/lib/blob-data'
+import { blobMediaUrl } from '@/shared/lib/blob-client'
 
-export default function BooksPage() {
-  const books: Book[] = (booksData as Book[]).filter((b) => b.published)
+export default async function BooksPage() {
+  const booksData = await getBooks()
+  const books: Book[] = booksData
+    .filter((b) => b.published)
+    .map((b) => ({ ...b, pdfUrl: blobMediaUrl(b.pdfUrl) }))
 
   return (
     <section className="max-w-7xl mx-auto px-8 pt-32 pb-24">

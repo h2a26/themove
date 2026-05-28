@@ -1,18 +1,7 @@
 import { Metadata } from 'next';
 import React from 'react';
 import { OG_IMAGE_ALT } from '@/shared/constants/site-metadata';
-import { isValidProjectSlug } from '@/shared/guard/projectValidation';
-import { parseProjectData } from '@/shared/lib/project-data';
-
-async function getProjectMeta(slug: string) {
-  if (!isValidProjectSlug(slug)) return null;
-  try {
-    const data = await import(`@/public/data/projects/${slug}/data`);
-    return parseProjectData(data.default).meta;
-  } catch {
-    return null;
-  }
-}
+import { getProjectMeta } from '@/shared/lib/blob-data';
 
 export async function generateMetadata({
   params,
@@ -20,7 +9,13 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const meta = await getProjectMeta(slug);
+
+  let meta;
+  try {
+    meta = await getProjectMeta(slug);
+  } catch {
+    meta = null;
+  }
 
   if (!meta) {
     return {
