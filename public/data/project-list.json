@@ -8,10 +8,7 @@
     "routeTo": "/projects/kt-residence",
     "category": "residential",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": "1,185 sqft",
     "moodTags": [
       "warm-minimal",
       "modern"
@@ -28,10 +25,7 @@
     "routeTo": "/projects/maak-residence",
     "category": "residential",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": "1,296 sqft",
     "moodTags": [
       "heritage",
       "warm-minimal"
@@ -48,10 +42,7 @@
     "routeTo": "/projects/ssl-residence",
     "category": "residential",
     "locationCity": "Yangon",
-    "locationCountry": "Myanmar",
     "location": "Yangon, Myanmar",
-    "projectType": "interior",
-    "projectArea": "456 sqft",
     "moodTags": [
       "urban",
       "warm-minimal"
@@ -68,10 +59,7 @@
     "routeTo": "/projects/klg-residence",
     "category": "residential",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "architecture",
-    "projectArea": "1,170 sqft",
     "moodTags": [
       "classical",
       "biophilic",
@@ -89,10 +77,7 @@
     "routeTo": "/projects/mpp-residence",
     "category": "residential",
     "locationCity": "Pyin Oo Lwin",
-    "locationCountry": "Myanmar",
     "location": "Pyin Oo Lwin, Myanmar",
-    "projectType": "interior",
-    "projectArea": "1,040 sqft",
     "moodTags": [
       "warm-minimal",
       "contemporary"
@@ -109,10 +94,7 @@
     "routeTo": "/projects/uwl-residence",
     "category": "residential",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": "3,956 sqft",
     "moodTags": [
       "serene",
       "warm-minimal"
@@ -129,10 +111,7 @@
     "routeTo": "/projects/bungalow",
     "category": "residential",
     "locationCity": "Yangon",
-    "locationCountry": "Myanmar",
     "location": "Yangon, Myanmar",
-    "projectType": "both",
-    "projectArea": "7,900 sqft",
     "moodTags": [
       "spa",
       "biophilic"
@@ -149,10 +128,7 @@
     "routeTo": "/projects/tm-residence",
     "category": "residential",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "architecture",
-    "projectArea": "1,800 sqft",
     "moodTags": [
       "urban",
       "minimal"
@@ -169,10 +145,7 @@
     "routeTo": "/projects/239-residence",
     "category": "residential",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "warm-minimal"
     ],
@@ -188,10 +161,7 @@
     "routeTo": "/projects/twa-residence",
     "category": "residential",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "warm-minimal"
     ],
@@ -207,10 +177,7 @@
     "routeTo": "/projects/hmm-residence",
     "category": "residential",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "warm-minimal"
     ],
@@ -226,10 +193,7 @@
     "routeTo": "/projects/better-u-hair-and-wellness",
     "category": "commercial",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "spa",
       "serene"
@@ -246,10 +210,7 @@
     "routeTo": "/projects/atlas-outlet",
     "category": "commercial",
     "locationCity": "Pyin Oo Lwin",
-    "locationCountry": "Myanmar",
     "location": "Pyin Oo Lwin, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "retail"
     ],
@@ -265,10 +226,7 @@
     "routeTo": "/projects/beauty-empire-cosmetic-shop",
     "category": "commercial",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "retail"
     ],
@@ -284,10 +242,7 @@
     "routeTo": "/projects/moe-kaung-gold-shop",
     "category": "commercial",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "retail",
       "gold"
@@ -304,10 +259,7 @@
     "routeTo": "/projects/lmt-office",
     "category": "commercial",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "urban",
       "minimal"
@@ -324,10 +276,7 @@
     "routeTo": "/projects/mini-mart",
     "category": "commercial",
     "locationCity": "Yangon",
-    "locationCountry": "Myanmar",
     "location": "Yangon, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "retail"
     ],
@@ -343,10 +292,7 @@
     "routeTo": "/projects/mandalay-mahar-akarit",
     "category": "commercial",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "retail"
     ],
@@ -362,10 +308,7 @@
     "routeTo": "/projects/royal-auto-service",
     "category": "commercial",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "urban"
     ],
@@ -381,10 +324,7 @@
     "routeTo": "/projects/shwe-bonthar-gold-and-jewellery-shop",
     "category": "commercial",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "retail",
       "gold"
@@ -401,10 +341,7 @@
     "routeTo": "/projects/shwe-yamin-fancy-and-bag-shop",
     "category": "commercial",
     "locationCity": "Monywa",
-    "locationCountry": "Myanmar",
     "location": "Monywa, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "retail"
     ],
@@ -420,10 +357,7 @@
     "routeTo": "/projects/universe-51-japanese-restaurant",
     "category": "hospitality",
     "locationCity": "Yangon",
-    "locationCountry": "Myanmar",
     "location": "Yangon, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "japanese",
       "urban"
@@ -440,10 +374,7 @@
     "routeTo": "/projects/yadanar-moe-cafe",
     "category": "hospitality",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "warm-minimal"
     ],
@@ -459,10 +390,7 @@
     "routeTo": "/projects/coffee-burma-restaurant",
     "category": "hospitality",
     "locationCity": "Pyin Oo Lwin",
-    "locationCountry": "Myanmar",
     "location": "Pyin Oo Lwin, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "warm-minimal"
     ],
@@ -478,10 +406,7 @@
     "routeTo": "/projects/she-cafe",
     "category": "hospitality",
     "locationCity": "Pyin Oo Lwin",
-    "locationCountry": "Myanmar",
     "location": "Pyin Oo Lwin, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "warm-minimal"
     ],
@@ -497,10 +422,7 @@
     "routeTo": "/projects/bokki",
     "category": "hospitality",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "contemporary"
     ],
@@ -516,10 +438,7 @@
     "routeTo": "/projects/uvs-canteen",
     "category": "hospitality",
     "locationCity": "Yangon",
-    "locationCountry": "Myanmar",
     "location": "Yangon, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "urban"
     ],
@@ -535,10 +454,7 @@
     "routeTo": "/projects/buzz-kaffee",
     "category": "hospitality",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "warm-minimal"
     ],
@@ -554,10 +470,7 @@
     "routeTo": "/projects/ingyin-myaing-academy",
     "category": "hospitality",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "serene"
     ],
@@ -573,10 +486,7 @@
     "routeTo": "/projects/coffee-education-center",
     "category": "hospitality",
     "locationCity": "Pyin Oo Lwin",
-    "locationCountry": "Myanmar",
     "location": "Pyin Oo Lwin, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "warm-minimal"
     ],
@@ -592,10 +502,7 @@
     "routeTo": "/projects/hotel-wonderland",
     "category": "hospitality",
     "locationCity": "Mandalay",
-    "locationCountry": "Myanmar",
     "location": "Mandalay, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "luxury",
       "hospitality"
@@ -612,10 +519,7 @@
     "routeTo": "/projects/apollo-bar-and-ktv",
     "category": "hospitality",
     "locationCity": "Yangon",
-    "locationCountry": "Myanmar",
     "location": "Yangon, Myanmar",
-    "projectType": "interior",
-    "projectArea": null,
     "moodTags": [
       "urban",
       "night"

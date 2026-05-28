@@ -25,7 +25,6 @@ export type ProjectMeta = {
   frameArchetype: FrameArchetype | 'auto';
   oneLine: string;
   purpose: string;
-  showcaseYear?: string;
 };
 
 /** Per-project file: public/data/projects/{slug}/data.json */
@@ -44,10 +43,7 @@ export type ProjectCatalogueEntry = {
   routeTo: string;
   category: ProjectCategory;
   locationCity: string;
-  locationCountry: string;
   location: string;
-  projectType: ProjectType;
-  projectArea?: string | null;
   moodTags: string[];
   style?: FrameStyle;
   frameArchetype: FrameArchetype | 'auto';

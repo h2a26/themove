@@ -1,7 +1,5 @@
 import type { FrameMood } from '@/shared/components/frames/types';
 
-export type WeatherMode = 'sunlit' | 'rain';
-
 export const STROKE_WEIGHT = {
   faint: 0.3,
   light: 0.5,
@@ -12,68 +10,36 @@ export const STROKE_WEIGHT = {
 
 export const SHINKAI_EASE = [0.43, 0.13, 0.23, 0.96] as const;
 
-export function getHeroStrokes(weatherMode: WeatherMode) {
+export function getHeroStrokes(weatherMode: 'sunlit' | 'rain') {
   return {
     primary: weatherMode === 'sunlit' ? '#78716c' : '#475569',
-    light: weatherMode === 'sunlit' ? '#a8a29e' : '#64748b',
-    faint: weatherMode === 'sunlit' ? '#d6d3d1' : '#94a3b8',
-    wood: weatherMode === 'sunlit' ? '#78716c' : '#57534e',
+    light:   weatherMode === 'sunlit' ? '#a8a29e' : '#64748b',
+    faint:   weatherMode === 'sunlit' ? '#d6d3d1' : '#94a3b8',
+    wood:    weatherMode === 'sunlit' ? '#78716c' : '#57534e',
   };
 }
 
 export function getFrameStrokes(mood: FrameMood) {
   const heritage =
     mood === 'traditional-golden' ||
-    mood === 'paris-morning' ||
-    mood === 'winter-still' ||
-    mood === 'mandalay-warm' ||
+    mood === 'paris-morning'      ||
+    mood === 'winter-still'       ||
+    mood === 'mandalay-warm'      ||
     mood === 'hill-station-calm';
 
   if (heritage) {
     return {
-      primary: mood === 'winter-still' ? '#94a3b8' : '#78716c',
-      light: mood === 'traditional-golden' ? '#a8a29e' : '#94a3b8',
-      faint: '#cbd5e1',
-      wood: '#78716c',
+      primary: mood === 'winter-still'      ? '#94a3b8' : '#78716c',
+      light:   mood === 'traditional-golden'? '#a8a29e' : '#94a3b8',
+      faint:   '#cbd5e1',
+      wood:    '#78716c',
     };
   }
 
   return {
     primary: mood === 'london-mist' ? '#64748b' : '#475569',
-    light: '#94a3b8',
-    faint: '#cbd5e1',
-    wood: '#64748b',
+    light:   '#94a3b8',
+    faint:   '#cbd5e1',
+    wood:    '#64748b',
   };
-}
-
-export function isHeritageMood(mood: FrameMood): boolean {
-  return (
-    mood === 'traditional-golden' ||
-    mood === 'paris-morning' ||
-    mood === 'winter-still' ||
-    mood === 'mandalay-warm' ||
-    mood === 'hill-station-calm'
-  );
-}
-
-export type AtmosphereVariant = 'golden' | 'mist' | 'rain' | 'blueHour';
-
-export function getAtmosphereVariant(mood: FrameMood): AtmosphereVariant {
-  switch (mood) {
-    case 'traditional-golden':
-    case 'paris-morning':
-    case 'summer-bright':
-      return 'golden';
-    case 'london-mist':
-    case 'yangon-mist':
-      return 'rain';
-    case 'winter-still':
-    case 'hill-station-calm':
-      return 'mist';
-    case 'mandalay-warm':
-      return 'golden';
-    case 'contemporary-blue':
-    default:
-      return 'blueHour';
-  }
 }

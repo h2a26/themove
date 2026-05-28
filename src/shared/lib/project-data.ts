@@ -1,4 +1,4 @@
-import type { Project, ProjectCatalogueEntry, ProjectDataFile, ProjectGalleryItem, ProjectMeta } from '@/shared/types/project';
+import type { Project, ProjectDataFile, ProjectGalleryItem, ProjectMeta } from '@/shared/types/project';
 
 /** Fix legacy Sanity URLs that used HTML-encoded ampersands */
 export function normalizeImageUrl(url: string): string {
@@ -107,22 +107,4 @@ export function toDetailGallery(data: ProjectDataFile): Project[] {
   };
 
   return [featured, ...rest];
-}
-
-export function catalogueEntryToFrameMeta(entry: ProjectCatalogueEntry): ProjectMeta {
-  return {
-    slug: entry.slug,
-    title: entry.title,
-    category: entry.category,
-    locationCity: entry.locationCity,
-    locationCountry: entry.locationCountry,
-    location: entry.location,
-    projectType: entry.projectType,
-    projectArea: entry.projectArea,
-    moodTags: entry.moodTags,
-    style: entry.style,
-    frameArchetype: entry.frameArchetype,
-    oneLine: entry.description,
-    purpose: entry.description,
-  };
 }

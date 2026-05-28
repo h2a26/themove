@@ -1,7 +1,6 @@
 'use client';
 
-import { AtmosphereLayer } from '@/shared/components/line-art/AtmosphereLayer';
-import { getAtmosphereVariant } from '@/shared/components/line-art/tokens';
+import { AtmosphereLayer, getAtmosphereVariant } from '@/shared/components/line-art/AtmosphereLayer';
 import type { FrameMood } from './types';
 
 type FrameWeatherParticlesProps = {

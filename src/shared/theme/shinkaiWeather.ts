@@ -145,7 +145,6 @@ export function getShinkaiWeatherCssVars(mode: WeatherMode): Record<string, stri
     '--mode-bg-via': t.surface.bgVia,
     '--mode-bg-to': t.surface.bgTo,
     '--mode-surface': t.surface.panel,
-    '--mode-surface-hover': t.surface.panelHover,
     '--mode-text-primary': t.text.primary,
     '--mode-text-secondary': t.text.secondary,
     '--mode-text-tertiary': t.text.tertiary,
@@ -160,8 +159,5 @@ export function getShinkaiWeatherCssVars(mode: WeatherMode): Record<string, stri
     '--mode-particle': t.particle.color,
     '--mode-particle-glow': t.particle.glow,
     '--mode-cord': t.cord.primary,
-    '--mode-cord-highlight': t.cord.highlight,
-    '--mode-cord-shadow': t.cord.shadow,
-    '--mode-cord-glow': t.cord.warmGlow,
   };
 }

@@ -14,7 +14,6 @@
   --mode-bg-via: #f8fafc;
   --mode-bg-to: rgba(224, 242, 254, 0.60);
   --mode-surface: rgba(255, 255, 255, 0.72);
-  --mode-surface-hover: rgba(248, 250, 252, 0.88);
   --mode-text-primary: #1a1a22;
   --mode-text-secondary: #64748b;
   --mode-text-tertiary: #94a3b8;
@@ -29,28 +28,12 @@
   --mode-particle: rgba(251, 191, 36, 0.35);
   --mode-particle-glow: rgba(251, 191, 36, 0.08);
   --mode-cord: #c53030;
-  --mode-cord-highlight: #fc8181;
-  --mode-cord-shadow: #822727;
-  --mode-cord-glow: rgba(197, 48, 48, 0.08);
 }
 
 @layer utilities {
   .shinkai-panel {
     background-color: var(--mode-surface);
     backdrop-filter: blur(10px);
-  }
-
-  .border-overlay {
-    @apply absolute inset-0 border-[0px] border-deep-earth opacity-0 z-10 pointer-events-none;
-    transition:
-      border-width 2s cubic-bezier(0.19, 1, 0.22, 1),
-      opacity 2s cubic-bezier(0.19, 1, 0.22, 1);
-    will-change: border-width, opacity;
-  }
-
-  .group:hover .border-overlay {
-    border-width: 20px;
-    opacity: 1;
   }
 
   .shinkai-projects-canvas {
