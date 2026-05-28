@@ -19,6 +19,9 @@ export {
   deleteBook,
   updateAboutEntry,
   upsertContact,
+  getChapters,
+  upsertChapter,
+  deleteChapter,
 } from '@/server/db/queries';
 
 export type {
@@ -27,4 +30,5 @@ export type {
   BookInput,
   AboutEntryInput,
   ContactInput,
+  ChapterInput,
 } from '@/server/db/queries';

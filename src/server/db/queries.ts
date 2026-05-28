@@ -1,9 +1,9 @@
 import { eq, asc } from 'drizzle-orm';
 import { db } from './index';
-import { projects, galleryItems, books, aboutEntries, contactInfo } from './schema';
+import { projects, galleryItems, books, aboutEntries, contactInfo, chapters } from './schema';
 import type { ProjectCatalogueEntry, ProjectMeta, ProjectGalleryItem } from '@/shared/types/project';
 import type { Book } from '@/shared/types/book';
-import type { AboutEntry, ContactInfo } from '@/shared/types/cms';
+import type { AboutEntry, ContactInfo, Chapter } from '@/shared/types/cms';
 
 // ── Input types ──────────────────────────────────────────────────────────────
 
@@ -48,6 +48,14 @@ export type AboutEntryInput = {
   position?: string;
   subtitle?: string;
   description: string[];
+};
+
+export type ChapterInput = {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: string;
+  sortOrder?: number;
 };
 
 export type ContactInput = {
@@ -335,4 +343,40 @@ export async function upsertContact(data: ContactInput & { currentImage?: string
     .insert(contactInfo)
     .values(payload)
     .onConflictDoUpdate({ target: contactInfo.id, set: payload });
+}
+
+// ── Chapter reads ────────────────────────────────────────────────────────────
+
+export async function getChapters(): Promise<Chapter[]> {
+  const rows = await db
+    .select()
+    .from(chapters)
+    .orderBy(asc(chapters.sortOrder));
+  return rows.map((r) => ({
+    id: r.id,
+    title: r.title,
+    subtitle: r.subtitle,
+    category: r.category as import('@/shared/components/frames/types').ProjectCategory,
+    sortOrder: r.sortOrder,
+  }));
+}
+
+// ── Chapter writes ───────────────────────────────────────────────────────────
+
+export async function upsertChapter(data: ChapterInput): Promise<void> {
+  const payload = {
+    id: data.id,
+    title: data.title,
+    subtitle: data.subtitle,
+    category: data.category,
+    sortOrder: data.sortOrder ?? 0,
+  };
+  await db
+    .insert(chapters)
+    .values(payload)
+    .onConflictDoUpdate({ target: chapters.id, set: payload });
+}
+
+export async function deleteChapter(id: string): Promise<void> {
+  await db.delete(chapters).where(eq(chapters.id, id));
 }

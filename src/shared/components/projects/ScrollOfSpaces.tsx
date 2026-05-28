@@ -1,6 +1,5 @@
 'use client';
 
-import chapters from '@/public/data/chapters.json';
 import { groupCatalogueByChapter, type ChapterDefinition } from '@/shared/lib/group-catalogue-by-chapter';
 import { ChapterInterstitial } from './ChapterInterstitial';
 import { SpaceVignette, type SpaceVignetteProps } from './SpaceVignette';
@@ -12,10 +11,11 @@ export type ScrollOfSpacesProject = SpaceVignetteProps & {
 
 type ScrollOfSpacesProps = {
   projects: ScrollOfSpacesProject[];
+  chapters: ChapterDefinition[];
 };
 
-export function ScrollOfSpaces({ projects }: ScrollOfSpacesProps) {
-  const groups = groupCatalogueByChapter(projects, chapters as ChapterDefinition[]);
+export function ScrollOfSpaces({ projects, chapters }: ScrollOfSpacesProps) {
+  const groups = groupCatalogueByChapter(projects, chapters);
 
   return (
     <section

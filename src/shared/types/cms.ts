@@ -18,9 +18,12 @@ export type ContactInfo = {
   careers: string;
 };
 
+import type { ProjectCategory } from '@/shared/components/frames/types';
+
 export type Chapter = {
   id: string;
   title: string;
   subtitle: string;
-  category: string;
+  category: ProjectCategory;
+  sortOrder?: number;
 };

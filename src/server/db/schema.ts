@@ -75,6 +75,15 @@ export const aboutEntries = pgTable('about_entries', {
   description: text('description').array().notNull().default([]),
 });
 
+/** Section chapter labels (residential / commercial / hospitality) */
+export const chapters = pgTable('chapters', {
+  id:        text('id').primaryKey(),           // e.g. 'residential'
+  title:     text('title').notNull(),           // e.g. 'Spaces to live'
+  subtitle:  text('subtitle').notNull().default(''), // e.g. 'Residential'
+  category:  text('category').notNull(),
+  sortOrder: integer('sort_order').notNull().default(0),
+});
+
 /** Always a single row (id = 1) */
 export const contactInfo = pgTable('contact_info', {
   id:                   integer('id').primaryKey().default(1),
@@ -91,3 +100,4 @@ export type GalleryRow   = typeof galleryItems.$inferSelect;
 export type BookRow      = typeof books.$inferSelect;
 export type AboutRow     = typeof aboutEntries.$inferSelect;
 export type ContactRow   = typeof contactInfo.$inferSelect;
+export type ChapterRow   = typeof chapters.$inferSelect;
