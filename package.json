@@ -11,7 +11,8 @@
     "format": "prettier --write .",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "db:seed": "tsx --env-file=.env.local scripts/seed-from-blob.ts"
+    "db:seed": "tsx --env-file=.env.local scripts/seed-from-blob.ts",
+    "postinstall": "cp node_modules/pdfjs-dist/build/pdf.worker.min.mjs public/pdf.worker.min.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
