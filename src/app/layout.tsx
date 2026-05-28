@@ -1,6 +1,5 @@
 import './globals.css';
 import type { Metadata, Viewport } from 'next';
-import { MainLayout } from '@/shared/layouts/MainLayout';
 import React from 'react';
 import { acaslonPro, euclidCircularB, euclid, allrounderAntiqua } from './fonts';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -49,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body suppressHydrationWarning>
         <SpeedInsights />
         <Analytics />
-        <MainLayout>{children}</MainLayout>
+        {children}
       </body>
     </html>
   );

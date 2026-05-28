@@ -1,18 +1,15 @@
 import { MetadataRoute } from 'next';
-import fs from 'fs';
-import path from 'path';
+import { getProjectList } from '@/shared/lib/blob-data';
+
+export const revalidate = 3600; // rebuild sitemap at most once per hour
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://themovearchids.vercel.app';
 
-  const projectListPath = path.join(process.cwd(), '/public/data/project-list.json'); // small path fix: no leading slash
-  let projects: { routeTo: string }[] = [];
-
+  let projects: { slug: string }[] = [];
   try {
-    const file = await fs.promises.readFile(projectListPath, 'utf-8');
-    projects = JSON.parse(file);
-  } catch (e) {
-    console.error('Failed to load project-list.json:', e);
+    projects = await getProjectList();
+  } catch {
     projects = [];
   }
 
@@ -25,8 +22,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/projects`, lastModified: now },
   ];
 
-  const dynamicRoutes: MetadataRoute.Sitemap = projects.map((project) => ({
-    url: `${baseUrl}${project.routeTo}`,
+  const dynamicRoutes: MetadataRoute.Sitemap = projects.map((p) => ({
+    url: `${baseUrl}/projects/${p.slug}`,
     lastModified: now,
   }));
 

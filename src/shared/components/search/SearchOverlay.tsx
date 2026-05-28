@@ -3,8 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import projectsData from '@/public/data/project-list.json'
-import booksData    from '@/public/data/books.json'
 
 type CategoryFilter = 'all' | 'residential' | 'commercial' | 'hospitality'
 
@@ -16,33 +14,6 @@ interface SearchResult {
   type:     'project' | 'book'
   category: string
 }
-
-const ALL_PROJECTS: SearchResult[] = (projectsData as {
-  id: number; slug: string; title: string; category: string;
-  locationCity: string; description: string; routeTo: string
-}[]).map((p) => ({
-  id:       `project-${p.id}`,
-  title:    p.title,
-  meta:     `${p.category} · ${p.locationCity}`,
-  href:     p.routeTo,
-  type:     'project',
-  category: p.category,
-}))
-
-const ALL_BOOKS: SearchResult[] = (booksData as {
-  id: number; slug: string; title: string; subtitle?: string; published: boolean
-}[])
-  .filter((b) => b.published)
-  .map((b) => ({
-    id:       `book-${b.id}`,
-    title:    b.title,
-    meta:     b.subtitle ?? 'Book',
-    href:     '/books',
-    type:     'book',
-    category: 'book',
-  }))
-
-const ALL_RESULTS = [...ALL_PROJECTS, ...ALL_BOOKS]
 
 const CATEGORIES: { value: CategoryFilter; label: string }[] = [
   { value: 'all',         label: 'All'         },
@@ -62,17 +33,35 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
   const [query,    setQuery   ] = useState('')
   const [focused,  setFocused ] = useState(0)
   const [category, setCategory] = useState<CategoryFilter>('all')
+  const [allProjects, setAllProjects] = useState<SearchResult[]>([])
+  const [allBooks,    setAllBooks   ] = useState<SearchResult[]>([])
+
+  // Fetch once on first open
+  const fetchedRef = useRef(false)
+  useEffect(() => {
+    if (!open || fetchedRef.current) return
+    fetchedRef.current = true
+    fetch('/api/search-data')
+      .then((r) => r.json())
+      .then(({ projects, books }: { projects: SearchResult[]; books: SearchResult[] }) => {
+        setAllProjects(projects)
+        setAllBooks(books)
+      })
+      .catch(() => { /* silently fail — stale data still works */ })
+  }, [open])
+
+  const allResults = useMemo(() => [...allProjects, ...allBooks], [allProjects, allBooks])
 
   const categoryCount = useMemo(() => {
-    if (category === 'all') return ALL_PROJECTS.length
-    return ALL_PROJECTS.filter((r) => r.category === category).length
-  }, [category])
+    if (category === 'all') return allProjects.length
+    return allProjects.filter((r) => r.category === category).length
+  }, [category, allProjects])
 
   const results = useMemo(() => {
     const q = query.trim().toLowerCase()
     const pool = category === 'all'
-      ? ALL_RESULTS
-      : ALL_RESULTS.filter((r) => r.type !== 'project' || r.category === category)
+      ? allResults
+      : allResults.filter((r) => r.type !== 'project' || r.category === category)
     // No query + no category selected → show nothing (empty state hint)
     if (!q && category === 'all') return []
     // Category selected but no query → show all in that category
@@ -80,7 +69,7 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
     return pool.filter(
       (r) => r.title.toLowerCase().includes(q) || r.meta.toLowerCase().includes(q)
     ).slice(0, 10)
-  }, [query, category])
+  }, [query, category, allResults])
 
   // Reset on open/close
   useEffect(() => {
@@ -112,8 +101,8 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
     onClose()
   }
 
-  const projectResults = results.filter((r) => r.type === 'project')
-  const bookResults    = results.filter((r) => r.type === 'book')
+  const projectResults = results.filter((r: SearchResult) => r.type === 'project')
+  const bookResults    = results.filter((r: SearchResult) => r.type === 'book')
 
   return (
     <AnimatePresence>
@@ -241,7 +230,7 @@ export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
                   style={{ fontFamily: 'var(--font-acaslon-pro)' }}
                 >
                   {category === 'all'
-                    ? `${ALL_PROJECTS.length} projects · ${ALL_BOOKS.length} books`
+                    ? `${allProjects.length} projects · ${allBooks.length} books`
                     : `${categoryCount} ${category} projects`}
                 </motion.p>
               )}
