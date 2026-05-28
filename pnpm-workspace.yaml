@@ -5,7 +5,9 @@ allowBuilds:
   i: true
   l: true
   s: true
+  sharp: true
   u: true
+  unrs-resolver: true
 
 overrides:
   postcss: ">=8.5.10"

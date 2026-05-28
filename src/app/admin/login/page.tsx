@@ -1,33 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useActionState } from 'react';
+import { adminSignIn } from './actions';
 
 export default function AdminLoginPage() {
-  const router = useRouter();
-  const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false);
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setLoading(true);
-    setError('');
-
-    const form = new FormData(e.currentTarget);
-    const result = await signIn('credentials', {
-      email: form.get('email') as string,
-      password: form.get('password') as string,
-      redirect: false,
-    });
-
-    if (result?.error) {
-      setError('Invalid email or password.');
-      setLoading(false);
-    } else {
-      router.push('/admin');
-    }
-  }
+  const [state, formAction, pending] = useActionState(adminSignIn, null);
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[var(--mode-bg-from)]">
@@ -37,7 +14,10 @@ export default function AdminLoginPage() {
           <h1 className="text-xl font-semibold tracking-widest uppercase text-[var(--mode-text-primary)]">Admin</h1>
         </div>
 
-        <form onSubmit={handleSubmit} className="bg-white/80 backdrop-blur border border-[var(--mode-border)] rounded-lg p-8 flex flex-col gap-5">
+        <form
+          action={formAction}
+          className="bg-white/80 backdrop-blur border border-[var(--mode-border)] rounded-lg p-8 flex flex-col gap-5"
+        >
           <div className="flex flex-col gap-1.5">
             <label className="text-[11px] uppercase tracking-[3px] text-[var(--mode-text-tertiary)]">Email</label>
             <input
@@ -60,16 +40,16 @@ export default function AdminLoginPage() {
             />
           </div>
 
-          {error && (
-            <p className="text-xs text-red-600 text-center">{error}</p>
+          {state?.error && (
+            <p className="text-xs text-red-600 text-center">{state.error}</p>
           )}
 
           <button
             type="submit"
-            disabled={loading}
+            disabled={pending}
             className="bg-[var(--color-deep-earth)] text-white text-[11px] uppercase tracking-[3px] py-3 rounded hover:opacity-90 transition-opacity disabled:opacity-50"
           >
-            {loading ? 'Signing in…' : 'Sign in'}
+            {pending ? 'Signing in…' : 'Sign in'}
           </button>
         </form>
       </div>

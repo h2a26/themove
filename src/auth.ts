@@ -16,8 +16,10 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         if (!email || !password) return null;
         if (email !== process.env.ADMIN_EMAIL) return null;
 
-        const hash = process.env.ADMIN_PASSWORD_HASH;
-        if (!hash) return null;
+        // Hash is base64-encoded to survive dotenv $ interpolation
+        const hashB64 = process.env.ADMIN_PASSWORD_HASH_B64;
+        if (!hashB64) return null;
+        const hash = Buffer.from(hashB64, 'base64').toString('utf8');
 
         const valid = await compare(password, hash);
         if (!valid) return null;
