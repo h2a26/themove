@@ -40,14 +40,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           return { id: rows[0].id, email: rows[0].email, name: rows[0].name, role: 'admin' };
         }
 
-        // Fallback to env vars (pre-migration or DB seeding not yet run)
-        if (email !== process.env.ADMIN_EMAIL) return null;
-        const hashB64 = process.env.ADMIN_PASSWORD_HASH_B64;
-        if (!hashB64) return null;
-        const hash = Buffer.from(hashB64, 'base64').toString('utf8');
-        const valid = await compare(password, hash);
-        if (!valid) return null;
-        return { id: 'admin-env', email, name: 'Pyae Thiri', role: 'admin' };
+        return null;
       },
     }),
   ],
