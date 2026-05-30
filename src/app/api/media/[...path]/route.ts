@@ -1,6 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const BLOB_BASE = `https://${process.env.BLOB_STORE_ID?.replace('store_', '')}.public.blob.vercel-storage.com`;
+/**
+ * Derives the Vercel Blob public base URL.
+ * Prefers BLOB_STORE_ID (custom var) but falls back to BLOB_READ_WRITE_TOKEN
+ * (auto-injected by Vercel when a Blob store is connected).
+ * Token format: vercel_blob_rw_{storeId}_{secret}
+ */
+function getBlobBase(): string {
+  if (process.env.BLOB_STORE_ID) {
+    return `https://${process.env.BLOB_STORE_ID.replace('store_', '')}.public.blob.vercel-storage.com`;
+  }
+  const t = process.env.BLOB_READ_WRITE_TOKEN ?? '';
+  const m = t.match(/^vercel_blob_rw_([^_]+)_/);
+  return m ? `https://${m[1]}.public.blob.vercel-storage.com` : '';
+}
+
+const BLOB_BASE = getBlobBase();
 
 export async function GET(
   req: NextRequest,
