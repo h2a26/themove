@@ -31,7 +31,7 @@ export async function updateProject(slug: string, formData: FormData) {
   await dbUpdateProject(slug, {
     title: formData.get('title') as string,
     coverImage: coverPathname,
-    category: formData.get('category') as 'residential' | 'commercial' | 'hospitality',
+    category: formData.get('category') as string,
     locationCity: formData.get('locationCity') as string,
     locationCountry: formData.get('locationCountry') as string,
     location: formData.get('location') as string,
@@ -47,6 +47,7 @@ export async function updateProject(slug: string, formData: FormData) {
   revalidatePath(`/projects/${slug}`);
   revalidatePath('/projects');
   revalidatePath('/admin/projects');
+  redirect(`/admin/projects/${slug}`);
 }
 
 export async function deleteProject(slug: string) {
@@ -87,4 +88,5 @@ export async function removeGalleryImage(slug: string, imageId: number) {
 
   revalidatePath(`/projects/${slug}`);
   revalidatePath(`/admin/projects/${slug}`);
+  redirect(`/admin/projects/${slug}`);
 }

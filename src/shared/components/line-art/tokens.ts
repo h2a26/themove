@@ -1,5 +1,3 @@
-import type { FrameMood } from '@/shared/components/frames/types';
-
 export const STROKE_WEIGHT = {
   faint: 0.3,
   light: 0.5,
@@ -19,27 +17,3 @@ export function getHeroStrokes(weatherMode: 'sunlit' | 'rain') {
   };
 }
 
-export function getFrameStrokes(mood: FrameMood) {
-  const heritage =
-    mood === 'traditional-golden' ||
-    mood === 'paris-morning'      ||
-    mood === 'winter-still'       ||
-    mood === 'mandalay-warm'      ||
-    mood === 'hill-station-calm';
-
-  if (heritage) {
-    return {
-      primary: mood === 'winter-still'      ? '#94a3b8' : '#78716c',
-      light:   mood === 'traditional-golden'? '#a8a29e' : '#94a3b8',
-      faint:   '#cbd5e1',
-      wood:    '#78716c',
-    };
-  }
-
-  return {
-    primary: mood === 'london-mist' ? '#64748b' : '#475569',
-    light:   '#94a3b8',
-    faint:   '#cbd5e1',
-    wood:    '#64748b',
-  };
-}

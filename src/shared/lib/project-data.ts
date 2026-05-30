@@ -47,10 +47,13 @@ export function parseProjectData(raw: unknown): ProjectDataFile {
   };
 }
 
-function sectorLabel(category: ProjectMeta['category']): string {
+function sectorLabel(category: string, categoryName?: string): string {
+  if (categoryName) return categoryName;
+  // Fallback for known slugs when no DB name is available
   if (category === 'residential') return 'Residential';
   if (category === 'commercial') return 'Commercial';
-  return 'Hospitality & F&B';
+  if (category === 'hospitality') return 'Hospitality';
+  return category.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 function projectTypeLabel(type: ProjectMeta['projectType']): string {
@@ -82,7 +85,7 @@ function buildPhilosophyPoem(meta: ProjectMeta): string {
 }
 
 /** Merge meta into gallery for existing detail components */
-export function toDetailGallery(data: ProjectDataFile): Project[] {
+export function toDetailGallery(data: ProjectDataFile, categoryName?: string): Project[] {
   const [first, ...rest] = data.gallery;
   if (!first) return [];
 
@@ -96,7 +99,7 @@ export function toDetailGallery(data: ProjectDataFile): Project[] {
     description: data.meta.oneLine,
     purpose: data.meta.purpose,
     philosophy: buildPhilosophyPoem(data.meta),
-    sectors: [sectorLabel(data.meta.category)],
+    sectors: [sectorLabel(data.meta.category, categoryName)],
     status: projectTypeLabel(data.meta.projectType),
     category: data.meta.category,
     moodTags: data.meta.moodTags,

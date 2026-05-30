@@ -8,7 +8,7 @@ import { HospitalityGlowFrame } from './HospitalityGlowFrame';
 import { InteriorChamberFrame } from './InteriorChamberFrame';
 import { ThresholdFrame } from './ThresholdFrame';
 import { UrbanFrame } from './UrbanFrame';
-import type { FrameArchetype, FrameMood, ProjectFrameMetadata } from './types';
+import type { FrameArchetype, ProjectFrameMetadata } from './types';
 import type { FrameComponentProps } from './frame-props';
 
 const FRAME_BY_ARCHETYPE: Record<
@@ -24,7 +24,6 @@ const FRAME_BY_ARCHETYPE: Record<
 };
 
 type AtmosphericFrameProps = {
-  mood: FrameMood;
   drawProgress: number;
   useMountAnimation?: boolean;
   className?: string;
@@ -34,7 +33,6 @@ type AtmosphericFrameProps = {
 
 /** Routes metadata → templated frame SVG (6 archetypes) */
 export function AtmosphericFrame({
-  mood,
   drawProgress,
   useMountAnimation = false,
   className = '',
@@ -50,7 +48,7 @@ export function AtmosphericFrame({
 
   return (
     <div className={`absolute inset-0 ${className}`}>
-      <Frame mood={mood} drawProgress={drawProgress} useMountAnimation={useMountAnimation} />
+      <Frame drawProgress={drawProgress} useMountAnimation={useMountAnimation} />
     </div>
   );
 }

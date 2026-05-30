@@ -1,5 +1,6 @@
 'use server';
 
+import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import { upsertContact } from '@/shared/lib/blob-data';
 import { uploadBlob } from '@/shared/lib/blob-client';
@@ -29,4 +30,5 @@ export async function updateContact(formData: FormData) {
 
   revalidatePath('/contact');
   revalidatePath('/admin/contact');
+  redirect('/admin/contact');
 }

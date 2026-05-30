@@ -3,13 +3,8 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { AtmosphericFrame } from '@/shared/components/frames/AtmosphericFrame';
-import { assignFrameMood, resolveFrameArchetype } from '@/shared/lib/assign-frame-mood';
-import type {
-  FrameArchetype,
-  FrameMood,
-  FrameStyle,
-  ProjectCategory,
-} from '@/shared/components/frames/types';
+import { resolveFrameArchetype } from '@/shared/lib/assign-frame-mood';
+import type { FrameArchetype } from '@/shared/components/frames/types';
 import { DETAIL_OPENING_TRANSITION } from '@/shared/lib/frame-transitions';
 import { useDrawProgress } from '@/shared/hooks/useDrawProgress';
 import { usePrefersReducedMotion } from '@/shared/hooks/usePrefersReducedMotion';
@@ -18,10 +13,6 @@ type ProjectOpeningRevealProps = {
   image: string;
   aspect: string;
   caption?: string;
-  location?: string;
-  style?: FrameStyle;
-  category?: ProjectCategory;
-  moodTags?: string[];
   frameArchetype?: FrameArchetype | 'auto';
 };
 
@@ -35,25 +26,12 @@ export function ProjectOpeningReveal({
   image,
   aspect,
   caption,
-  location,
-  style,
-  category,
-  moodTags,
   frameArchetype,
 }: ProjectOpeningRevealProps) {
   const reducedMotion = usePrefersReducedMotion();
   const [phase, setPhase] = useState<OpeningPhase>(reducedMotion ? 'done' : 'draw');
 
-  const frameMeta = {
-    title: caption ?? '',
-    location,
-    style,
-    category,
-    moodTags,
-    frameArchetype,
-    mood: moodTags?.join(' '),
-  };
-  const mood: FrameMood = assignFrameMood(frameMeta);
+  const frameMeta = { title: caption ?? '', frameArchetype };
   const archetype = resolveFrameArchetype(frameMeta);
 
   useEffect(() => {
@@ -102,7 +80,6 @@ export function ProjectOpeningReveal({
           }}
         >
           <AtmosphericFrame
-            mood={mood}
             archetype={frameArchetype ?? archetype}
             meta={frameMeta}
             drawProgress={drawProgress}

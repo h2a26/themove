@@ -27,7 +27,7 @@ export async function createProject(formData: FormData) {
     slug,
     title: formData.get('title') as string,
     coverImage: coverPathname,
-    category: formData.get('category') as 'residential' | 'commercial' | 'hospitality',
+    category: formData.get('category') as string,
     locationCity: formData.get('locationCity') as string,
     locationCountry: formData.get('locationCountry') as string,
     location: formData.get('location') as string,

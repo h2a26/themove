@@ -1,16 +1,15 @@
 'use client';
 
 import { AnimatedLine, AnimatedPath } from '@/shared/components/line-art/AnimatedPath';
-import { getFrameStrokes, STROKE_WEIGHT } from '@/shared/components/line-art/tokens';
+import { STROKE_WEIGHT } from '@/shared/components/line-art/tokens';
 import type { FrameComponentProps } from './frame-props';
 
 /** Cafes, hotels — pendant curves, steam, warm threshold */
 export function HospitalityGlowFrame({
-  mood,
   drawProgress,
   useMountAnimation = false,
 }: FrameComponentProps) {
-  const s = getFrameStrokes(mood);
+  const s = { primary: '#475569', light: '#94a3b8', faint: '#cbd5e1', wood: '#64748b' } as const;
 
   return (
     <svg

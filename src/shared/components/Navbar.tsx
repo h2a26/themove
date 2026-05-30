@@ -8,6 +8,12 @@ import { motion, useMotionValue, useTransform, useScroll } from 'framer-motion';
 import { WeatherToggle } from './the-move/weather-toggle';
 import { useWeatherMode } from '@/shared/state/weather-mode-context';
 import { SearchOverlay } from './search/SearchOverlay';
+import Image from 'next/image';
+import { PenLine } from 'lucide-react';
+
+type NavUser = { name?: string | null; email?: string | null; image?: string | null } | null;
+
+type CategoryOption = { slug: string; name: string };
 
 const MENU_ITEMS = [
   { label: 'Projects', href: '/projects' },
@@ -16,7 +22,13 @@ const MENU_ITEMS = [
   { label: 'Contact', href: '/contact' },
 ];
 
-export function Navbar() {
+interface NavbarProps {
+  user?: NavUser;
+  isAdmin?: boolean;
+  categories?: CategoryOption[];
+}
+
+export function Navbar({ user, isAdmin = false, categories = [] }: NavbarProps) {
   const pathname = usePathname();
   const { mode, toggle } = useWeatherMode();
   const [searchOpen, setSearchOpen] = useState(false);
@@ -37,6 +49,10 @@ export function Navbar() {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, []);
+
+  const initials = user?.name
+    ? user.name.split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2)
+    : '?';
 
   return (
     <>
@@ -111,16 +127,68 @@ export function Navbar() {
             <div className="pointer-events-auto">
               <WeatherToggle mode={mode} onToggle={toggle} compact />
             </div>
+
+            {/* Auth — desktop only */}
+            <div className="hidden lg:flex items-center">
+              {isAdmin ? (
+                /* Studio panel button for admin */
+                <Link
+                  href="/admin"
+                  aria-label="Studio"
+                  title="Studio"
+                  className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-[var(--mode-border-strong)] shinkai-panel shadow-sm hover:shadow-md text-[var(--mode-text-secondary)] hover:text-[var(--mode-text-primary)] transition-all duration-200"
+                >
+                  <PenLine size={14} />
+                </Link>
+              ) : user ? (
+                /* Profile avatar */
+                <Link
+                  href="/me"
+                  aria-label="My profile"
+                  className="flex items-center justify-center w-7 h-7 rounded-full overflow-hidden ring-1 ring-[var(--mode-border)] hover:ring-[var(--mode-cord)] transition-all"
+                >
+                  {user.image ? (
+                    <Image
+                      src={user.image}
+                      alt={user.name ?? 'Profile'}
+                      width={28}
+                      height={28}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <span className="text-[9px] font-semibold text-[var(--mode-text-secondary)] bg-[var(--mode-border)] w-full h-full flex items-center justify-center">
+                      {initials}
+                    </span>
+                  )}
+                </Link>
+              ) : (
+                /* Join button — icon-only circle to match the profile avatar */
+                <Link
+                  href="/join"
+                  aria-label="Join / Sign in"
+                  title="Join"
+                  className="flex items-center justify-center w-7 h-7 rounded-full ring-1 ring-[var(--mode-border)] hover:ring-[var(--mode-cord)] text-[var(--mode-text-secondary)] hover:text-[var(--mode-text-primary)] transition-all duration-200"
+                >
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+                    <circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" strokeWidth="1.2"/>
+                    <path d="M1 12c0-3.038 2.462-5.5 5.5-5.5S12 8.962 12 12" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                  </svg>
+                </Link>
+              )}
+            </div>
+
             <MobileMenu
               menuItems={MENU_ITEMS}
               textColor="text-[var(--mode-text-primary)]"
               pathname={pathname}
+              user={user}
+              isAdmin={isAdmin}
             />
           </div>
         </div>
       </motion.nav>
 
-      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
+      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} categories={categories} />
     </>
   );
 }

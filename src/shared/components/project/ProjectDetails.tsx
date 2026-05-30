@@ -1,4 +1,8 @@
+import { SaveButton } from '@/shared/components/SaveButton';
+import { ShareBar } from './ShareBar';
+
 type ProjectDetailsProps = {
+  title?: string;
   caption?: string;
   client?: string;
   location?: string;
@@ -13,9 +17,13 @@ type ProjectDetailsProps = {
   description?: string;
   philosophy?: string;
   purpose?: string;
+  slug?: string;
+  userId?: string | null;
+  isSaved?: boolean;
 };
 
 export const ProjectDetails = ({
+  title,
   caption,
   client,
   location,
@@ -30,6 +38,9 @@ export const ProjectDetails = ({
   description,
   philosophy,
   purpose,
+  slug,
+  userId,
+  isSaved,
 }: ProjectDetailsProps) => {
   const normalize = (text: string) =>
     text
@@ -161,6 +172,18 @@ export const ProjectDetails = ({
                   </p>
                 </div>
               ))}
+            </div>
+          )}
+
+          {slug !== undefined && (
+            <div className="mt-10 flex flex-col gap-4">
+              <SaveButton
+                slug={slug}
+                userId={userId ?? null}
+                initialSaved={isSaved ?? false}
+                variant="inline"
+              />
+              <ShareBar slug={slug} title={title ?? caption ?? ''} />
             </div>
           )}
         </div>

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 
-type CategoryFilter = 'all' | 'residential' | 'commercial' | 'hospitality'
+type CategoryFilter = 'all' | (string & {})
 
 interface SearchResult {
   id:       string
@@ -15,19 +15,22 @@ interface SearchResult {
   category: string
 }
 
-const CATEGORIES: { value: CategoryFilter; label: string }[] = [
-  { value: 'all',         label: 'All'         },
-  { value: 'residential', label: 'Residential' },
-  { value: 'commercial',  label: 'Commercial'  },
-  { value: 'hospitality', label: 'Hospitality' },
-]
-
-interface SearchOverlayProps {
-  open:    boolean
-  onClose: () => void
+interface CategoryOption {
+  slug: string
+  name: string
 }
 
-export function SearchOverlay({ open, onClose }: SearchOverlayProps) {
+interface SearchOverlayProps {
+  open:       boolean
+  onClose:    () => void
+  categories?: CategoryOption[]
+}
+
+export function SearchOverlay({ open, onClose, categories = [] }: SearchOverlayProps) {
+  const CATEGORIES: { value: CategoryFilter; label: string }[] = [
+    { value: 'all', label: 'All' },
+    ...categories.map((c) => ({ value: c.slug, label: c.name })),
+  ]
   const router    = useRouter()
   const inputRef  = useRef<HTMLInputElement>(null)
   const [query,    setQuery   ] = useState('')

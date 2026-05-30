@@ -1,16 +1,15 @@
 'use client';
 
 import { AnimatedLine, AnimatedPath } from '@/shared/components/line-art/AnimatedPath';
-import { getFrameStrokes, STROKE_WEIGHT } from '@/shared/components/line-art/tokens';
+import { STROKE_WEIGHT } from '@/shared/components/line-art/tokens';
 import type { FrameComponentProps } from './frame-props';
 
 /** Retail / storefront threshold — awning, doorframe, display window */
 export function ThresholdFrame({
-  mood,
   drawProgress,
   useMountAnimation = false,
 }: FrameComponentProps) {
-  const s = getFrameStrokes(mood);
+  const s = { primary: '#78716c', light: '#94a3b8', faint: '#cbd5e1', wood: '#78716c' } as const;
 
   return (
     <svg

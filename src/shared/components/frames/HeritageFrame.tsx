@@ -1,22 +1,15 @@
 'use client';
 
 import { AnimatedLine, AnimatedPath } from '@/shared/components/line-art/AnimatedPath';
-import { getFrameStrokes, STROKE_WEIGHT } from '@/shared/components/line-art/tokens';
-import type { FrameMood } from './types';
-
-type HeritageFrameProps = {
-  mood: FrameMood;
-  drawProgress: number;
-  useMountAnimation?: boolean;
-};
+import { STROKE_WEIGHT } from '@/shared/components/line-art/tokens';
+import type { FrameComponentProps } from './frame-props';
 
 /** Itomori-inspired templated frame for Scroll of Spaces / detail opening */
 export function HeritageFrame({
-  mood,
   drawProgress,
   useMountAnimation = false,
-}: HeritageFrameProps) {
-  const s = getFrameStrokes(mood);
+}: FrameComponentProps) {
+  const s = { primary: '#78716c', light: '#a8a29e', faint: '#cbd5e1', wood: '#78716c' } as const;
 
   return (
     <svg

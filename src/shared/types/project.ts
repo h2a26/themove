@@ -1,6 +1,6 @@
-import type { FrameArchetype, FrameMood, FrameStyle, ProjectCategory, ProjectType } from '@/shared/components/frames/types';
+import type { FrameArchetype, FrameStyle, ProjectCategory, ProjectType } from '@/shared/components/frames/types';
 
-export type { FrameArchetype, FrameMood, FrameStyle, ProjectCategory, ProjectType };
+export type { FrameArchetype, FrameStyle, ProjectCategory, ProjectType };
 
 /** Single image in a project detail gallery */
 export type ProjectGalleryItem = {
@@ -14,6 +14,7 @@ export type ProjectGalleryItem = {
 export type ProjectMeta = {
   slug: string;
   title: string;
+  coverImage?: string;
   category: ProjectCategory;
   locationCity: string;
   locationCountry: string;

@@ -446,7 +446,7 @@ export function ChapterInterstitial({ chapter }: ChapterInterstitialProps) {
       className="flex min-h-[55vh] flex-col items-center justify-center px-6 py-24"
       aria-label={`${chapter.subtitle} chapter`}
     >
-      <ChapterIcon category={chapter.category} inView={inView} reducedMotion={reducedMotion} />
+      <ChapterIcon category={chapter.categorySlug} inView={inView} reducedMotion={reducedMotion} />
       <p
         className="mt-8 text-center text-[0.65rem] uppercase tracking-[0.35em] text-[var(--mode-text-tertiary)]"
         style={{ fontFamily: 'var(--font-euclid)' }}

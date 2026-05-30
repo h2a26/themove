@@ -1,14 +1,14 @@
 'use client';
 
-import { AtmosphereLayer, getAtmosphereVariant } from '@/shared/components/line-art/AtmosphereLayer';
-import type { FrameMood } from './types';
+import { AtmosphereLayer } from '@/shared/components/line-art/AtmosphereLayer';
+import type { AtmosphereVariant } from '@/shared/components/line-art/AtmosphereLayer';
 
 type FrameWeatherParticlesProps = {
-  mood: FrameMood;
+  variant: AtmosphereVariant;
   opacity: number;
 };
 
 /** Weather/light layer for Scroll of Spaces Option 3 linger */
-export function FrameWeatherParticles({ mood, opacity }: FrameWeatherParticlesProps) {
-  return <AtmosphereLayer variant={getAtmosphereVariant(mood)} opacity={opacity} />;
+export function FrameWeatherParticles({ variant, opacity }: FrameWeatherParticlesProps) {
+  return <AtmosphereLayer variant={variant} opacity={opacity} />;
 }

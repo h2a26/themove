@@ -1,6 +1,9 @@
-import { eq, asc } from 'drizzle-orm';
+import { eq, asc, and, desc, sql as rawSql } from 'drizzle-orm';
 import { db } from './index';
-import { projects, galleryItems, books, aboutEntries, contactInfo, chapters } from './schema';
+import {
+  categories, projects, galleryItems, books, aboutEntries, contactInfo,
+  chapters, savedProjects, moodboardShares, users,
+} from './schema';
 import type { ProjectCatalogueEntry, ProjectMeta, ProjectGalleryItem } from '@/shared/types/project';
 import type { Book } from '@/shared/types/book';
 import type { AboutEntry, ContactInfo, Chapter } from '@/shared/types/cms';
@@ -11,7 +14,7 @@ export type ProjectInput = {
   slug: string;
   title: string;
   coverImage?: string;
-  category: 'residential' | 'commercial' | 'hospitality';
+  category: string;
   locationCity: string;
   locationCountry: string;
   location: string;
@@ -51,10 +54,15 @@ export type AboutEntryInput = {
 };
 
 export type ChapterInput = {
-  id: string;
+  categorySlug: string;
   title: string;
   subtitle: string;
-  category: string;
+  sortOrder?: number;
+};
+
+export type CategoryInput = {
+  slug: string;
+  name: string;
   sortOrder?: number;
 };
 
@@ -65,6 +73,15 @@ export type ContactInput = {
   generalEnquiries: string;
   newBusinessEnquiries: string;
   careers: string;
+};
+
+// ── Category type ─────────────────────────────────────────────────────────────
+
+export type Category = {
+  id: number;
+  slug: string;
+  name: string;
+  sortOrder: number;
 };
 
 // ── Row mappers ──────────────────────────────────────────────────────────────
@@ -90,6 +107,7 @@ function toProjectMeta(row: typeof projects.$inferSelect): ProjectMeta {
   return {
     slug: row.slug,
     title: row.title,
+    coverImage: row.coverImage || undefined,
     category: row.category,
     locationCity: row.locationCity,
     locationCountry: row.locationCountry,
@@ -149,6 +167,42 @@ function toContactInfo(row: typeof contactInfo.$inferSelect): ContactInfo {
     newBusinessEnquiries: row.newBusinessEnquiries,
     careers: row.careers,
   };
+}
+
+// ── Category reads ────────────────────────────────────────────────────────────
+
+export async function getCategories(): Promise<Category[]> {
+  const rows = await db.select().from(categories).orderBy(asc(categories.sortOrder), asc(categories.id));
+  return rows.map((r) => ({ id: r.id, slug: r.slug, name: r.name, sortOrder: r.sortOrder }));
+}
+
+export async function getCategoryProjectCounts(): Promise<Record<string, number>> {
+  const rows = await db
+    .select({
+      category: projects.category,
+      count: rawSql<number>`count(*)::int`,
+    })
+    .from(projects)
+    .groupBy(projects.category);
+  return Object.fromEntries(rows.map((r) => [r.category, r.count]));
+}
+
+// ── Category writes ───────────────────────────────────────────────────────────
+
+export async function createCategory(data: CategoryInput): Promise<void> {
+  await db.insert(categories).values({
+    slug: data.slug,
+    name: data.name,
+    sortOrder: data.sortOrder ?? 0,
+  });
+}
+
+export async function updateCategory(id: number, data: { name: string; sortOrder: number }): Promise<void> {
+  await db.update(categories).set({ name: data.name, sortOrder: data.sortOrder }).where(eq(categories.id, id));
+}
+
+export async function deleteCategory(id: number): Promise<void> {
+  await db.delete(categories).where(eq(categories.id, id));
 }
 
 // ── Project reads ────────────────────────────────────────────────────────────
@@ -356,7 +410,7 @@ export async function getChapters(): Promise<Chapter[]> {
     id: r.id,
     title: r.title,
     subtitle: r.subtitle,
-    category: r.category as import('@/shared/components/frames/types').ProjectCategory,
+    categorySlug: r.categorySlug,
     sortOrder: r.sortOrder,
   }));
 }
@@ -365,18 +419,134 @@ export async function getChapters(): Promise<Chapter[]> {
 
 export async function upsertChapter(data: ChapterInput): Promise<void> {
   const payload = {
-    id: data.id,
+    categorySlug: data.categorySlug,
     title: data.title,
     subtitle: data.subtitle,
-    category: data.category,
     sortOrder: data.sortOrder ?? 0,
   };
   await db
     .insert(chapters)
     .values(payload)
-    .onConflictDoUpdate({ target: chapters.id, set: payload });
+    .onConflictDoUpdate({ target: chapters.categorySlug, set: payload });
 }
 
-export async function deleteChapter(id: string): Promise<void> {
+export async function updateChapterById(id: number, data: { title: string; subtitle: string; sortOrder: number }): Promise<void> {
+  await db.update(chapters)
+    .set({ title: data.title, subtitle: data.subtitle, sortOrder: data.sortOrder })
+    .where(eq(chapters.id, id));
+}
+
+export async function deleteChapter(id: number): Promise<void> {
   await db.delete(chapters).where(eq(chapters.id, id));
+}
+
+// ── Moodboard reads ──────────────────────────────────────────────────────────
+
+export async function getSavedSlugs(userId: string): Promise<string[]> {
+  const rows = await db
+    .select({ projectSlug: savedProjects.projectSlug })
+    .from(savedProjects)
+    .where(eq(savedProjects.userId, userId));
+  return rows.map((r) => r.projectSlug);
+}
+
+export type SavedProjectEntry = ProjectCatalogueEntry & {
+  savedAt: Date | null;
+  moodTags: string[];
+  style?: 'traditional' | 'contemporary' | null;
+  category: string;
+  coverImage: string;
+};
+
+export async function getSavedProjects(userId: string): Promise<SavedProjectEntry[]> {
+  const rows = await db
+    .select()
+    .from(savedProjects)
+    .innerJoin(projects, eq(savedProjects.projectSlug, projects.slug))
+    .where(eq(savedProjects.userId, userId))
+    .orderBy(desc(savedProjects.savedAt));
+
+  return rows.map((r) => ({
+    ...toProjectCatalogueEntry(r.projects),
+    savedAt: r.saved_projects.savedAt,
+    moodTags: r.projects.moodTags ?? [],
+    style: r.projects.style ?? undefined,
+    category: r.projects.category,
+    coverImage: r.projects.coverImage,
+  }));
+}
+
+// ── Moodboard writes ─────────────────────────────────────────────────────────
+
+export async function toggleSaveProject(
+  userId: string,
+  slug: string,
+): Promise<{ saved: boolean }> {
+  const existing = await db
+    .select({ id: savedProjects.id })
+    .from(savedProjects)
+    .where(and(eq(savedProjects.userId, userId), eq(savedProjects.projectSlug, slug)))
+    .limit(1);
+
+  if (existing.length > 0) {
+    await db
+      .delete(savedProjects)
+      .where(and(eq(savedProjects.userId, userId), eq(savedProjects.projectSlug, slug)));
+    return { saved: false };
+  }
+
+  await db.insert(savedProjects).values({ userId, projectSlug: slug });
+  return { saved: true };
+}
+
+// ── Moodboard share ──────────────────────────────────────────────────────────
+
+export async function getOrCreateMoodboardShare(userId: string): Promise<string> {
+  const existing = await db
+    .select({ shareToken: moodboardShares.shareToken })
+    .from(moodboardShares)
+    .where(eq(moodboardShares.userId, userId))
+    .limit(1);
+
+  if (existing.length > 0) return existing[0].shareToken;
+
+  const token = crypto.randomUUID();
+  await db.insert(moodboardShares).values({ userId, shareToken: token });
+  return token;
+}
+
+export async function getSavedProjectsByShareToken(token: string): Promise<{
+  ownerName: string | null;
+  saved: SavedProjectEntry[];
+} | null> {
+  const shareRows = await db
+    .select({ userId: moodboardShares.userId })
+    .from(moodboardShares)
+    .where(eq(moodboardShares.shareToken, token))
+    .limit(1);
+
+  if (shareRows.length === 0) return null;
+
+  const { userId } = shareRows[0];
+
+  const [userRows, savedRows] = await Promise.all([
+    db.select({ name: users.name }).from(users).where(eq(users.id, userId)).limit(1),
+    db
+      .select()
+      .from(savedProjects)
+      .innerJoin(projects, eq(savedProjects.projectSlug, projects.slug))
+      .where(eq(savedProjects.userId, userId))
+      .orderBy(desc(savedProjects.savedAt)),
+  ]);
+
+  const saved = savedRows.map((r) => ({
+    ...toProjectCatalogueEntry(r.projects),
+    savedAt: r.saved_projects.savedAt,
+    moodTags: r.projects.moodTags ?? [],
+    style: r.projects.style ?? undefined,
+    category: r.projects.category,
+    coverImage: r.projects.coverImage,
+  }));
+
+  return { ownerName: userRows[0]?.name ?? null, saved };
 }

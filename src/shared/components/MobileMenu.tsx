@@ -4,21 +4,29 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { List, X } from 'phosphor-react';
+import { LayoutGrid } from 'lucide-react';
+import Image from 'next/image';
 
 export type MenuItem = { label: string; href: string };
+type NavUser = { name?: string | null; email?: string | null; image?: string | null } | null;
 
 interface MobileMenuProps {
   menuItems: MenuItem[];
   textColor: string;
   pathname: string;
+  user?: NavUser;
+  isAdmin?: boolean;
 }
 
 function getNavItemClass(isActive: boolean, base: string) {
   return [base, isActive ? 'text-[var(--mode-cord)] font-bold underline underline-offset-4' : ''].join(' ');
 }
 
-export default function MobileMenu({ menuItems, textColor, pathname }: MobileMenuProps) {
+export default function MobileMenu({ menuItems, textColor, pathname, user, isAdmin = false }: MobileMenuProps) {
   const [open, setOpen] = useState(false);
+  const initials = user?.name
+    ? user.name.split(' ').map((n) => n[0]).join('').toUpperCase().slice(0, 2)
+    : '?';
 
   return (
     <>
@@ -53,6 +61,57 @@ export default function MobileMenu({ menuItems, textColor, pathname }: MobileMen
               id="mobile-menu"
               role="menu"
             >
+              {/* Auth row */}
+              <div className="mb-5 pb-5 border-b border-[var(--mode-border)]">
+                {isAdmin ? (
+                  <Link
+                    href="/admin"
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-2 text-[13px] uppercase tracking-[1.5px] text-[var(--mode-text-secondary)] hover:text-[var(--mode-text-primary)] transition-colors"
+                    role="menuitem"
+                    style={{ fontFamily: 'var(--font-acaslon-pro)' }}
+                  >
+                    <LayoutGrid size={14} />
+                    Studio
+                  </Link>
+                ) : user ? (
+                  <Link
+                    href="/me"
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-3"
+                    role="menuitem"
+                  >
+                    <div className="w-8 h-8 rounded-full overflow-hidden ring-1 ring-[var(--mode-border)] shrink-0">
+                      {user.image ? (
+                        <Image src={user.image} alt={user.name ?? ''} width={32} height={32} className="w-full h-full object-cover" />
+                      ) : (
+                        <span className="text-[10px] font-semibold text-[var(--mode-text-secondary)] bg-[var(--mode-border)] w-full h-full flex items-center justify-center">
+                          {initials}
+                        </span>
+                      )}
+                    </div>
+                    <div>
+                      <p className="text-xs font-medium text-[var(--mode-text-primary)]">{user.name}</p>
+                      <p className="text-[10px] text-[var(--mode-text-tertiary)]">View profile</p>
+                    </div>
+                  </Link>
+                ) : (
+                  <Link
+                    href="/join"
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-2 text-[13px] uppercase tracking-[1.5px] text-[var(--mode-text-secondary)] hover:text-[var(--mode-text-primary)] transition-colors"
+                    role="menuitem"
+                    style={{ fontFamily: 'var(--font-acaslon-pro)' }}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+                      <circle cx="6.5" cy="4.5" r="2.5" stroke="currentColor" strokeWidth="1.2"/>
+                      <path d="M1 12c0-3.038 2.462-5.5 5.5-5.5S12 8.962 12 12" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                    </svg>
+                    Join The Move
+                  </Link>
+                )}
+              </div>
+
               <ul
                 className="space-y-4 uppercase text-[13px] tracking-[1.5px]"
                 style={{ fontFamily: 'var(--font-euclid-circular-b, sans-serif)' }}

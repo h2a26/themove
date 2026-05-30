@@ -30,6 +30,7 @@ export async function updateBook(slug: string, formData: FormData) {
 
   revalidatePath('/books');
   revalidatePath('/admin/books');
+  redirect(`/admin/books/${slug}`);
 }
 
 export async function deleteBook(slug: string) {

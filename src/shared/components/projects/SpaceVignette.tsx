@@ -6,11 +6,12 @@ import { useInView } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import { AtmosphericFrame } from '@/shared/components/frames/AtmosphericFrame';
 import { FrameWeatherParticles } from '@/shared/components/frames/FrameWeatherParticles';
-import { assignFrameMood, resolveFrameArchetype } from '@/shared/lib/assign-frame-mood';
+import { resolveAtmosphereVariant, resolveFrameArchetype } from '@/shared/lib/assign-frame-mood';
 import { SCROLL_TRANSITION } from '@/shared/lib/frame-transitions';
 import { useDrawProgress } from '@/shared/hooks/useDrawProgress';
 import { usePrefersReducedMotion } from '@/shared/hooks/usePrefersReducedMotion';
 import type { ProjectFrameMetadata } from '@/shared/components/frames/types';
+import { SaveButton } from '@/shared/components/SaveButton';
 
 type VignettePhase = 'idle' | 'draw' | 'dissolve' | 'linger' | 'reveal' | 'done';
 
@@ -18,18 +19,21 @@ export type SpaceVignetteProps = ProjectFrameMetadata & {
   image: string;
   routeTo: string;
   description?: string;
+  slug?: string;
+  userId?: string | null;
+  isSaved?: boolean;
 };
 
 /**
  * Scroll of Spaces vignette — Option 3:
  * architectural lines dissolve; weather lingers; photo reaches full clarity.
  */
-export function SpaceVignette({ title, image, routeTo, description, ...meta }: SpaceVignetteProps) {
+export function SpaceVignette({ title, image, routeTo, description, slug, userId, isSaved, ...meta }: SpaceVignetteProps) {
   const ref = useRef<HTMLElement>(null);
+  const [savedState, setSavedState] = useState(isSaved ?? false);
   const inView = useInView(ref, { once: true, margin: '-15% 0px' });
   const reducedMotion = usePrefersReducedMotion();
-  const frameMeta = { title, ...meta, mood: meta.moodTags?.join(' ') };
-  const mood = assignFrameMood(frameMeta);
+  const frameMeta = { title, ...meta };
   const archetype = resolveFrameArchetype(frameMeta);
 
   const [phase, setPhase] = useState<VignettePhase>('idle');
@@ -101,7 +105,7 @@ export function SpaceVignette({ title, image, routeTo, description, ...meta }: S
     description && (phase === 'draw' || phase === 'dissolve' || phase === 'linger');
 
   return (
-    <article ref={ref} className="flex min-h-[92vh] items-center justify-center px-4 py-20 md:py-28">
+    <article ref={ref} className="relative flex min-h-[92vh] items-center justify-center px-4 py-20 md:py-28">
       <Link href={routeTo} className="group block w-full max-w-4xl">
         <div className="relative mx-auto aspect-[4/5] w-full overflow-hidden rounded-sm bg-white/40 shadow-sm md:aspect-[16/10] md:max-h-[72vh]">
           <Image
@@ -122,7 +126,6 @@ export function SpaceVignette({ title, image, routeTo, description, ...meta }: S
               }}
             >
               <AtmosphericFrame
-                mood={mood}
                 archetype={meta.frameArchetype ?? archetype}
                 meta={frameMeta}
                 drawProgress={drawProgress}
@@ -131,7 +134,7 @@ export function SpaceVignette({ title, image, routeTo, description, ...meta }: S
           )}
 
           {(weatherOpacity > 0 || phase === 'dissolve') && phase !== 'done' && !reducedMotion && (
-            <FrameWeatherParticles mood={mood} opacity={weatherOpacity} />
+            <FrameWeatherParticles variant={resolveAtmosphereVariant(archetype)} opacity={weatherOpacity} />
           )}
 
           <div
@@ -153,6 +156,21 @@ export function SpaceVignette({ title, image, routeTo, description, ...meta }: S
               </p>
             )}
           </div>
+
+          {/* Heart — always visible when saved, hover-only otherwise */}
+          {slug !== undefined && (
+            <div
+              className={`absolute top-3 right-3 z-20 transition-opacity duration-300 ${savedState ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <SaveButton
+                slug={slug}
+                userId={userId ?? null}
+                initialSaved={isSaved ?? false}
+                onSavedChange={setSavedState}
+              />
+            </div>
+          )}
         </div>
 
         <p

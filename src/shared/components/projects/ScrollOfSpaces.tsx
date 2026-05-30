@@ -6,15 +6,18 @@ import { SpaceVignette, type SpaceVignetteProps } from './SpaceVignette';
 
 export type ScrollOfSpacesProject = SpaceVignetteProps & {
   id: number;
-  category: NonNullable<SpaceVignetteProps['category']>;
+  slug: string;
+  category: string;
 };
 
 type ScrollOfSpacesProps = {
   projects: ScrollOfSpacesProject[];
   chapters: ChapterDefinition[];
+  savedSlugs?: string[];
+  userId?: string | null;
 };
 
-export function ScrollOfSpaces({ projects, chapters }: ScrollOfSpacesProps) {
+export function ScrollOfSpaces({ projects, chapters, savedSlugs, userId }: ScrollOfSpacesProps) {
   const groups = groupCatalogueByChapter(projects, chapters);
 
   return (
@@ -26,7 +29,12 @@ export function ScrollOfSpaces({ projects, chapters }: ScrollOfSpacesProps) {
         <div key={chapter.id} data-chapter={chapter.id}>
           <ChapterInterstitial chapter={chapter} />
           {chapterProjects.map((project) => (
-            <SpaceVignette key={project.id} {...project} />
+            <SpaceVignette
+              key={project.id}
+              {...project}
+              userId={userId}
+              isSaved={savedSlugs?.includes(project.slug) ?? false}
+            />
           ))}
         </div>
       ))}

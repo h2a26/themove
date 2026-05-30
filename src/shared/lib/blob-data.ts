@@ -3,6 +3,11 @@
  * blob-client.ts still handles binary uploads/downloads (images, PDFs).
  */
 export {
+  getCategories,
+  getCategoryProjectCounts,
+  createCategory,
+  updateCategory,
+  deleteCategory,
   getProjectList,
   getProjectMeta,
   getProjectGallery,
@@ -21,14 +26,22 @@ export {
   upsertContact,
   getChapters,
   upsertChapter,
+  updateChapterById,
   deleteChapter,
+  getSavedSlugs,
+  getSavedProjects,
+  getOrCreateMoodboardShare,
+  getSavedProjectsByShareToken,
 } from '@/server/db/queries';
 
 export type {
+  Category,
+  CategoryInput,
   ProjectInput,
   GalleryItemInput,
   BookInput,
   AboutEntryInput,
   ContactInput,
   ChapterInput,
+  SavedProjectEntry,
 } from '@/server/db/queries';

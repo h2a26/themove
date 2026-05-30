@@ -66,15 +66,17 @@ export function Footer() {
         <div className="text-xs text-center sm:text-left flex flex-col sm:flex-row justify-center sm:justify-between gap-2 sm:gap-4">
           <p> © 2026 The Move, All Rights Reserved.</p>
           <div className="flex flex-wrap justify-center sm:justify-start items-center gap-x-2">
-            <a href="#" className="hover:underline">
+            <Link href="/contact" className="hover:underline">
               Privacy Policy
-            </a>
+            </Link>
             <span>|</span>
-            <a href="#" className="hover:underline">
+            <Link href="/contact" className="hover:underline">
               Terms & Conditions
-            </a>
+            </Link>
             <span>|</span>
-            <span className="italic hover:text-[var(--mode-cord)] hover:cursor-pointer">For Thi</span>
+            <Link href="/admin/login" className="hover:underline">
+              Studio
+            </Link>
           </div>
         </div>
       </div>

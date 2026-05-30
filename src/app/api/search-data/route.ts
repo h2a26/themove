@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getProjectList, getBooks } from '@/shared/lib/blob-data';
 
-export const revalidate = 60; // ISR: re-fetch from DB at most every 60s
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
   const [projects, books] = await Promise.all([getProjectList(), getBooks()]);

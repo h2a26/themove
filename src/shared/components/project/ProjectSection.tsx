@@ -24,11 +24,7 @@ export const ProjectSection = ({ projects }: ProjectsSectionProps) => {
                 image={first.image}
                 aspect={first.aspect}
                 caption={first.caption}
-                location={first.location}
-                category={first.category}
-                moodTags={first.moodTags}
                 frameArchetype={first.frameArchetype}
-                style={first.style}
               />
             </div>
           )}

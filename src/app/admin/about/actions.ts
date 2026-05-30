@@ -1,5 +1,6 @@
 'use server';
 
+import { redirect } from 'next/navigation';
 import { revalidatePath } from 'next/cache';
 import { updateAboutEntry as dbUpdateAboutEntry } from '@/shared/lib/blob-data';
 import { uploadBlob } from '@/shared/lib/blob-client';
@@ -31,4 +32,5 @@ export async function updateAboutEntry(id: number, formData: FormData) {
 
   revalidatePath('/about');
   revalidatePath('/admin/about');
+  redirect('/admin/about');
 }

@@ -1,28 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import type { FrameMood } from '@/shared/components/frames/types';
 
 export type AtmosphereVariant = 'golden' | 'mist' | 'rain' | 'blueHour';
-
-export function getAtmosphereVariant(mood: FrameMood): AtmosphereVariant {
-  switch (mood) {
-    case 'traditional-golden':
-    case 'paris-morning':
-    case 'summer-bright':
-    case 'mandalay-warm':
-      return 'golden';
-    case 'london-mist':
-    case 'yangon-mist':
-      return 'rain';
-    case 'winter-still':
-    case 'hill-station-calm':
-      return 'mist';
-    case 'contemporary-blue':
-    default:
-      return 'blueHour';
-  }
-}
 
 type AtmosphereLayerProps = {
   variant: AtmosphereVariant;

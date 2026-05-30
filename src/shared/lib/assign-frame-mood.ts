@@ -1,55 +1,20 @@
-import type { FrameArchetype, FrameMood, ProjectFrameMetadata } from '@/shared/components/frames/types';
+import type { FrameArchetype, ProjectFrameMetadata } from '@/shared/components/frames/types';
+import type { AtmosphereVariant } from '@/shared/components/line-art/AtmosphereLayer';
 
-const CITY_MOODS: Record<string, FrameMood> = {
-  yangon: 'yangon-mist',
-  mandalay: 'mandalay-warm',
-  'pyin oo lwin': 'hill-station-calm',
-  monywa: 'mandalay-warm',
-};
-
-const ARCHETYPE_MOODS: Record<FrameArchetype, FrameMood> = {
-  heritage: 'traditional-golden',
-  urban: 'contemporary-blue',
-  threshold: 'mandalay-warm',
-  'interior-chamber': 'mandalay-warm',
-  garden: 'hill-station-calm',
-  'hospitality-glow': 'summer-bright',
-  auto: 'mandalay-warm',
+const ARCHETYPE_ATMOSPHERE: Record<Exclude<FrameArchetype, 'auto'>, AtmosphereVariant> = {
+  heritage:           'golden',
+  urban:              'blueHour',
+  threshold:          'golden',
+  'interior-chamber': 'mist',
+  garden:             'mist',
+  'hospitality-glow': 'golden',
 };
 
 export function resolveFrameArchetype(meta: ProjectFrameMetadata): Exclude<FrameArchetype, 'auto'> {
-  if (meta.frameArchetype && meta.frameArchetype !== 'auto') {
-    return meta.frameArchetype;
-  }
-
-  if (meta.category === 'hospitality') return 'hospitality-glow';
-  if (meta.category === 'commercial') return 'threshold';
-
-  const haystack = `${meta.title} ${meta.mood ?? ''} ${(meta.moodTags ?? []).join(' ')}`.toLowerCase();
-
-  if (haystack.includes('heritage') || haystack.includes('classical')) return 'heritage';
-  if (haystack.includes('garden') || haystack.includes('biophilic') || haystack.includes('spa')) {
-    return 'garden';
-  }
-  if (haystack.includes('urban') || haystack.includes('condo')) return 'urban';
-  if (haystack.includes('gold') || haystack.includes('retail') || haystack.includes('shop')) {
-    return 'threshold';
-  }
-
+  if (meta.frameArchetype && meta.frameArchetype !== 'auto') return meta.frameArchetype;
   return 'interior-chamber';
 }
 
-export function assignFrameMood(meta: ProjectFrameMetadata): FrameMood {
-  if (meta.season === 'winter') return 'winter-still';
-  if (meta.season === 'summer') return 'summer-bright';
-  if (meta.style === 'traditional') return 'traditional-golden';
-  if (meta.style === 'contemporary' && meta.category === 'commercial') return 'contemporary-blue';
-
-  const city = (meta.locationCity ?? meta.location ?? '').toLowerCase();
-  for (const [key, mood] of Object.entries(CITY_MOODS)) {
-    if (city.includes(key)) return mood;
-  }
-
-  const archetype = resolveFrameArchetype(meta);
-  return ARCHETYPE_MOODS[archetype] ?? 'mandalay-warm';
+export function resolveAtmosphereVariant(archetype: Exclude<FrameArchetype, 'auto'>): AtmosphereVariant {
+  return ARCHETYPE_ATMOSPHERE[archetype];
 }

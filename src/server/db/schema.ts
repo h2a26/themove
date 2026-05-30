@@ -1,11 +1,5 @@
 import { pgTable, pgEnum, serial, integer, text, boolean, timestamp } from 'drizzle-orm/pg-core';
 
-export const projectCategoryEnum = pgEnum('project_category', [
-  'residential',
-  'commercial',
-  'hospitality',
-]);
-
 export const projectTypeEnum = pgEnum('project_type', [
   'interior',
   'architecture',
@@ -17,6 +11,16 @@ export const frameStyleEnum = pgEnum('frame_style', [
   'contemporary',
 ]);
 
+export const userRoleEnum = pgEnum('user_role', ['member', 'client', 'admin']);
+
+/** Admin-configurable category types (residential, commercial, hospitality, …) */
+export const categories = pgTable('categories', {
+  id:        serial('id').primaryKey(),
+  slug:      text('slug').unique().notNull(),
+  name:      text('name').notNull(),
+  sortOrder: integer('sort_order').notNull().default(0),
+});
+
 /** Merges ProjectCatalogueEntry + ProjectMeta — single source of truth per project */
 export const projects = pgTable('projects', {
   id:              serial('id').primaryKey(),
@@ -25,7 +29,7 @@ export const projects = pgTable('projects', {
   title:           text('title').notNull(),
   description:     text('description').notNull().default(''),
   coverImage:      text('cover_image').notNull().default(''),
-  category:        projectCategoryEnum('category').notNull(),
+  category:        text('category').references(() => categories.slug, { onUpdate: 'cascade' }).notNull(),
   locationCity:    text('location_city').notNull().default(''),
   locationCountry: text('location_country').notNull().default(''),
   location:        text('location').notNull().default(''),
@@ -75,13 +79,14 @@ export const aboutEntries = pgTable('about_entries', {
   description: text('description').array().notNull().default([]),
 });
 
-/** Section chapter labels (residential / commercial / hospitality) */
+/** Section heading per category — groups projects on /projects scroll */
 export const chapters = pgTable('chapters', {
-  id:        text('id').primaryKey(),           // e.g. 'residential'
-  title:     text('title').notNull(),           // e.g. 'Spaces to live'
-  subtitle:  text('subtitle').notNull().default(''), // e.g. 'Residential'
-  category:  text('category').notNull(),
-  sortOrder: integer('sort_order').notNull().default(0),
+  id:           serial('id').primaryKey(),
+  categorySlug: text('category_slug').unique().notNull()
+    .references(() => categories.slug, { onUpdate: 'cascade', onDelete: 'restrict' }),
+  title:        text('title').notNull(),
+  subtitle:     text('subtitle').notNull().default(''),
+  sortOrder:    integer('sort_order').notNull().default(0),
 });
 
 /** Always a single row (id = 1) */
@@ -95,9 +100,39 @@ export const contactInfo = pgTable('contact_info', {
   careers:              text('careers').notNull().default(''),
 });
 
-export type ProjectRow   = typeof projects.$inferSelect;
-export type GalleryRow   = typeof galleryItems.$inferSelect;
-export type BookRow      = typeof books.$inferSelect;
-export type AboutRow     = typeof aboutEntries.$inferSelect;
-export type ContactRow   = typeof contactInfo.$inferSelect;
-export type ChapterRow   = typeof chapters.$inferSelect;
+export const savedProjects = pgTable('saved_projects', {
+  id:          serial('id').primaryKey(),
+  userId:      text('user_id').notNull(),
+  projectSlug: text('project_slug').notNull().references(() => projects.slug, { onDelete: 'cascade' }),
+  savedAt:     timestamp('saved_at').defaultNow(),
+});
+
+export const moodboardShares = pgTable('moodboard_shares', {
+  id:         serial('id').primaryKey(),
+  userId:     text('user_id').notNull(),
+  shareToken: text('share_token').unique().notNull(),
+  createdAt:  timestamp('created_at').defaultNow(),
+  expiresAt:  timestamp('expires_at'),
+});
+
+export const users = pgTable('users', {
+  id:           text('id').primaryKey().$defaultFn(() => crypto.randomUUID()),
+  name:         text('name').notNull(),
+  email:        text('email').unique().notNull(),
+  avatarUrl:    text('avatar_url'),
+  googleId:     text('google_id').unique(),
+  role:         userRoleEnum('role').notNull().default('member'),
+  passwordHash: text('password_hash'),
+  createdAt:    timestamp('created_at').defaultNow(),
+});
+
+export type CategoryRow      = typeof categories.$inferSelect;
+export type ProjectRow       = typeof projects.$inferSelect;
+export type GalleryRow       = typeof galleryItems.$inferSelect;
+export type BookRow          = typeof books.$inferSelect;
+export type AboutRow         = typeof aboutEntries.$inferSelect;
+export type ContactRow       = typeof contactInfo.$inferSelect;
+export type ChapterRow       = typeof chapters.$inferSelect;
+export type UserRow          = typeof users.$inferSelect;
+export type SavedProjectRow  = typeof savedProjects.$inferSelect;
+export type MoodboardShareRow = typeof moodboardShares.$inferSelect;

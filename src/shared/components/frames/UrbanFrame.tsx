@@ -1,22 +1,15 @@
 'use client';
 
 import { AnimatedLine, AnimatedPath } from '@/shared/components/line-art/AnimatedPath';
-import { getFrameStrokes, STROKE_WEIGHT } from '@/shared/components/line-art/tokens';
-import type { FrameMood } from './types';
-
-type UrbanFrameProps = {
-  mood: FrameMood;
-  drawProgress: number;
-  useMountAnimation?: boolean;
-};
+import { STROKE_WEIGHT } from '@/shared/components/line-art/tokens';
+import type { FrameComponentProps } from './frame-props';
 
 /** Tokyo-inspired templated frame for Scroll of Spaces / detail opening */
 export function UrbanFrame({
-  mood,
   drawProgress,
   useMountAnimation = false,
-}: UrbanFrameProps) {
-  const s = getFrameStrokes(mood);
+}: FrameComponentProps) {
+  const s = { primary: '#475569', light: '#94a3b8', faint: '#cbd5e1', wood: '#64748b' } as const;
 
   return (
     <svg

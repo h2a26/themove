@@ -1,6 +1,8 @@
 import { put, del } from '@vercel/blob';
 
-const BLOB_BASE = `https://${process.env.BLOB_STORE_ID!.replace('store_', '')}.public.blob.vercel-storage.com`;
+const BLOB_BASE = process.env.BLOB_STORE_ID
+  ? `https://${process.env.BLOB_STORE_ID.replace('store_', '')}.public.blob.vercel-storage.com`
+  : '';
 
 function token(): string {
   const t = process.env.BLOB_READ_WRITE_TOKEN;
